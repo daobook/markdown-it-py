@@ -47,8 +47,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           sudo apt update
-          pip install linkify sphinx-panels myst-nb
-          pip install sphinx-copybutton
+          python setup.py install 
+          pip install linkify-it-py sphinx-panels myst-nb
+          pip install sphinx_book_theme sphinx-copybutton
           
       - name: 🔧 Build HTML
         run: |
