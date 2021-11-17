@@ -1,0 +1,331 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, executable book project
+# This file is distributed under the same license as the markdown-it-py
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: markdown-it-py \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-17 13:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../using.md:15
+msgid "Using `markdown_it`"
+msgstr ""
+
+#: ../../using.md:17
+msgid ""
+"This document can be opened to execute with "
+"[Jupytext](https://jupytext.readthedocs.io)!"
+msgstr ""
+
+#: ../../using.md:19
+msgid "markdown-it-py may be used as an API *via* the `markdown_it` package."
+msgstr ""
+
+#: ../../using.md:21
+msgid ""
+"The raw text is first parsed to syntax 'tokens', then these are converted"
+" to other formats using 'renderers'."
+msgstr ""
+
+#: ../../using.md:26
+msgid "Quick-Start"
+msgstr ""
+
+#: ../../using.md:28
+msgid "The simplest way to understand how text will be parsed is using:"
+msgstr ""
+
+#: ../../using.md:46
+msgid "The Parser"
+msgstr ""
+
+#: ../../using.md:50
+msgid ""
+"The `MarkdownIt` class is instantiated with parsing configuration "
+"options, dictating the syntax rules and additional options for the parser"
+" and renderer. You can define this configuration *via* directly supplying"
+" a dictionary or a preset name:"
+msgstr ""
+
+#: ../../using.md:54
+msgid ""
+"`zero`: This configures the minimum components to parse text (i.e. just "
+"paragraphs and text)"
+msgstr ""
+
+#: ../../using.md:55
+msgid ""
+"`commonmark` (default): This configures the parser to strictly comply "
+"with the [CommonMark specification](http://spec.commonmark.org/)."
+msgstr ""
+
+#: ../../using.md:56
+msgid ""
+"`js-default`: This is the default in the JavaScript version. Compared to "
+"`commonmark`, it disables HTML parsing and enables the table and "
+"strikethrough components."
+msgstr ""
+
+#: ../../using.md:58
+msgid ""
+"`gfm-like`: This configures the parser to approximately comply with the "
+"[GitHub Flavored Markdown specification](https://github.github.com/gfm/)."
+" Compared to `commonmark`, it enables the table, strikethrough and "
+"linkify components. **Important**, to use this configuration you must "
+"have `linkify-it-py` installed."
+msgstr ""
+
+#: ../../using.md:72
+msgid "You can also override specific options:"
+msgstr ""
+
+#: ../../using.md:83
+msgid ""
+"You can find all the parsing rules in the source code: `parser_core.py`, "
+"`parser_block.py`, `parser_inline.py`."
+msgstr ""
+
+#: ../../using.md:91
+msgid ""
+"Any of the parsing rules can be enabled/disabled, and these methods are "
+"\"chainable\":"
+msgstr ""
+
+#: ../../using.md:101
+msgid "You can temporarily modify rules with the `reset_rules` context manager."
+msgstr ""
+
+#: ../../using.md:110
+msgid ""
+"Additionally `renderInline` runs the parser with all block syntax rules "
+"disabled."
+msgstr ""
+
+#: ../../using.md:116
+msgid "Typographic components"
+msgstr ""
+
+#: ../../using.md:118
+msgid ""
+"The `smartquotes` and `replacements` components are intended to improve "
+"typography:"
+msgstr ""
+
+#: ../../using.md:120
+msgid ""
+"`smartquotes` will convert basic quote marks to their opening and closing"
+" variants:"
+msgstr ""
+
+#: ../../using.md:122
+msgid "'single quotes' -> ‘single quotes’"
+msgstr ""
+
+#: ../../using.md:123
+msgid "\"double quotes\" -> “double quotes”"
+msgstr ""
+
+#: ../../using.md:125
+msgid "`replacements` will replace particular text constructs:"
+msgstr ""
+
+#: ../../using.md:127
+msgid "``(c)``, ``(C)`` → ©"
+msgstr ""
+
+#: ../../using.md:128
+msgid "``(tm)``, ``(TM)`` → ™"
+msgstr ""
+
+#: ../../using.md:129
+msgid "``(r)``, ``(R)`` → ®"
+msgstr ""
+
+#: ../../using.md:130
+msgid "``(p)``, ``(P)`` → §"
+msgstr ""
+
+#: ../../using.md:131
+msgid "``+-`` → ±"
+msgstr ""
+
+#: ../../using.md:132
+msgid "``...`` → …"
+msgstr ""
+
+#: ../../using.md:133
+msgid "``?....`` → ?.."
+msgstr ""
+
+#: ../../using.md:134
+msgid "``!....`` → !.."
+msgstr ""
+
+#: ../../using.md:135
+msgid "``????????`` → ???"
+msgstr ""
+
+#: ../../using.md:136
+msgid "``!!!!!`` → !!!"
+msgstr ""
+
+#: ../../using.md:137
+msgid "``,,,`` → ,"
+msgstr ""
+
+#: ../../using.md:138
+msgid "``--`` → &ndash"
+msgstr ""
+
+#: ../../using.md:139
+msgid "``---`` → &mdash"
+msgstr ""
+
+#: ../../using.md:141
+msgid ""
+"Both of these components require typography to be turned on, as well as "
+"the components enabled:"
+msgstr ""
+
+#: ../../using.md:149
+msgid "Linkify"
+msgstr ""
+
+#: ../../using.md:151
+msgid ""
+"The `linkify` component requires that [linkify-it-"
+"py](https://github.com/tsutsu3/linkify-it-py) be installed (e.g. *via* "
+"`pip install markdown-it-py[linkify]`). This allows URI autolinks to be "
+"identified, without the need for enclosing in `<>` brackets:"
+msgstr ""
+
+#: ../../using.md:160
+msgid "Plugins load"
+msgstr ""
+
+#: ../../using.md:162
+msgid ""
+"Plugins load collections of additional syntax rules and render methods "
+"into the parser. A number of useful plugins are available in "
+"[`mdit_py_plugins`](https://github.com/executablebooks/mdit-py-plugins) "
+"(see [the plugin list](./plugins.md)), or you can create your own "
+"(following the [markdown-it design principles](./architecture.md))."
+msgstr ""
+
+#: ../../using.md:194
+msgid "The Token Stream"
+msgstr ""
+
+#: ../../using.md:198
+msgid ""
+"Before rendering, the text is parsed to a flat token stream of block "
+"level syntax elements, with nesting defined by opening (1) and closing "
+"(-1) attributes:"
+msgstr ""
+
+#: ../../using.md:211
+msgid "Naturally all openings should eventually be closed, such that:"
+msgstr ""
+
+#: ../../using.md:218
+msgid ""
+"All tokens are the same class, which can also be created outside the "
+"parser:"
+msgstr ""
+
+#: ../../using.md:230
+msgid "The `'inline'` type token contain the inline tokens as children:"
+msgstr ""
+
+#: ../../using.md:236
+msgid ""
+"You can serialize a token (and its children) to a JSONable dictionary "
+"using:"
+msgstr ""
+
+#: ../../using.md:242
+msgid "This dictionary can also be deserialized:"
+msgstr ""
+
+#: ../../using.md:248
+msgid "Creating a syntax tree"
+msgstr ""
+
+#: ../../using.md:1
+msgid ""
+"`nest_tokens` and `NestedTokens` are deprecated and replaced by "
+"`SyntaxTreeNode`."
+msgstr ""
+
+#: ../../using.md:254
+msgid ""
+"In some use cases it may be useful to convert the token stream into a "
+"syntax tree, with opening/closing tokens collapsed into a single token "
+"that contains children."
+msgstr ""
+
+#: ../../using.md:275
+msgid "You can then use methods to traverse the tree"
+msgstr ""
+
+#: ../../using.md:286
+msgid "Renderers"
+msgstr ""
+
+#: ../../using.md:290
+msgid ""
+"After the token stream is generated, it's passed to a "
+"[renderer](https://github.com/executablebooks/markdown-it-"
+"py/tree/master/markdown_it/renderer.py). It then plays all the tokens, "
+"passing each to a rule with the same name as token type."
+msgstr ""
+
+#: ../../using.md:293
+msgid ""
+"Renderer rules are located in `md.renderer.rules` and are simple "
+"functions with the same signature:"
+msgstr ""
+
+#: ../../using.md:303
+msgid "You can inject render methods into the instantiated render class."
+msgstr ""
+
+#: ../../using.md:315
+msgid ""
+"This is a slight change to the JS version, where the renderer argument is"
+" at the end. Also `add_render_rule` method is specific to Python, rather "
+"than adding directly to the `md.renderer.rules`, this ensures the method "
+"is bound to the renderer."
+msgstr ""
+
+#: ../../using.md:320
+msgid "You can also subclass a render and add the method there:"
+msgstr ""
+
+#: ../../using.md:333
+msgid ""
+"Plugins can support multiple render types, using the `__ouput__` "
+"attribute (this is currently a Python only feature)."
+msgstr ""
+
+#: ../../using.md:359
+msgid ""
+"Here's a more concrete example; let's replace images with vimeo links to "
+"player's iframe:"
+msgstr ""
+
+#: ../../using.md:385
+msgid "Here is another example, how to add `target=\"_blank\"` to all links:"
+msgstr ""
+

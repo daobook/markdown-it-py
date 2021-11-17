@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, executable book project
+# This file is distributed under the same license as the markdown-it-py
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: markdown-it-py \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-17 13:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../contributing.md:1
+msgid "Contribute to markdown-it-py"
+msgstr ""
+
+#: ../../contributing.md:3
+msgid "We welcome all contributions! ✨"
+msgstr ""
+
+#: ../../contributing.md:5
+msgid ""
+"See the [EBP Contributing "
+"Guide](https://executablebooks.org/en/latest/contributing.html) for "
+"general details, and below for guidance specific to markdown-it-py."
+msgstr ""
+
+#: ../../contributing.md:7
+msgid "Before continuing, make sure you've read:"
+msgstr ""
+
+#: ../../contributing.md:9
+msgid "[Architecture description](md/architecture)"
+msgstr ""
+
+#: ../../contributing.md:10
+msgid "[Security considerations](md/security)"
+msgstr ""
+
+#: ../../contributing.md:11
+msgid "[API documentation](api/markdown_it)"
+msgstr ""
+
+#: ../../contributing.md:13
+msgid "Development guidance"
+msgstr ""
+
+#: ../../contributing.md:15
+msgid ""
+"Details of the port can be found in the `markdown_it/port.yaml` and in "
+"`port.yaml` files, within the extension folders."
+msgstr ""
+
+#: ../../contributing.md:17
+msgid "Code Style"
+msgstr ""
+
+#: ../../contributing.md:19
+msgid ""
+"Code style is tested using [flake8](http://flake8.pycqa.org), with the "
+"configuration set in `.flake8`, and code formatted with "
+"[black](https://github.com/ambv/black)."
+msgstr ""
+
+#: ../../contributing.md:21
+msgid ""
+"Installing with `markdown-it-py[code_style]` makes the [pre-commit](https"
+"://pre-commit.com/) package available, which will ensure this style is "
+"met before commits are submitted, by reformatting the code and testing "
+"for lint errors. It can be setup by:"
+msgstr ""
+
+#: ../../contributing.md:29
+msgid ""
+"Editors like VS Code also have automatic code reformat utilities, which "
+"can adhere to this standard."
+msgstr ""
+
+#: ../../contributing.md:31
+msgid ""
+"All functions and class methods should be annotated with types and "
+"include a docstring. The prefered docstring format is outlined in "
+"`markdown-it-py/docstring.fmt.mustache` and can be used automatically "
+"with the "
+"[autodocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring)"
+" VS Code extension."
+msgstr ""
+
+#: ../../contributing.md:34
+msgid "Testing"
+msgstr ""
+
+#: ../../contributing.md:36
+msgid "For code tests, markdown-it-py uses [pytest](https://docs.pytest.org)):"
+msgstr ""
+
+#: ../../contributing.md:43
+msgid ""
+"You can also use [tox](https://tox.readthedocs.io), to run the tests in "
+"multiple isolated environments (see the `tox.ini` file for available test"
+" environments):"
+msgstr ""
+
+#: ../../contributing.md:50
+msgid ""
+"This can also be used to run benchmarking tests using [pytest-"
+"benchmark](https://pytest-benchmark.readthedocs.io):"
+msgstr ""
+
+#: ../../contributing.md:57
+msgid "For documentation build tests:"
+msgstr ""
+
+#: ../../contributing.md:65
+msgid "Contributing a plugin"
+msgstr ""
+
+#: ../../contributing.md:67
+msgid ""
+"Does it already exist as JavaScript implementation ([see "
+"npm](https://www.npmjs.com/search?q=keywords:markdown-it-plugin))? Where "
+"possible try to port directly from that. It is usually better to modify "
+"existing code, instead of writing all from scratch."
+msgstr ""
+
+#: ../../contributing.md:70
+msgid "Try to find the right place for your plugin rule:"
+msgstr ""
+
+#: ../../contributing.md:71
+msgid "Will it conflict with existing markup (by priority)?"
+msgstr ""
+
+#: ../../contributing.md:72
+msgid "If yes - you need to write an inline or block rule."
+msgstr ""
+
+#: ../../contributing.md:73
+msgid "If no - you can morph tokens within core chains."
+msgstr ""
+
+#: ../../contributing.md:74
+msgid ""
+"Remember that token morphing in core chains is always more simple than "
+"writing block or inline rules, if you don't copy existing ones. However, "
+"block and inline rules are usually faster."
+msgstr ""
+
+#: ../../contributing.md:77
+msgid ""
+"Sometimes, it's enough to only modify the renderer, for example, to add "
+"header IDs or `target=\"_blank\"` for the links."
+msgstr ""
+
+#: ../../contributing.md:80
+msgid "FAQ"
+msgstr ""
+
+#: ../../contributing.md:82
+msgid "I need async rule, how to do it?"
+msgstr ""
+
+#: ../../contributing.md:84
+msgid ""
+"Sorry. You can't do it directly. All complex parsers are sync by nature. "
+"But you can use workarounds:"
+msgstr ""
+
+#: ../../contributing.md:87
+msgid "On parse phase, replace content by random number and store it in `env`."
+msgstr ""
+
+#: ../../contributing.md:88
+msgid "Do async processing over collected data."
+msgstr ""
+
+#: ../../contributing.md:89
+msgid ""
+"Render content and replace those random numbers with text; or replace "
+"first, then render."
+msgstr ""
+
+#: ../../contributing.md:91
+msgid ""
+"Alternatively, you can render HTML, then parse it to DOM, or "
+"[cheerio](https://github.com/cheeriojs/cheerio) AST, and apply "
+"transformations in a more convenient way."
+msgstr ""
+
+#: ../../contributing.md:95
+msgid "How to replace part of text token with link?"
+msgstr ""
+
+#: ../../contributing.md:97
+msgid ""
+"The right sequence is to split text to several tokens and add link tokens"
+" in between. The result will be: `text` + `link_open` + `text` + "
+"`link_close` + `text`."
+msgstr ""
+
+#: ../../contributing.md:100
+msgid ""
+"See implementations of [linkify](https://github.com/markdown-it/markdown-"
+"it/blob/master/lib/rules_core/linkify.js) and [emoji](https://github.com"
+"/markdown-it/markdown-it-emoji/blob/master/lib/replace.js) - those do "
+"text token splits."
+msgstr ""
+
+#: ../../contributing.md:102
+msgid "__Note:__ Don't try to replace text with HTML markup! That's not secure."
+msgstr ""
+
+#: ../../contributing.md:104
+msgid "Why is my inline rule not executed?"
+msgstr ""
+
+#: ../../contributing.md:106
+msgid ""
+"The inline parser skips pieces of texts to optimize speed. It stops only "
+"on [a small set of chars](https://github.com/markdown-it/markdown-"
+"it/blob/master/lib/rules_inline/text.js), which can be tokens. We did not"
+" made this list extensible for performance reasons too."
+msgstr ""
+
+#: ../../contributing.md:108
+msgid ""
+"If you are absolutely sure that something important is missing there - "
+"create a ticket and we will consider adding it as a new charcode."
+msgstr ""
+

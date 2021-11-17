@@ -121,3 +121,22 @@ def setup(app):
     """Add functions to the Sphinx setup."""
     if os.environ.get("SKIP_APIDOC", None) is None:
         app.connect("builder-inited", run_apidoc)
+
+language = 'zh_CN'
+
+
+# MyST NB 设置
+nb_render_priority = {
+    "html": (
+        "application/vnd.jupyter.widget-view+json",
+        "application/javascript",
+        "text/html",
+        "image/svg+xml",
+        "image/png",
+        "image/jpeg",
+        "text/markdown",
+        "text/latex",
+        "text/plain",
+    ),
+    'gettext': ()
+}

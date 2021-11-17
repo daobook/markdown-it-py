@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, executable book project
+# This file is distributed under the same license as the markdown-it-py
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: markdown-it-py \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-17 13:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../index.md:1
+msgid "markdown-it-py"
+msgstr ""
+
+#: ../../index.md:3
+msgid "Markdown parser done right."
+msgstr ""
+
+#: ../../index.md:5
+msgid ""
+"{fa}`check,text-success mr-1` Follows the __[CommonMark "
+"spec](http://spec.commonmark.org/)__ for baseline parsing"
+msgstr ""
+
+#: ../../index.md:6
+msgid ""
+"{fa}`check,text-success mr-1` Configurable syntax: you can add new rules "
+"and even replace existing ones."
+msgstr ""
+
+#: ../../index.md:7
+msgid ""
+"{fa}`check,text-success mr-1` Pluggable: Adds syntax extensions to extend"
+" the parser (see the [plugin list](md/plugins))"
+msgstr ""
+
+#: ../../index.md:8
+msgid ""
+"{fa}`check,text-success mr-1` High speed (see our [benchmarking "
+"tests](md/performance))"
+msgstr ""
+
+#: ../../index.md:9
+msgid "{fa}`check,text-success mr-1` [Safe by default](md/security)"
+msgstr ""
+
+#: ../../index.md:11
+msgid ""
+"For a good introduction to [markdown-it] see the __[Live demo](https"
+"://markdown-it.github.io)__. This is a Python port of the well used "
+"[markdown-it], and some of its associated plugins. The driving design "
+"philosophy of the port has been to change as little of the fundamental "
+"code structure (file names, function name, etc) as possible, just "
+"sprinkling in a little Python syntactical sugar ✨. It is very simple to "
+"write complimentary extensions for both language implementations!"
+msgstr ""
+
+#: ../../index.md:16
+msgid "References & Thanks"
+msgstr ""
+
+#: ../../index.md:18
+msgid "Big thanks to the authors of [markdown-it]"
+msgstr ""
+
+#: ../../index.md:20
+msgid "Alex Kocharin [github/rlidwka](https://github.com/rlidwka)"
+msgstr ""
+
+#: ../../index.md:21
+msgid "Vitaly Puzrin [github/puzrin](https://github.com/puzrin)"
+msgstr ""
+
+#: ../../index.md:23
+msgid ""
+"Also [John MacFarlane](https://github.com/jgm) for his work on the "
+"CommonMark spec and reference implementations."
+msgstr ""
+
+#: ../../index.md:25
+msgid "Related Links"
+msgstr ""
+
+#: ../../index.md:27
+msgid ""
+"<https://github.com/jgm/CommonMark> - reference CommonMark "
+"implementations in C & JS, also contains latest spec & online demo."
+msgstr ""
+
+#: ../../index.md:28
+msgid ""
+"<http://talk.commonmark.org> - CommonMark forum, good place to "
+"collaborate developers' efforts."
+msgstr ""
+

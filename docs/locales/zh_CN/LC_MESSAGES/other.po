@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, executable book project
+# This file is distributed under the same license as the markdown-it-py
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: markdown-it-py \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-17 13:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../other.md:3
+msgid "Security"
+msgstr ""
+
+#: ../../other.md:5
+msgid ""
+"Many people don't understand that markdown format does not care much "
+"about security. In many cases you have to pass output to sanitizers. "
+"`markdown-it` provides 2 possible strategies to produce safe output:"
+msgstr ""
+
+#: ../../other.md:9
+msgid ""
+"Don't enable HTML. Extend markup features with [plugins](md/plugins). We "
+"think it's the best choice and use it by default."
+msgstr ""
+
+#: ../../other.md:11
+#, python-format
+msgid "That's ok for 99% of user needs."
+msgstr ""
+
+#: ../../other.md:12
+msgid "Output will be safe without sanitizer."
+msgstr ""
+
+#: ../../other.md:13
+msgid "Enable HTML and use external sanitizer package(s)."
+msgstr ""
+
+#: ../../other.md:15
+msgid ""
+"Also by default `markdown-it` prohibits some kind of links, which could "
+"be used for XSS:"
+msgstr ""
+
+#: ../../other.md:18
+msgid "`javascript:`, `vbscript:`"
+msgstr ""
+
+#: ../../other.md:19
+msgid "`file:`"
+msgstr ""
+
+#: ../../other.md:20
+msgid "`data:`, except some images (gif/png/jpeg/webp)."
+msgstr ""
+
+#: ../../other.md:22
+msgid "So, by default `markdown-it` should be safe. We care about it."
+msgstr ""
+
+#: ../../other.md:24
+msgid ""
+"If you find a security problem - contact us via tracker or email. Such "
+"reports are fixed with top priority."
+msgstr ""
+
+#: ../../other.md:27
+msgid "Plugins"
+msgstr ""
+
+#: ../../other.md:29
+msgid ""
+"Usually, plugins operate with tokenized content, and that's enough to "
+"provide safe output."
+msgstr ""
+
+#: ../../other.md:31
+msgid ""
+"But there is one non-evident case you should know - don't allow plugins "
+"to generate arbitrary element `id` and `name`. If those depend on user "
+"input - always add prefixes to avoid DOM clobbering. See "
+"[discussion](https://github.com/markdown-it/markdown-it/issues/28) for "
+"details."
+msgstr ""
+
+#: ../../other.md:35
+msgid ""
+"So, if you decide to use plugins that add extended class syntax or "
+"autogenerating header anchors - be careful."
+msgstr ""
+
+#: ../../other.md:39
+msgid "Performance"
+msgstr ""
+
+#: ../../other.md:41
+msgid ""
+"markdown-it-py is the fastest _**CommonMark compliant**_ parser written "
+"in python!"
+msgstr ""
+
+#: ../../other.md:43
+msgid ""
+"You can view our continuous integration benchmarking analysis at: "
+"<https://executablebooks.github.io/markdown-it-py/dev/bench/>, or you can"
+" run it for yourself within the repository:"
+msgstr ""
+
+#: ../../other.md:61
+msgid ""
+"As you can see, `markdown-it-py` doesn't pay with speed for it's "
+"flexibility."
+msgstr ""
+
+#: ../../other.md:1
+msgid ""
+"`mistune` is not CommonMark compliant, which is what allows for its "
+"faster parsing, at the expense of issues, for example, with nested inline"
+" parsing. See [mistletoes's "
+"explanation](https://github.com/miyuchina/mistletoe#performance) for "
+"further details."
+msgstr ""
+

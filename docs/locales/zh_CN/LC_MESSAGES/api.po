@@ -1,0 +1,1449 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, executable book project
+# This file is distributed under the same license as the markdown-it-py
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: markdown-it-py \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-17 13:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/markdown_it.rst:2
+msgid "markdown\\_it package"
+msgstr ""
+
+#: ../../api/markdown_it.rst:10
+msgid "Subpackages"
+msgstr ""
+
+#: ../../api/markdown_it.cli.rst:10 ../../api/markdown_it.common.rst:10
+#: ../../api/markdown_it.helpers.rst:10 ../../api/markdown_it.presets.rst:10
+#: ../../api/markdown_it.rst:24 ../../api/markdown_it.rules_block.rst:10
+#: ../../api/markdown_it.rules_core.rst:10
+#: ../../api/markdown_it.rules_inline.rst:10
+msgid "Submodules"
+msgstr ""
+
+#: ../../api/markdown_it.cli.rst:2
+msgid "markdown\\_it.cli package"
+msgstr ""
+
+#: ../../api/markdown_it.cli.parse.rst:2
+msgid "markdown\\_it.cli.parse module"
+msgstr ""
+
+#: markdown_it.cli.parse:1 of
+msgid "CLI interface to markdown-it-py"
+msgstr ""
+
+#: markdown_it.cli.parse:3 of
+msgid ""
+"Parse one or more markdown files, convert each to HTML, and print to "
+"stdout."
+msgstr ""
+
+#: markdown_it.cli.parse.convert_file:1 of
+msgid "Parse a Markdown file and dump the output to stdout."
+msgstr ""
+
+#: markdown_it.cli.parse.interactive:1 of
+msgid "Parse user input, dump to stdout, rinse and repeat. Python REPL style."
+msgstr ""
+
+#: markdown_it.cli.parse.parse_args:1 of
+msgid "Parse input CLI arguments."
+msgstr ""
+
+#: ../../api/markdown_it.common.rst:2
+msgid "markdown\\_it.common package"
+msgstr ""
+
+#: ../../api/markdown_it.common.entities.rst:2
+msgid "markdown\\_it.common.entities module"
+msgstr ""
+
+#: markdown_it.common.entities:1 of
+msgid "HTML5 entities map: { name -> characters }."
+msgstr ""
+
+#: ../../api/markdown_it.common.html_blocks.rst:2
+msgid "markdown\\_it.common.html\\_blocks module"
+msgstr ""
+
+#: markdown_it.common.html_blocks:1 of
+msgid ""
+"List of valid html blocks names, accorting to commonmark spec "
+"http://jgm.github.io/CommonMark/spec.html#html-blocks"
+msgstr ""
+
+#: ../../api/markdown_it.common.html_re.rst:2
+msgid "markdown\\_it.common.html\\_re module"
+msgstr ""
+
+#: markdown_it.common.html_re:1 of
+msgid "Regexps to match html elements"
+msgstr ""
+
+#: ../../api/markdown_it.common.normalize_url.rst:2
+msgid "markdown\\_it.common.normalize\\_url module"
+msgstr ""
+
+#: markdown_it.common.normalize_url.normalizeLink:1
+#: markdown_it.main.MarkdownIt.normalizeLink:1 of
+msgid "Normalize destination URLs in links"
+msgstr ""
+
+#: markdown_it.common.normalize_url.normalizeLinkText:1
+#: markdown_it.main.MarkdownIt.normalizeLinkText:1 of
+msgid "Normalize autolink content"
+msgstr ""
+
+#: markdown_it.common.normalize_url.unescape_string:1 of
+msgid "Replace entities and backslash escapes with literal characters."
+msgstr ""
+
+#: markdown_it.common.normalize_url.validateLink:1 of
+msgid "Validate URL link is allowed in output."
+msgstr ""
+
+#: markdown_it.common.normalize_url.validateLink:3
+#: markdown_it.main.MarkdownIt.validateLink:3 of
+msgid ""
+"This validator can prohibit more than really needed to prevent XSS. It's "
+"a tradeoff to keep code simple and to be secure by default."
+msgstr ""
+
+#: markdown_it.common.normalize_url.validateLink:6 of
+msgid ""
+"Note: url should be normalized at this point, and existing entities "
+"decoded."
+msgstr ""
+
+#: ../../api/markdown_it.common.utils.rst:2
+msgid "markdown\\_it.common.utils module"
+msgstr ""
+
+#: markdown_it.common.utils:1 of
+msgid "Utilities for parsing source text"
+msgstr ""
+
+#: markdown_it.common.utils.arrayReplaceAt:1 of
+msgid ""
+"Remove element from array and put another array at those position. Useful"
+" for some operations with tokens"
+msgstr ""
+
+#: markdown_it.common.utils.assign:1 of
+msgid "Merge objects /*from1, from2, from3, ...*/)"
+msgstr ""
+
+#: markdown_it.common.utils.charCodeAt:1 of
+msgid "Returns the Unicode value of the character at the specified location."
+msgstr ""
+
+#: markdown_it.common.utils.charCodeAt:3 of
+msgid ""
+"@param - index The zero-based index of the desired character. If there is"
+" no character at the specified index, NaN is returned."
+msgstr ""
+
+#: markdown_it.common.utils.charCodeAt:6 of
+msgid "This was added for compatibility with python"
+msgstr ""
+
+#: markdown_it.common.utils.fromCodePoint:1 of
+msgid "Convert ordinal to unicode."
+msgstr ""
+
+#: markdown_it.common.utils.fromCodePoint:3 of
+msgid ""
+"Note, in the original Javascript two string characters were required, for"
+" codepoints larger than `0xFFFF`. But Python 3 can represent any unicode "
+"codepoint in one character."
+msgstr ""
+
+#: markdown_it.common.utils.isMdAsciiPunct:1 of
+msgid "Markdown ASCII punctuation characters."
+msgstr ""
+
+#: markdown_it.common.utils.isMdAsciiPunct:7 of
+msgid "See http://spec.commonmark.org/0.15/#ascii-punctuation-character"
+msgstr ""
+
+#: markdown_it.common.utils.isMdAsciiPunct:9 of
+msgid ""
+"Don't confuse with unicode punctuation !!! It lacks some chars in ascii "
+"range."
+msgstr ""
+
+#: markdown_it.common.utils.isWhiteSpace:1 of
+msgid "Zs (unicode class) || [\\t\\f\\v\\r\\n]"
+msgstr ""
+
+#: markdown_it.common.utils.normalizeReference:1 of
+msgid "Helper to unify [reference labels]."
+msgstr ""
+
+#: markdown_it.common.utils.replaceEntityPattern:1 of
+msgid "Convert HTML entity patterns"
+msgstr ""
+
+#: markdown_it.common.utils.stripEscape:1 of
+msgid "Strip escape \\ characters"
+msgstr ""
+
+#: ../../api/markdown_it.helpers.rst:2
+msgid "markdown\\_it.helpers package"
+msgstr ""
+
+#: markdown_it.helpers:1 of
+msgid "Functions for parsing Links"
+msgstr ""
+
+#: ../../api/markdown_it.helpers.parse_link_destination.rst:2
+msgid "markdown\\_it.helpers.parse\\_link\\_destination module"
+msgstr ""
+
+#: markdown_it.helpers.parse_link_destination:1 of
+msgid "Parse link destination"
+msgstr ""
+
+#: ../../api/markdown_it.helpers.parse_link_label.rst:2
+msgid "markdown\\_it.helpers.parse\\_link\\_label module"
+msgstr ""
+
+#: markdown_it.helpers.parse_link_label:1 of
+msgid "Parse link label"
+msgstr ""
+
+#: markdown_it.helpers.parse_link_label:3 of
+msgid ""
+"this function assumes that first character (\"[\") already matches "
+"returns the end of the label"
+msgstr ""
+
+#: ../../api/markdown_it.helpers.parse_link_title.rst:2
+msgid "markdown\\_it.helpers.parse\\_link\\_title module"
+msgstr ""
+
+#: markdown_it.helpers.parse_link_title:1 of
+msgid "Parse link title"
+msgstr ""
+
+#: ../../api/markdown_it.main.rst:2
+msgid "markdown\\_it.main module"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt:1 markdown_it.parser_block.ParserBlock:1
+#: markdown_it.parser_core.ParserCore:1
+#: markdown_it.parser_inline.ParserInline:1 markdown_it.presets.gfm_like:1
+#: markdown_it.ruler.Rule:1 markdown_it.ruler.Ruler:1
+#: markdown_it.ruler.StateBase:1
+#: markdown_it.rules_inline.state_inline.Delimiter:1
+#: markdown_it.token.NestedTokens:1 markdown_it.token.Token:1
+#: markdown_it.tree.SyntaxTreeNode:1 of
+msgid "基类：:py:class:`object`"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.add_render_rule:1 of
+msgid "Add a rule for rendering a particular Token type."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.add_render_rule:3 of
+msgid "Only applied when ``renderer.__output__ == fmt``"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.configure:1 of
+msgid ""
+"Batch load of all options and component settings. This is an internal "
+"method, and you probably will not need it. But if you will - see "
+"available presets and data structure [here](https://github.com/markdown-"
+"it/markdown-it/tree/master/lib/presets)"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.configure:6 of
+msgid ""
+"We strongly recommend to use presets instead of direct config loads. That"
+" will give better compatibility with next versions."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.disable:1 of
+msgid ""
+"The same as [[MarkdownIt.enable]], but turn specified rules off. "
+"(chainable)"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.disable markdown_it.main.MarkdownIt.enable
+#: markdown_it.main.MarkdownIt.parse markdown_it.main.MarkdownIt.parseInline
+#: markdown_it.main.MarkdownIt.render markdown_it.main.MarkdownIt.renderInline
+#: markdown_it.renderer.RendererHTML.render
+#: markdown_it.renderer.RendererHTML.renderInline
+#: markdown_it.renderer.RendererHTML.renderInlineAsText
+#: markdown_it.renderer.RendererHTML.renderToken markdown_it.ruler.Ruler.after
+#: markdown_it.ruler.Ruler.at markdown_it.ruler.Ruler.before
+#: markdown_it.ruler.Ruler.disable markdown_it.ruler.Ruler.enable
+#: markdown_it.ruler.Ruler.enableOnly markdown_it.ruler.Ruler.push
+#: markdown_it.token.Token.as_dict of
+msgid "参数"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.disable:3 of
+msgid "rule name or list of rule names to disable."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.disable:4 markdown_it.main.MarkdownIt.enable:4
+#: of
+msgid "set `true` to ignore errors when rule not found."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.enable:1 of
+msgid "Enable list or rules. (chainable)"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.enable:3 of
+msgid "rule name or list of rule names to enable."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.enable:6 of
+msgid ""
+"It will automatically find appropriate components, containing rules with "
+"given names. If rule not found, and `ignoreInvalid` not set - throws "
+"exception."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.enable:10 markdown_it.main.MarkdownIt.use:5 of
+msgid "Example::"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.get_active_rules:1
+#: markdown_it.main.MarkdownIt.get_all_rules:1 of
+msgid "Return the names of all active rules."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.parse:1 of
+msgid "Parse the source string to a token stream"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.parse:3
+#: markdown_it.main.MarkdownIt.parseInline:3
+#: markdown_it.main.MarkdownIt.render:3
+#: markdown_it.main.MarkdownIt.renderInline:3 of
+msgid "source string"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.parse:4
+#: markdown_it.main.MarkdownIt.parseInline:4
+#: markdown_it.main.MarkdownIt.render:4
+#: markdown_it.main.MarkdownIt.renderInline:4 of
+msgid "environment sandbox"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.parse:6 of
+msgid ""
+"Parse input string and return list of block tokens (special token type "
+"\"inline\" will contain list of inline tokens)."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.parse:9 of
+msgid ""
+"`env` is used to pass data between \"distributed\" rules and return "
+"additional metadata like reference info, needed for the renderer. It also"
+" can be used to inject data in specific cases. Usually, you will be ok to"
+" pass `{}`, and then pass updated object to renderer."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.parseInline:1 of
+msgid "The same as [[MarkdownIt.parse]] but skip all block rules."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.parseInline:6 of
+msgid ""
+"It returns the block tokens list with the single `inline` element, "
+"containing parsed inline tokens in `children` property. Also updates "
+"`env` object."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.render:1 of
+msgid "Render markdown string into html. It does all magic for you :)."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.render markdown_it.ruler.Ruler.disable
+#: markdown_it.ruler.Ruler.enable markdown_it.ruler.Ruler.enableOnly of
+msgid "返回"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.render:5 of
+msgid "The output of the loaded renderer"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.render:7 of
+msgid ""
+"`env` can be used to inject additional metadata (`{}` by default). But "
+"you will not need it with high probability. See also comment in "
+"[[MarkdownIt.parse]]."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.renderInline:1 of
+msgid "Similar to [[MarkdownIt.render]] but for single paragraph content."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.renderInline:6 of
+msgid ""
+"Similar to [[MarkdownIt.render]] but for single paragraph content. Result"
+" will NOT be wrapped into `<p>` tags."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.reset_rules:1 of
+msgid "A context manager, that will reset the current enabled rules on exit."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.set:1 of
+msgid ""
+"Set parser options (in the same format as in constructor). Probably, you "
+"will never need it, but you can change options after constructor call."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.set:4 of
+msgid ""
+"__Note:__ To achieve the best possible performance, don't modify a "
+"`markdown-it` instance options on the fly. If you need multiple "
+"configurations it's best to create multiple instances and initialize each"
+" with separate config."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.use:1 of
+msgid ""
+"Load specified plugin with given params into current parser instance. "
+"(chainable)"
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.use:3 of
+msgid "It's just a sugar to call `plugin(md, params)` with curring."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.validateLink:1 of
+msgid "Validate if the URL link is allowed in output."
+msgstr ""
+
+#: markdown_it.main.MarkdownIt.validateLink:6 of
+msgid ""
+"Note: the url should be normalized at this point, and existing entities "
+"decoded."
+msgstr ""
+
+#: ../../api/markdown_it.parser_block.rst:2
+msgid "markdown\\_it.parser\\_block module"
+msgstr ""
+
+#: markdown_it.parser_block:1 of
+msgid "Block-level tokenizer."
+msgstr ""
+
+#: markdown_it.parser_block.ParserBlock:1 of
+msgid "ParserBlock#ruler -> Ruler"
+msgstr ""
+
+#: markdown_it.parser_block.ParserBlock:3 of
+msgid "[[Ruler]] instance. Keep configuration of block rules."
+msgstr ""
+
+#: markdown_it.parser_block.ParserBlock.parse:1 of
+msgid "Process input string and push block tokens into `outTokens`."
+msgstr ""
+
+#: markdown_it.parser_block.ParserBlock.tokenize:1
+#: markdown_it.parser_inline.ParserInline.tokenize:1 of
+msgid "Generate tokens for input range."
+msgstr ""
+
+#: ../../api/markdown_it.parser_core.rst:2
+msgid "markdown\\_it.parser\\_core module"
+msgstr ""
+
+#: markdown_it.parser_core:1 of
+msgid "class Core"
+msgstr ""
+
+#: markdown_it.parser_core:3 of
+msgid "Top-level rules executor. Glues block/inline parsers and does intermediate"
+msgstr ""
+
+#: markdown_it.parser_core:4 of
+msgid "transformations."
+msgstr ""
+
+#: markdown_it.parser_core.ParserCore.process:1 of
+msgid "Executes core chain rules."
+msgstr ""
+
+#: ../../api/markdown_it.parser_inline.rst:2
+msgid "markdown\\_it.parser\\_inline module"
+msgstr ""
+
+#: markdown_it.parser_inline:1 of
+msgid "Tokenizes paragraph content."
+msgstr ""
+
+#: markdown_it.parser_inline.ParserInline.parse:1 of
+msgid "Process input string and push inline tokens into `tokens`"
+msgstr ""
+
+#: markdown_it.parser_inline.ParserInline.skipToken:1 of
+msgid ""
+"Skip single token by running all rules in validation mode; returns `True`"
+" if any rule reported success"
+msgstr ""
+
+#: ../../api/markdown_it.presets.rst:2
+msgid "markdown\\_it.presets package"
+msgstr ""
+
+#: markdown_it.presets.gfm_like:1 of
+msgid "GitHub Flavoured Markdown (GFM) like."
+msgstr ""
+
+#: markdown_it.presets.gfm_like:3 of
+msgid "This adds the linkify, table and strikethrough components to CommmonMark."
+msgstr ""
+
+#: markdown_it.presets.gfm_like:5 of
+msgid ""
+"Note, it lacks task-list items and raw HTML filtering, to meet the the "
+"full GFM specification (see https://github.github.com/gfm/#autolinks-"
+"extension-)."
+msgstr ""
+
+#: ../../api/markdown_it.presets.commonmark.rst:2
+msgid "markdown\\_it.presets.commonmark module"
+msgstr ""
+
+#: markdown_it.presets.commonmark:1 of
+msgid "Commonmark default options."
+msgstr ""
+
+#: markdown_it.presets.commonmark:3 of
+msgid ""
+"This differs to presets.default, primarily in that it allows HTML and "
+"does not enable components:"
+msgstr ""
+
+#: markdown_it.presets.commonmark:6 of
+msgid "block: table"
+msgstr ""
+
+#: markdown_it.presets.commonmark:7 of
+msgid "inline: strikethrough"
+msgstr ""
+
+#: ../../api/markdown_it.presets.default.rst:2
+msgid "markdown\\_it.presets.default module"
+msgstr ""
+
+#: markdown_it.presets.default:1 of
+msgid "markdown-it default options."
+msgstr ""
+
+#: ../../api/markdown_it.presets.zero.rst:2
+msgid "markdown\\_it.presets.zero module"
+msgstr ""
+
+#: markdown_it.presets.zero:1 of
+msgid ""
+"\"Zero\" preset, with nothing enabled. Useful for manual configuring of "
+"simple modes. For example, to parse bold/italic only."
+msgstr ""
+
+#: ../../api/markdown_it.renderer.rst:2
+msgid "markdown\\_it.renderer module"
+msgstr ""
+
+#: markdown_it.renderer:1 of
+msgid "class Renderer"
+msgstr ""
+
+#: markdown_it.renderer:3 of
+msgid ""
+"Generates HTML from parsed token stream. Each instance has independent "
+"copy of rules. Those can be rewritten with ease. Also, you can add new "
+"rules if you create plugin and adds new token types."
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML:1 of
+msgid "基类：:py:class:`markdown_it.renderer.RendererProtocol`"
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML:1 of
+msgid "Contains render rules for tokens. Can be updated and extended."
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML:3 of
+msgid "Example:"
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML:5 of
+msgid "Each rule is called as independent static function with fixed signature:"
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML:26 of
+msgid ""
+"See https://github.com/markdown-it/markdown-"
+"it/blob/master/lib/renderer.js for more details and examples."
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.render:1 of
+msgid "Takes token stream and generates HTML."
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.render:3
+#: markdown_it.renderer.RendererHTML.renderInline:3
+#: markdown_it.renderer.RendererHTML.renderInlineAsText:6 of
+msgid "list on block tokens to render"
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.render:4
+#: markdown_it.renderer.RendererHTML.renderInline:4
+#: markdown_it.renderer.RendererHTML.renderInlineAsText:7
+#: markdown_it.renderer.RendererHTML.renderToken:6 of
+msgid "params of parser instance"
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.render:5
+#: markdown_it.renderer.RendererHTML.renderInlineAsText:8 of
+msgid "additional data from parsed input"
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.renderAttrs:1 of
+msgid "Render token attributes to string."
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.renderInline:1 of
+msgid "The same as ``render``, but for single token of `inline` type."
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.renderInline:5 of
+msgid "additional data from parsed input (references, for example)"
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.renderInlineAsText:1 of
+msgid "Special kludge for image `alt` attributes to conform CommonMark spec."
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.renderInlineAsText:3 of
+msgid ""
+"Don't try to use it! Spec requires to show `alt` content with stripped "
+"markup, instead of simple escaping."
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.renderToken:1 of
+msgid "Default token renderer."
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.renderToken:3 of
+msgid "Can be overridden by custom function"
+msgstr ""
+
+#: markdown_it.renderer.RendererHTML.renderToken:5 of
+msgid "token index to render"
+msgstr ""
+
+#: markdown_it.renderer.RendererProtocol:1 of
+msgid "基类：:py:class:`~typing.Protocol`"
+msgstr ""
+
+#: ../../api/markdown_it.ruler.rst:2
+msgid "markdown\\_it.ruler module"
+msgstr ""
+
+#: markdown_it.ruler:1 of
+msgid "class Ruler"
+msgstr ""
+
+#: markdown_it.ruler:3 of
+msgid ""
+"Helper class, used by [[MarkdownIt#core]], [[MarkdownIt#block]] and "
+"[[MarkdownIt#inline]] to manage sequences of functions (rules):"
+msgstr ""
+
+#: markdown_it.ruler:6 of
+msgid "keep rules in defined order"
+msgstr ""
+
+#: markdown_it.ruler:7 of
+msgid "assign the name to each rule"
+msgstr ""
+
+#: markdown_it.ruler:8 of
+msgid "enable/disable rules"
+msgstr ""
+
+#: markdown_it.ruler:9 of
+msgid "add/replace rules"
+msgstr ""
+
+#: markdown_it.ruler:10 of
+msgid "allow assign rules to additional named chains (in the same)"
+msgstr ""
+
+#: markdown_it.ruler:11 of
+msgid "cacheing lists of active rules"
+msgstr ""
+
+#: markdown_it.ruler:13 of
+msgid ""
+"You will not need use this class directly until write plugins. For simple"
+" rules control use [[MarkdownIt.disable]], [[MarkdownIt.enable]] and "
+"[[MarkdownIt.use]]."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.after:1 of
+msgid "Add new rule to chain after one with given name."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.after:3 markdown_it.ruler.Ruler.after:4 of
+msgid "new rule will be added after this one."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.after:5 markdown_it.ruler.Ruler.at:4
+#: markdown_it.ruler.Ruler.before:5 markdown_it.ruler.Ruler.push:4 of
+msgid "new rule function."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.after:6 markdown_it.ruler.Ruler.at:5
+#: markdown_it.ruler.Ruler.before:6 markdown_it.ruler.Ruler.push:5 of
+msgid "new rule options (not mandatory)."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.after markdown_it.ruler.Ruler.at
+#: markdown_it.ruler.Ruler.before markdown_it.ruler.Ruler.disable
+#: markdown_it.ruler.Ruler.enable markdown_it.ruler.Ruler.enableOnly of
+msgid "raises"
+msgstr ""
+
+#: markdown_it.ruler.Ruler.after:7 markdown_it.ruler.Ruler.at:6
+#: markdown_it.ruler.Ruler.before:7 of
+msgid "KeyError if name not found"
+msgstr ""
+
+#: markdown_it.ruler.Ruler.at:1 of
+msgid "Replace rule by name with new function & options."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.at:3 of
+msgid "rule name to replace."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.before:1 of
+msgid "Add new rule to chain before one with given name."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.before:3 markdown_it.ruler.Ruler.before:4 of
+msgid "new rule will be added before this one."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.disable:1 of
+msgid "Disable rules with given names."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.disable:3 markdown_it.ruler.Ruler.enable:3
+#: markdown_it.ruler.Ruler.enableOnly:3 of
+msgid "name or list of rule names to enable."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.disable:4 markdown_it.ruler.Ruler.enable:4
+#: markdown_it.ruler.Ruler.enableOnly:4 of
+msgid "ignore errors when rule not found"
+msgstr ""
+
+#: markdown_it.ruler.Ruler.disable:5 markdown_it.ruler.Ruler.enable:5
+#: markdown_it.ruler.Ruler.enableOnly:5 of
+msgid "KeyError if name not found and not ignoreInvalid"
+msgstr ""
+
+#: markdown_it.ruler.Ruler.disable:6 markdown_it.ruler.Ruler.enable:6
+#: markdown_it.ruler.Ruler.enableOnly:6 of
+msgid "list of found rule names"
+msgstr ""
+
+#: markdown_it.ruler.Ruler.enable:1 of
+msgid "Enable rules with given names."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.enableOnly:1 of
+msgid "Enable rules with given names, and disable everything else."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.getRules:1 of
+msgid ""
+"Return array of active functions (rules) for given chain name. It "
+"analyzes rules configuration, compiles caches if not exists and returns "
+"result."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.getRules:4 of
+msgid ""
+"Default chain name is `''` (empty string). It can't be skipped. That's "
+"done intentionally, to keep signature monomorphic for high speed."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.get_active_rules:1 of
+msgid "Return the active rule names."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.get_all_rules:1 of
+msgid "Return all available rule names."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.push:1 of
+msgid "Push new rule to the end of chain."
+msgstr ""
+
+#: markdown_it.ruler.Ruler.push:3 of
+msgid "new rule will be added to the end of chain."
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.rst:2
+msgid "markdown\\_it.rules\\_block package"
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.blockquote.rst:2
+msgid "markdown\\_it.rules\\_block.blockquote module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.code.rst:2
+msgid "markdown\\_it.rules\\_block.code module"
+msgstr ""
+
+#: markdown_it.rules_block.code:1 of
+msgid "Code block (4 spaces padded)."
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.fence.rst:2
+msgid "markdown\\_it.rules\\_block.fence module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.heading.rst:2
+msgid "markdown\\_it.rules\\_block.heading module"
+msgstr ""
+
+#: markdown_it.rules_block.heading:1 of
+msgid "Atex heading (#, ##, ...)"
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.hr.rst:2
+msgid "markdown\\_it.rules\\_block.hr module"
+msgstr ""
+
+#: markdown_it.rules_block.hr:1 of
+msgid "Horizontal rule"
+msgstr ""
+
+#: markdown_it.rules_block.hr:3 of
+msgid "At least 3 of these characters on a line * - _"
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.html_block.rst:2
+msgid "markdown\\_it.rules\\_block.html\\_block module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.lheading.rst:2
+msgid "markdown\\_it.rules\\_block.lheading module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.list.rst:2
+msgid "markdown\\_it.rules\\_block.list module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.paragraph.rst:2
+msgid "markdown\\_it.rules\\_block.paragraph module"
+msgstr ""
+
+#: markdown_it.rules_block.paragraph:1 of
+msgid "Paragraph."
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.reference.rst:2
+msgid "markdown\\_it.rules\\_block.reference module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.state_block.rst:2
+msgid "markdown\\_it.rules\\_block.state\\_block module"
+msgstr ""
+
+#: markdown_it.rules_block.state_block.StateBlock:1
+#: markdown_it.rules_core.state_core.StateCore:1
+#: markdown_it.rules_inline.state_inline.StateInline:1 of
+msgid "基类：:py:class:`markdown_it.ruler.StateBase`"
+msgstr ""
+
+#: markdown_it.rules_block.state_block.StateBlock.getLines:1 of
+msgid "Cut lines range from source."
+msgstr ""
+
+#: markdown_it.rules_block.state_block.StateBlock.isEmpty:1
+#: markdown_it.rules_block.state_block.StateBlock.skipEmptyLines:1 of
+msgid "."
+msgstr ""
+
+#: markdown_it.rules_block.state_block.StateBlock.push:1 of
+msgid "Push new token to \"stream\"."
+msgstr ""
+
+#: markdown_it.rules_block.state_block.StateBlock.skipChars:1 of
+msgid "Skip char codes from given position."
+msgstr ""
+
+#: markdown_it.rules_block.state_block.StateBlock.skipCharsBack:1 of
+msgid "Skip char codes reverse from given position - 1."
+msgstr ""
+
+#: markdown_it.rules_block.state_block.StateBlock.skipSpaces:1 of
+msgid "Skip spaces from given position."
+msgstr ""
+
+#: markdown_it.rules_block.state_block.StateBlock.skipSpacesBack:1 of
+msgid "Skip spaces from given position in reverse."
+msgstr ""
+
+#: ../../api/markdown_it.rules_block.table.rst:2
+msgid "markdown\\_it.rules\\_block.table module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_core.rst:2
+msgid "markdown\\_it.rules\\_core package"
+msgstr ""
+
+#: ../../api/markdown_it.rules_core.block.rst:2
+msgid "markdown\\_it.rules\\_core.block module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_core.inline.rst:2
+msgid "markdown\\_it.rules\\_core.inline module"
+msgstr ""
+
+#: markdown_it.rules_core.inline.inline:1 of
+msgid "Parse inlines"
+msgstr ""
+
+#: ../../api/markdown_it.rules_core.linkify.rst:2
+msgid "markdown\\_it.rules\\_core.linkify module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_core.normalize.rst:2
+msgid "markdown\\_it.rules\\_core.normalize module"
+msgstr ""
+
+#: markdown_it.rules_core.normalize:1 of
+msgid "Normalize input string."
+msgstr ""
+
+#: ../../api/markdown_it.rules_core.replacements.rst:2
+msgid "markdown\\_it.rules\\_core.replacements module"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:1 of
+msgid "Simple typographic replacements"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:3 of
+msgid "``(c)``, ``(C)`` → ©"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:4 of
+msgid "``(tm)``, ``(TM)`` → ™"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:5 of
+msgid "``(r)``, ``(R)`` → ®"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:6 of
+msgid "``(p)``, ``(P)`` → §"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:7 of
+msgid "``+-`` → ±"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:8 of
+msgid "``...`` → …"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:9 of
+msgid "``?....`` → ?.."
+msgstr ""
+
+#: markdown_it.rules_core.replacements:10 of
+msgid "``!....`` → !.."
+msgstr ""
+
+#: markdown_it.rules_core.replacements:11 of
+msgid "``????????`` → ???"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:12 of
+msgid "``!!!!!`` → !!!"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:13 of
+msgid "``,,,`` → ,"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:14 of
+msgid "``--`` → &ndash"
+msgstr ""
+
+#: markdown_it.rules_core.replacements:15 of
+msgid "``---`` → &mdash"
+msgstr ""
+
+#: ../../api/markdown_it.rules_core.smartquotes.rst:2
+msgid "markdown\\_it.rules\\_core.smartquotes module"
+msgstr ""
+
+#: markdown_it.rules_core.smartquotes:1 of
+msgid "Convert straight quotation marks to typographic ones"
+msgstr ""
+
+#: ../../api/markdown_it.rules_core.state_core.rst:2
+msgid "markdown\\_it.rules\\_core.state\\_core module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.rst:2
+msgid "markdown\\_it.rules\\_inline package"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.autolink.rst:2
+msgid "markdown\\_it.rules\\_inline.autolink module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.backticks.rst:2
+msgid "markdown\\_it.rules\\_inline.backticks module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.balance_pairs.rst:2
+msgid "markdown\\_it.rules\\_inline.balance\\_pairs module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.emphasis.rst:2
+msgid "markdown\\_it.rules\\_inline.emphasis module"
+msgstr ""
+
+#: markdown_it.rules_inline.emphasis.postProcess:1
+#: markdown_it.rules_inline.strikethrough.postProcess:1 of
+msgid "Walk through delimiter list and replace text tokens with tags."
+msgstr ""
+
+#: markdown_it.rules_inline.emphasis.tokenize:1
+#: markdown_it.rules_inline.strikethrough.tokenize:1 of
+msgid "Insert each marker as a separate text token, and add it to delimiter list"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.entity.rst:2
+msgid "markdown\\_it.rules\\_inline.entity module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.escape.rst:2
+msgid "markdown\\_it.rules\\_inline.escape module"
+msgstr ""
+
+#: markdown_it.rules_inline.escape:1 of
+msgid "Process escaped chars and hardbreaks"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.html_inline.rst:2
+msgid "markdown\\_it.rules\\_inline.html\\_inline module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.image.rst:2
+msgid "markdown\\_it.rules\\_inline.image module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.link.rst:2
+msgid "markdown\\_it.rules\\_inline.link module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.newline.rst:2
+msgid "markdown\\_it.rules\\_inline.newline module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.state_inline.rst:2
+msgid "markdown\\_it.rules\\_inline.state\\_inline module"
+msgstr ""
+
+#: markdown_it.rules_inline.state_inline.Scanned:1 of
+msgid "基类：:py:class:`tuple`"
+msgstr ""
+
+#: ../../docstring markdown_it.rules_inline.state_inline.Scanned.can_close:1 of
+msgid "Alias for field number 1"
+msgstr ""
+
+#: ../../docstring markdown_it.rules_inline.state_inline.Scanned.can_open:1 of
+msgid "Alias for field number 0"
+msgstr ""
+
+#: ../../docstring markdown_it.rules_inline.state_inline.Scanned.length:1 of
+msgid "Alias for field number 2"
+msgstr ""
+
+#: markdown_it.rules_inline.state_inline.StateInline.push:1 of
+msgid ""
+"Push new token to \"stream\". If pending text exists - flush it as text "
+"token"
+msgstr ""
+
+#: markdown_it.rules_inline.state_inline.StateInline.scanDelims:1 of
+msgid ""
+"Scan a sequence of emphasis-like markers, and determine whether it can "
+"start an emphasis sequence or end an emphasis sequence."
+msgstr ""
+
+#: markdown_it.rules_inline.state_inline.StateInline.scanDelims:4 of
+msgid "start - position to scan from (it should point at a valid marker);"
+msgstr ""
+
+#: markdown_it.rules_inline.state_inline.StateInline.scanDelims:5 of
+msgid "canSplitWord - determine if these markers can be found inside a word"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.strikethrough.rst:2
+msgid "markdown\\_it.rules\\_inline.strikethrough module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.text.rst:2
+msgid "markdown\\_it.rules\\_inline.text module"
+msgstr ""
+
+#: ../../api/markdown_it.rules_inline.text_collapse.rst:2
+msgid "markdown\\_it.rules\\_inline.text\\_collapse module"
+msgstr ""
+
+#: markdown_it.rules_inline.text_collapse.text_collapse:1 of
+msgid ""
+"Clean up tokens after emphasis and strikethrough postprocessing: merge "
+"adjacent text nodes into one and re-calculate all token levels"
+msgstr ""
+
+#: markdown_it.rules_inline.text_collapse.text_collapse:4 of
+msgid ""
+"This is necessary because initially emphasis delimiter markers (``*, _, "
+"~``) are treated as their own separate text tokens. Then emphasis rule "
+"either leaves them as text (needed to merge with adjacent text) or turns "
+"them into opening/closing tags (which messes up levels inside)."
+msgstr ""
+
+#: ../../api/markdown_it.token.rst:2
+msgid "markdown\\_it.token module"
+msgstr ""
+
+#: markdown_it.token.NestedTokens:1 of
+msgid ""
+"A class that closely resembles a Token, but for a an opening/closing "
+"Token pair, and their containing children."
+msgstr ""
+
+#: markdown_it.token.NestedTokens.attrGet:1 markdown_it.token.Token.attrGet:1
+#: markdown_it.tree.SyntaxTreeNode.attrGet:1 of
+msgid "Get the value of attribute `name`, or null if it does not exist."
+msgstr ""
+
+#: markdown_it.token.Token.as_dict:1 of
+msgid "Return the token as a dictionary."
+msgstr ""
+
+#: markdown_it.token.Token.as_dict:3 of
+msgid "Also convert children to dicts"
+msgstr ""
+
+#: markdown_it.token.Token.as_dict:4 of
+msgid ""
+"Ensure the output dictionary is equal to that created by markdown-it For "
+"example, attrs are converted to null or lists"
+msgstr ""
+
+#: markdown_it.token.Token.as_dict:6 of
+msgid "hook for serializing ``Token.meta``"
+msgstr ""
+
+#: markdown_it.token.Token.as_dict:7 of
+msgid ""
+"A callable whose return code determines whether an attribute or element "
+"is included (``True``) or dropped (``False``). Is called with the "
+"`attr.Attribute` as the first argument and the value as the second "
+"argument."
+msgstr ""
+
+#: markdown_it.token.Token.as_dict:11 of
+msgid ""
+"A callable to produce dictionaries from. For example, to produce ordered "
+"dictionaries instead of normal Python dictionaries, pass in "
+"``collections.OrderedDict``."
+msgstr ""
+
+#: markdown_it.token.Token.attrItems:1 of
+msgid "Get (key, value) list of attrs."
+msgstr ""
+
+#: markdown_it.token.Token.attrJoin:1 of
+msgid ""
+"Join value to existing attribute via space. Or create new attribute if "
+"not exists. Useful to operate with token classes."
+msgstr ""
+
+#: markdown_it.token.Token.attrPush:1 of
+msgid "Add `[ name, value ]` attribute to list. Init attrs if necessary."
+msgstr ""
+
+#: markdown_it.token.Token.attrSet:1 of
+msgid "Set `name` attribute to `value`. Override old value if exists."
+msgstr ""
+
+#: markdown_it.token.Token.copy:1 of
+msgid "Return a shallow copy of the instance."
+msgstr ""
+
+#: markdown_it.token.Token.from_dict:1 of
+msgid "Convert a dict to a Token."
+msgstr ""
+
+#: markdown_it.token.convert_attrs:1 of
+msgid "Convert Token.attrs set as ``None`` or ``[[key, value], ...]`` to a dict."
+msgstr ""
+
+#: markdown_it.token.convert_attrs:3 of
+msgid "This improves compatibility with upstream markdown-it."
+msgstr ""
+
+#: markdown_it.token.nest_tokens:1 of
+msgid "Convert the token stream to a list of tokens and nested tokens."
+msgstr ""
+
+#: markdown_it.token.nest_tokens:3 of
+msgid ""
+"``NestedTokens`` contain the open and close tokens and a list of children"
+" of all tokens in between (recursively nested)"
+msgstr ""
+
+#: ../../api/markdown_it.tree.rst:2
+msgid "markdown\\_it.tree module"
+msgstr ""
+
+#: markdown_it.tree:1 of
+msgid "A tree representation of a linear markdown-it token stream."
+msgstr ""
+
+#: markdown_it.tree:3 of
+msgid "This module is not part of upstream JavaScript markdown-it."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode:1 of
+msgid "A Markdown syntax tree node."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode:3 of
+msgid ""
+"A class that can be used to construct a tree representation of a linear "
+"`markdown-it-py` token stream."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode:11 of
+msgid "Each node in the tree represents either:"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode:7 of
+msgid "root of the Markdown document"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode:8 of
+msgid "a single unnested `Token`"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode:11 of
+msgid "a `Token` \"_open\" and \"_close\" token pair, and the tokens nested in"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode:10 of
+msgid "between"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.attrs:1 of
+msgid "Html attributes."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.block:1 of
+msgid "True for block-level tokens, false for inline tokens."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.content:1 of
+msgid ""
+"In a case of self-closing tag (code, html, fence, etc.), it has contents "
+"of this tag."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.hidden:1 of
+msgid ""
+"If it's true, ignore this element when rendering. Used for tight lists to"
+" hide paragraphs."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.info:1 of
+msgid "fence infostring"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.is_nested:1 of
+msgid "Is this node nested?."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.is_nested:3 of
+msgid ""
+"Returns `True` if the node represents a `Token` pair and tokens in the "
+"sequence between them, where `Token.nesting` of the first `Token` in the "
+"pair is 1 and nesting of the other `Token` is -1."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.is_root:1 of
+msgid "Is the node a special root node?"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.level:1 of
+msgid "nesting level, the same as `state.level`"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.map:1 of
+msgid "Source map info. Format: `Tuple[ line_begin, line_end ]`"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.markup:1 of
+msgid "'*' or '_' for emphasis, fence string for fence, etc."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.meta:1 of
+msgid "A place for plugins to store an arbitrary data."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.next_sibling:1 of
+msgid "Get the next node in the sequence of siblings."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.next_sibling:3 of
+msgid "Returns `None` if this is the last sibling."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.pretty:1 of
+msgid "Create an XML style string of the tree."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.previous_sibling:1 of
+msgid "Get the previous node in the sequence of siblings."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.previous_sibling:3 of
+msgid "Returns `None` if this is the first sibling."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.siblings:1 of
+msgid "Get siblings of the node."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.siblings:3 of
+msgid "Gets the whole group of siblings, including self."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.tag:1 of
+msgid "html tag name, e.g. \"p\""
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.to_tokens:1 of
+msgid "Recover the linear token stream."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.type:1 of
+msgid "Get a string type of the represented syntax."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.type:3 of
+msgid "\"root\" for root nodes"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.type:4 of
+msgid "`Token.type` if the node represents an unnested token"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.type:5 of
+msgid "`Token.type` of the opening token, with \"_open\" suffix stripped, if"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.type:6 of
+msgid "the node represents a nester token pair"
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.walk:1 of
+msgid "Recursively yield all descendant nodes in the tree starting at self."
+msgstr ""
+
+#: markdown_it.tree.SyntaxTreeNode.walk:3 of
+msgid ""
+"The order mimics the order of the underlying linear token stream (i.e. "
+"depth first)."
+msgstr ""
+
+#: ../../api/markdown_it.utils.rst:2
+msgid "markdown\\_it.utils module"
+msgstr ""
+
+#: markdown_it.utils.AttrDict:1 markdown_it.utils.OptionsDict:1 of
+msgid "基类：:py:class:`dict`"
+msgstr ""
+
+#: markdown_it.utils.OptionsDict:1 of
+msgid ""
+"A dictionary, with attribute access to core markdownit configuration "
+"options."
+msgstr ""
+
+#: markdown_it.utils.OptionsDict.breaks:1 of
+msgid "Convert newlines in paragraphs into <br>."
+msgstr ""
+
+#: markdown_it.utils.OptionsDict.highlight:1 of
+msgid "Highlighter function: (content, langName, langAttrs) -> escaped HTML."
+msgstr ""
+
+#: markdown_it.utils.OptionsDict.html:1 of
+msgid "Enable HTML tags in source."
+msgstr ""
+
+#: markdown_it.utils.OptionsDict.langPrefix:1 of
+msgid "CSS language prefix for fenced blocks."
+msgstr ""
+
+#: markdown_it.utils.OptionsDict.linkify:1 of
+msgid "Enable autoconversion of URL-like texts to links."
+msgstr ""
+
+#: markdown_it.utils.OptionsDict.maxNesting:1 of
+msgid "Internal protection, recursion limit."
+msgstr ""
+
+#: markdown_it.utils.OptionsDict.quotes:1 of
+msgid "Quote characters."
+msgstr ""
+
+#: markdown_it.utils.OptionsDict.typographer:1 of
+msgid "Enable smartquotes and replacements."
+msgstr ""
+
+#: markdown_it.utils.OptionsDict.xhtmlOut:1 of
+msgid "Use '/' to close single tags (<br />)."
+msgstr ""
+

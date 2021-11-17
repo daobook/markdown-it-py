@@ -1,0 +1,277 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, executable book project
+# This file is distributed under the same license as the markdown-it-py
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: markdown-it-py \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-17 13:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../architecture.md:3
+msgid "markdown-it design principles"
+msgstr ""
+
+#: ../../architecture.md:5
+msgid "Data flow"
+msgstr ""
+
+#: ../../architecture.md:7
+msgid ""
+"Input data is parsed via nested chains of rules. There are 3 nested "
+"chains - `core`, `block` & `inline`:"
+msgstr ""
+
+#: ../../architecture.md:35
+msgid ""
+"The result of the parsing is a *list of tokens*, that will be passed to "
+"the `renderer` to generate the html content."
+msgstr ""
+
+#: ../../architecture.md:37
+msgid ""
+"These tokens can be themselves parsed again to generate more tokens (ex: "
+"a `list token` can be divided into multiple `inline tokens`)."
+msgstr ""
+
+#: ../../architecture.md:39
+msgid ""
+"An `env` sandbox can be used alongside tokens to inject external "
+"variables for your parsers and renderers."
+msgstr ""
+
+#: ../../architecture.md:41
+msgid ""
+"Each chain (core / block / inline) uses an independent `state` object "
+"when parsing data, so that each parsing operation is independent and can "
+"be disabled on the fly."
+msgstr ""
+
+#: ../../architecture.md:44
+msgid "Token stream"
+msgstr ""
+
+#: ../../architecture.md:46
+msgid ""
+"Instead of traditional AST we use more low-level data representation - "
+"*tokens*. The difference is simple:"
+msgstr ""
+
+#: ../../architecture.md:49
+msgid "Tokens are a simple sequence (Array)."
+msgstr ""
+
+#: ../../architecture.md:50
+msgid "Opening and closing tags are separate."
+msgstr ""
+
+#: ../../architecture.md:51
+msgid ""
+"There are special token objects, \"inline containers\", having nested "
+"tokens. sequences with inline markup (bold, italic, text, ...)."
+msgstr ""
+
+#: ../../architecture.md:54
+msgid ""
+"See [token class](https://github.com/executablebooks/markdown-it-"
+"py/tree/master/markdown_it/token.py) for details about each token "
+"content."
+msgstr ""
+
+#: ../../architecture.md:57
+msgid "In total, a token stream is:"
+msgstr ""
+
+#: ../../architecture.md:59
+msgid "On the top level - array of paired or single \"block\" tokens:"
+msgstr ""
+
+#: ../../architecture.md:60
+msgid "open/close for headers, lists, blockquotes, paragraphs, ..."
+msgstr ""
+
+#: ../../architecture.md:61
+msgid "codes, fenced blocks, horizontal rules, html blocks, inlines containers"
+msgstr ""
+
+#: ../../architecture.md:62
+msgid ""
+"Each inline token have a `.children` property with a nested token stream "
+"for inline content:"
+msgstr ""
+
+#: ../../architecture.md:63
+msgid "open/close for strong, em, link, code, ..."
+msgstr ""
+
+#: ../../architecture.md:64
+msgid "text, line breaks"
+msgstr ""
+
+#: ../../architecture.md:66
+msgid ""
+"Why not AST? Because it's not needed for our tasks. We follow KISS "
+"principle. If you wish - you can call a parser without a renderer and "
+"convert the token stream to an AST."
+msgstr ""
+
+#: ../../architecture.md:70
+msgid "More details about tokens:"
+msgstr ""
+
+#: ../../architecture.md:72
+msgid ""
+"[Renderer source](https://github.com/executablebooks/markdown-it-"
+"py/tree/master/markdown_it/renderer.py)"
+msgstr ""
+
+#: ../../architecture.md:73
+msgid ""
+"[Token source](https://github.com/executablebooks/markdown-it-"
+"py/tree/master/markdown_it/token.py)"
+msgstr ""
+
+#: ../../architecture.md:74
+msgid ""
+"[Live demo](https://markdown-it.github.io/) - type your text and click "
+"`debug` tab."
+msgstr ""
+
+#: ../../architecture.md:77
+msgid "Rules"
+msgstr ""
+
+#: ../../architecture.md:79
+msgid ""
+"Rules are functions, doing \"magic\" with parser `state` objects. A rule "
+"is associated with one or more *chains* and is unique. For instance, a "
+"`blockquote` token is associated with `blockquote`, `paragraph`, "
+"`heading` and `list` chains."
+msgstr ""
+
+#: ../../architecture.md:81
+msgid ""
+"Rules are managed by names via [Ruler](https://markdown-it.github.io"
+"/markdown-it/#Ruler) instances and can be  `enabled` / `disabled` from "
+"the [MarkdownIt](https://markdown-it.github.io/markdown-it/#MarkdownIt) "
+"methods."
+msgstr ""
+
+#: ../../architecture.md:83
+msgid ""
+"You can note, that some rules have a `validation mode` - in this mode "
+"rules do not modify the token stream, and only look ahead for the end of "
+"a token. It's one important design principle - a token stream is \"write "
+"only\" on block & inline parse stages."
+msgstr ""
+
+#: ../../architecture.md:87
+msgid ""
+"Parsers are designed to keep rules independent of each other. You can "
+"safely enable/disable them, or add new ones. There are no universal "
+"recipes for how to create new rules - design of distributed state "
+"machines with good data isolation is a tricky business. But you can "
+"investigate existing rules & plugins to see possible approaches."
+msgstr ""
+
+#: ../../architecture.md:92
+msgid ""
+"Also, in complex cases you can try to ask for help in tracker. Condition "
+"is very simple - it should be clear from your ticket, that you studied "
+"docs, sources, and tried to do something yourself. We never reject with "
+"help to real developers."
+msgstr ""
+
+#: ../../architecture.md:97
+msgid "Renderer"
+msgstr ""
+
+#: ../../architecture.md:99
+msgid ""
+"After the token stream is generated, it's passed to a "
+"[renderer](https://github.com/executablebooks/markdown-it-"
+"py/tree/master/markdown_it/renderer.py). It then plays all the tokens, "
+"passing each to a rule with the same name as token type."
+msgstr ""
+
+#: ../../architecture.md:102
+msgid ""
+"Renderer rules are located in `md.renderer.rules[name]` and are simple "
+"functions with the same signature:"
+msgstr ""
+
+#: ../../architecture.md:110
+msgid ""
+"In many cases that allows easy output change even without parser "
+"intrusion. For example, let's replace images with vimeo links to player's"
+" iframe:"
+msgstr ""
+
+#: ../../architecture.md:137
+msgid "Here is another example, how to add `target=\"_blank\"` to all links:"
+msgstr ""
+
+#: ../../architecture.md:153
+msgid ""
+"Note, if you need to add attributes, you can do things without renderer "
+"override. For example, you can update tokens in `core` chain. That is "
+"slower, than direct renderer override, but can be more simple."
+msgstr ""
+
+#: ../../architecture.md:157
+msgid ""
+"You also can write your own renderer to generate other formats than HTML,"
+" such as JSON/XML... You can even use it to generate AST."
+msgstr ""
+
+#: ../../architecture.md:161
+msgid "Summary"
+msgstr ""
+
+#: ../../architecture.md:163
+msgid ""
+"This was mentioned in [Data flow](#data-flow), but let's repeat sequence "
+"again:"
+msgstr ""
+
+#: ../../architecture.md:165
+msgid "Blocks are parsed, and top level of token stream filled with block tokens."
+msgstr ""
+
+#: ../../architecture.md:166
+msgid "Content on inline containers is parsed, filling `.children` properties."
+msgstr ""
+
+#: ../../architecture.md:167
+msgid "Rendering happens."
+msgstr ""
+
+#: ../../architecture.md:169
+msgid ""
+"And somewhere between you can apply additional transformations :) . Full "
+"content of each chain can be seen on the top of "
+"[parser_core.py](https://github.com/executablebooks/markdown-it-"
+"py/tree/master/markdown_it/parser_core.py), "
+"[parser_block.py](https://github.com/executablebooks/markdown-it-"
+"py/tree/master/markdown_it/parser_block.py) and "
+"[parser_inline.py](https://github.com/executablebooks/markdown-it-"
+"py/tree/master/markdown_it/parser_inline.py) files."
+msgstr ""
+
+#: ../../architecture.md:176
+msgid ""
+"Also you can change output directly in "
+"[renderer](https://github.com/executablebooks/markdown-it-"
+"py/tree/master/markdown_it/renderer.py) for many simple cases."
+msgstr ""
+
