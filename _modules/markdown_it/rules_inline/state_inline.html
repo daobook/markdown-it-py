@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>markdown_it.rules_inline.state_inline &#8212; markdown-it-py</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">markdown-it-py</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../using.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     markdown_it
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../architecture.html">
+   markdown-it design principles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../other.html">
+   Security
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../plugins.html">
+   Plugin extensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../contributing.html">
+   Contribute to markdown-it-py
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../api/markdown_it.html">
+   markdown_it package
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.cli.html">
+     markdown_it.cli package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.cli.parse.html">
+       markdown_it.cli.parse module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.common.html">
+     markdown_it.common package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.common.entities.html">
+       markdown_it.common.entities module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.common.html_blocks.html">
+       markdown_it.common.html_blocks module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.common.html_re.html">
+       markdown_it.common.html_re module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.common.normalize_url.html">
+       markdown_it.common.normalize_url module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.common.utils.html">
+       markdown_it.common.utils module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.helpers.html">
+     markdown_it.helpers package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.helpers.parse_link_destination.html">
+       markdown_it.helpers.parse_link_destination module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.helpers.parse_link_label.html">
+       markdown_it.helpers.parse_link_label module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.helpers.parse_link_title.html">
+       markdown_it.helpers.parse_link_title module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.presets.html">
+     markdown_it.presets package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.presets.commonmark.html">
+       markdown_it.presets.commonmark module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.presets.default.html">
+       markdown_it.presets.default module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.presets.zero.html">
+       markdown_it.presets.zero module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.rules_block.html">
+     markdown_it.rules_block package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.blockquote.html">
+       markdown_it.rules_block.blockquote module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.code.html">
+       markdown_it.rules_block.code module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.fence.html">
+       markdown_it.rules_block.fence module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.heading.html">
+       markdown_it.rules_block.heading module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.hr.html">
+       markdown_it.rules_block.hr module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.html_block.html">
+       markdown_it.rules_block.html_block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.lheading.html">
+       markdown_it.rules_block.lheading module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.list.html">
+       markdown_it.rules_block.list module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.paragraph.html">
+       markdown_it.rules_block.paragraph module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.reference.html">
+       markdown_it.rules_block.reference module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.state_block.html">
+       markdown_it.rules_block.state_block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.table.html">
+       markdown_it.rules_block.table module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.rules_core.html">
+     markdown_it.rules_core package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.block.html">
+       markdown_it.rules_core.block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.inline.html">
+       markdown_it.rules_core.inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.linkify.html">
+       markdown_it.rules_core.linkify module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.normalize.html">
+       markdown_it.rules_core.normalize module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.replacements.html">
+       markdown_it.rules_core.replacements module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.smartquotes.html">
+       markdown_it.rules_core.smartquotes module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.state_core.html">
+       markdown_it.rules_core.state_core module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.rules_inline.html">
+     markdown_it.rules_inline package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.autolink.html">
+       markdown_it.rules_inline.autolink module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.backticks.html">
+       markdown_it.rules_inline.backticks module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.balance_pairs.html">
+       markdown_it.rules_inline.balance_pairs module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.emphasis.html">
+       markdown_it.rules_inline.emphasis module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.entity.html">
+       markdown_it.rules_inline.entity module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.escape.html">
+       markdown_it.rules_inline.escape module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.html_inline.html">
+       markdown_it.rules_inline.html_inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.image.html">
+       markdown_it.rules_inline.image module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.link.html">
+       markdown_it.rules_inline.link module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.newline.html">
+       markdown_it.rules_inline.newline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.state_inline.html">
+       markdown_it.rules_inline.state_inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.strikethrough.html">
+       markdown_it.rules_inline.strikethrough module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.text.html">
+       markdown_it.rules_inline.text module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.text_collapse.html">
+       markdown_it.rules_inline.text_collapse module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.main.html">
+     markdown_it.main module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.parser_block.html">
+     markdown_it.parser_block module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.parser_core.html">
+     markdown_it.parser_core module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.parser_inline.html">
+     markdown_it.parser_inline module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.renderer.html">
+     markdown_it.renderer module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.ruler.html">
+     markdown_it.ruler module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.token.html">
+     markdown_it.token module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.tree.html">
+     markdown_it.tree module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.utils.html">
+     markdown_it.utils module
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <h1>markdown_it.rules_inline.state_inline 源代码</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">MutableMapping</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">import</span> <span class="nn">attr</span>
+
+<span class="kn">from</span> <span class="nn">..token</span> <span class="kn">import</span> <span class="n">Token</span>
+<span class="kn">from</span> <span class="nn">..ruler</span> <span class="kn">import</span> <span class="n">StateBase</span>
+<span class="kn">from</span> <span class="nn">..common.utils</span> <span class="kn">import</span> <span class="n">isWhiteSpace</span><span class="p">,</span> <span class="n">isPunctChar</span><span class="p">,</span> <span class="n">isMdAsciiPunct</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">markdown_it</span> <span class="kn">import</span> <span class="n">MarkdownIt</span>
+
+
+<div class="viewcode-block" id="Delimiter"><a class="viewcode-back" href="../../../api/markdown_it.rules_inline.state_inline.html#markdown_it.rules_inline.state_inline.Delimiter">[文档]</a><span class="nd">@attr</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">slots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Delimiter</span><span class="p">:</span>
+    <span class="c1"># Char code of the starting marker (number).</span>
+    <span class="n">marker</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">()</span>
+
+    <span class="c1"># Total length of these series of delimiters.</span>
+    <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">()</span>
+
+    <span class="c1"># An amount of characters before this one that&#39;s equivalent to</span>
+    <span class="c1"># current one. In plain English: if this delimiter does not open</span>
+    <span class="c1"># an emphasis, neither do previous `jump` characters.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Used to skip sequences like &quot;*****&quot; in one step, for 1st asterisk</span>
+    <span class="c1"># value will be 0, for 2nd it&#39;s 1 and so on.</span>
+    <span class="n">jump</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">()</span>
+
+    <span class="c1"># A position of the token this delimiter corresponds to.</span>
+    <span class="n">token</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">()</span>
+
+    <span class="c1"># If this delimiter is matched as a valid opener, `end` will be</span>
+    <span class="c1"># equal to its position, otherwise it&#39;s `-1`.</span>
+    <span class="n">end</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">()</span>
+
+    <span class="c1"># Boolean flags that determine if this delimiter could open or close</span>
+    <span class="c1"># an emphasis.</span>
+    <span class="nb">open</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">()</span>
+    <span class="n">close</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">()</span>
+
+    <span class="n">level</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<span class="n">Scanned</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Scanned&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;can_open&quot;</span><span class="p">,</span> <span class="s2">&quot;can_close&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="StateInline"><a class="viewcode-back" href="../../../api/markdown_it.rules_inline.state_inline.html#markdown_it.rules_inline.state_inline.StateInline">[文档]</a><span class="k">class</span> <span class="nc">StateInline</span><span class="p">(</span><span class="n">StateBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">md</span><span class="p">:</span> <span class="s2">&quot;MarkdownIt&quot;</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">MutableMapping</span><span class="p">,</span> <span class="n">outTokens</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Token</span><span class="p">]</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">src</span> <span class="o">=</span> <span class="n">src</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">md</span> <span class="o">=</span> <span class="n">md</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokens</span> <span class="o">=</span> <span class="n">outTokens</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokens_meta</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">outTokens</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">posMax</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">src</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pending</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pendingLevel</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Stores { start: end } pairs. Useful for backtrack</span>
+        <span class="c1"># optimization of pairs parse (emphasis, strikes).</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># List of emphasis-like delimiters for current tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delimiters</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Delimiter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Stack of delimiter lists for upper level tags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prev_delimiters</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Delimiter</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># backticklength =&gt; last seen position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">backticks</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">backticksScanned</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;(pos=[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="si">}</span><span class="s2"> of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">posMax</span><span class="si">}</span><span class="s2">], token=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tokens</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="StateInline.pushPending"><a class="viewcode-back" href="../../../api/markdown_it.rules_inline.state_inline.html#markdown_it.rules_inline.state_inline.StateInline.pushPending">[文档]</a>    <span class="k">def</span> <span class="nf">pushPending</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">Token</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">token</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending</span>
+        <span class="n">token</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pendingLevel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pending</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">token</span></div>
+
+<div class="viewcode-block" id="StateInline.push"><a class="viewcode-back" href="../../../api/markdown_it.rules_inline.state_inline.html#markdown_it.rules_inline.state_inline.StateInline.push">[文档]</a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">nesting</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Push new token to &quot;stream&quot;.</span>
+<span class="sd">        If pending text exists - flush it as text token</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pushPending</span><span class="p">()</span>
+
+        <span class="n">token</span> <span class="o">=</span> <span class="n">Token</span><span class="p">(</span><span class="n">ttype</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">nesting</span><span class="p">)</span>
+        <span class="n">token_meta</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">nesting</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># closing tag</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">delimiters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev_delimiters</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+        <span class="n">token</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">level</span>
+
+        <span class="k">if</span> <span class="n">nesting</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># opening tag</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_prev_delimiters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delimiters</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">delimiters</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">token_meta</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;delimiters&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">delimiters</span><span class="p">}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pendingLevel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokens_meta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token_meta</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">token</span></div>
+
+<div class="viewcode-block" id="StateInline.scanDelims"><a class="viewcode-back" href="../../../api/markdown_it.rules_inline.state_inline.html#markdown_it.rules_inline.state_inline.StateInline.scanDelims">[文档]</a>    <span class="k">def</span> <span class="nf">scanDelims</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">canSplitWord</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Scan a sequence of emphasis-like markers, and determine whether</span>
+<span class="sd">        it can start an emphasis sequence or end an emphasis sequence.</span>
+
+<span class="sd">         - start - position to scan from (it should point at a valid marker);</span>
+<span class="sd">         - canSplitWord - determine if these markers can be found inside a word</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="n">left_flanking</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">right_flanking</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">maximum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">posMax</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">srcCharCode</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>
+
+        <span class="c1"># treat beginning of the line as a whitespace</span>
+        <span class="n">lastChar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">srcCharCode</span><span class="p">[</span><span class="n">start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mh">0x20</span>
+
+        <span class="k">while</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="n">maximum</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">srcCharCode</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">==</span> <span class="n">marker</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">count</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">-</span> <span class="n">start</span>
+
+        <span class="c1"># treat end of the line as a whitespace</span>
+        <span class="n">nextChar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">srcCharCode</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="n">maximum</span> <span class="k">else</span> <span class="mh">0x20</span>
+
+        <span class="n">isLastPunctChar</span> <span class="o">=</span> <span class="n">isMdAsciiPunct</span><span class="p">(</span><span class="n">lastChar</span><span class="p">)</span> <span class="ow">or</span> <span class="n">isPunctChar</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">lastChar</span><span class="p">))</span>
+        <span class="n">isNextPunctChar</span> <span class="o">=</span> <span class="n">isMdAsciiPunct</span><span class="p">(</span><span class="n">nextChar</span><span class="p">)</span> <span class="ow">or</span> <span class="n">isPunctChar</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">nextChar</span><span class="p">))</span>
+
+        <span class="n">isLastWhiteSpace</span> <span class="o">=</span> <span class="n">isWhiteSpace</span><span class="p">(</span><span class="n">lastChar</span><span class="p">)</span>
+        <span class="n">isNextWhiteSpace</span> <span class="o">=</span> <span class="n">isWhiteSpace</span><span class="p">(</span><span class="n">nextChar</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">isNextWhiteSpace</span><span class="p">:</span>
+            <span class="n">left_flanking</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="n">isNextPunctChar</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">isLastWhiteSpace</span> <span class="ow">or</span> <span class="n">isLastPunctChar</span><span class="p">):</span>
+                <span class="n">left_flanking</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">isLastWhiteSpace</span><span class="p">:</span>
+            <span class="n">right_flanking</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="n">isLastPunctChar</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">isNextWhiteSpace</span> <span class="ow">or</span> <span class="n">isNextPunctChar</span><span class="p">):</span>
+                <span class="n">right_flanking</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">canSplitWord</span><span class="p">:</span>
+            <span class="n">can_open</span> <span class="o">=</span> <span class="n">left_flanking</span> <span class="ow">and</span> <span class="p">((</span><span class="ow">not</span> <span class="n">right_flanking</span><span class="p">)</span> <span class="ow">or</span> <span class="n">isLastPunctChar</span><span class="p">)</span>
+            <span class="n">can_close</span> <span class="o">=</span> <span class="n">right_flanking</span> <span class="ow">and</span> <span class="p">((</span><span class="ow">not</span> <span class="n">left_flanking</span><span class="p">)</span> <span class="ow">or</span> <span class="n">isNextPunctChar</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">can_open</span> <span class="o">=</span> <span class="n">left_flanking</span>
+            <span class="n">can_close</span> <span class="o">=</span> <span class="n">right_flanking</span>
+
+        <span class="k">return</span> <span class="n">Scanned</span><span class="p">(</span><span class="n">can_open</span><span class="p">,</span> <span class="n">can_close</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span></div></div>
+</pre></div>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By executable book project<br/>
+        
+            &copy; Copyright 2020, executable book project.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

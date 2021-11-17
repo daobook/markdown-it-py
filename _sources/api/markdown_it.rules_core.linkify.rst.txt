@@ -1,0 +1,7 @@
+markdown\_it.rules\_core.linkify module
+=======================================
+
+.. automodule:: markdown_it.rules_core.linkify
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>markdown-it-py &#8212; markdown-it-py</title>
+    <title>markdown-it design principles &#8212; markdown-it-py</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -44,7 +44,8 @@
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Using markdown_it" href="using.html" />
+    <link rel="next" title="Security" href="other.html" />
+    <link rel="prev" title="Using markdown_it" href="using.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -64,7 +65,7 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="#">
+    <a class="navbar-brand text-wrap" href="index.html">
       
       
       
@@ -76,7 +77,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="using.html">
    Using
@@ -87,8 +88,8 @@
    </code>
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="architecture.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    markdown-it design principles
   </a>
  </li>
@@ -514,7 +515,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/index.md.txt"><button type="button"
+        <a class="dropdown-buttons" href="_sources/architecture.md.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -531,7 +532,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/executablebooks/markdown-it-py/edit/master/docs/index.md"><button
+        <a class="edit-button" href="https://github.com/executablebooks/markdown-it-py/edit/master/docs/architecture.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -557,13 +558,28 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references-thanks">
-   References &amp; Thanks
+  <a class="reference internal nav-link" href="#data-flow">
+   Data flow
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#related-links">
-   Related Links
+  <a class="reference internal nav-link" href="#token-stream">
+   Token stream
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rules">
+   Rules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#renderer">
+   Renderer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
   </a>
  </li>
 </ul>
@@ -577,75 +593,163 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="markdown-it-py">
-<h1>markdown-it-py<a class="headerlink" href="#markdown-it-py" title="永久链接至标题">¶</a></h1>
-<blockquote>
-<div><p>Markdown parser done right.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p><span class="fa fa-check text-success mr-1"></span> Follows the <strong><a class="reference external" href="http://spec.commonmark.org/">CommonMark spec</a></strong> for baseline parsing</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> Configurable syntax: you can add new rules and even replace existing ones.</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> Pluggable: Adds syntax extensions to extend the parser (see the <a class="reference internal" href="plugins.html#md-plugins"><span class="std std-ref">plugin list</span></a>)</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> High speed (see our <a class="reference internal" href="other.html#md-performance"><span class="std std-ref">benchmarking tests</span></a>)</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="other.html#md-security"><span class="std std-ref">Safe by default</span></a></p></li>
-</ul>
-<p>For a good introduction to <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a> see the <strong><a class="reference external" href="https://markdown-it.github.io">Live demo</a></strong>.
-This is a Python port of the well used <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a>, and some of its associated plugins.
-The driving design philosophy of the port has been to change as little of the fundamental code structure (file names, function name, etc) as possible, just sprinkling in a little Python syntactical sugar ✨.
-It is very simple to write complimentary extensions for both language implementations!</p>
-<div class="section" id="references-thanks">
-<h2>References &amp; Thanks<a class="headerlink" href="#references-thanks" title="永久链接至标题">¶</a></h2>
-<p>Big thanks to the authors of <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a></p>
-<ul class="simple">
-<li><p>Alex Kocharin <a class="reference external" href="https://github.com/rlidwka">github/rlidwka</a></p></li>
-<li><p>Vitaly Puzrin <a class="reference external" href="https://github.com/puzrin">github/puzrin</a></p></li>
-</ul>
-<p>Also <a class="reference external" href="https://github.com/jgm">John MacFarlane</a> for his work on the CommonMark spec and reference implementations.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="markdown-it-design-principles">
+<span id="md-architecture"></span><h1>markdown-it design principles<a class="headerlink" href="#markdown-it-design-principles" title="永久链接至标题">¶</a></h1>
+<div class="section" id="data-flow">
+<h2>Data flow<a class="headerlink" href="#data-flow" title="永久链接至标题">¶</a></h2>
+<p>Input data is parsed via nested chains of rules. There are 3 nested chains -
+<code class="docutils literal notranslate"><span class="pre">core</span></code>, <code class="docutils literal notranslate"><span class="pre">block</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">inline</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">core</span>
+    <span class="n">core</span><span class="o">.</span><span class="n">rule1</span> <span class="p">(</span><span class="n">normalize</span><span class="p">)</span>
+    <span class="o">...</span>
+    <span class="n">core</span><span class="o">.</span><span class="n">ruleX</span>
+
+    <span class="n">block</span>
+        <span class="n">block</span><span class="o">.</span><span class="n">rule1</span> <span class="p">(</span><span class="n">blockquote</span><span class="p">)</span>
+        <span class="o">...</span>
+        <span class="n">block</span><span class="o">.</span><span class="n">ruleX</span>
+
+    <span class="n">core</span><span class="o">.</span><span class="n">ruleX1</span> <span class="p">(</span><span class="n">intermediate</span> <span class="n">rule</span> <span class="n">that</span> <span class="n">applies</span> <span class="n">on</span> <span class="n">block</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">nothing</span> <span class="n">yet</span><span class="p">)</span>
+    <span class="o">...</span>
+    <span class="n">core</span><span class="o">.</span><span class="n">ruleXX</span>
+
+    <span class="n">inline</span> <span class="p">(</span><span class="n">applied</span> <span class="n">to</span> <span class="n">each</span> <span class="n">block</span> <span class="n">token</span> <span class="k">with</span> <span class="s2">&quot;inline&quot;</span> <span class="nb">type</span><span class="p">)</span>
+        <span class="n">inline</span><span class="o">.</span><span class="n">rule1</span> <span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="o">...</span>
+        <span class="n">inline</span><span class="o">.</span><span class="n">ruleX</span>
+
+    <span class="n">core</span><span class="o">.</span><span class="n">ruleYY</span> <span class="p">(</span><span class="n">applies</span> <span class="n">to</span> <span class="nb">all</span> <span class="n">tokens</span><span class="p">)</span>
+    <span class="o">...</span> <span class="p">(</span><span class="n">abbreviation</span><span class="p">,</span> <span class="n">footnote</span><span class="p">,</span> <span class="n">typographer</span><span class="p">,</span> <span class="n">linkifier</span><span class="p">)</span>
+
+</pre></div>
 </div>
-<div class="section" id="related-links">
-<h2>Related Links<a class="headerlink" href="#related-links" title="永久链接至标题">¶</a></h2>
+<p>The result of the parsing is a <em>list of tokens</em>, that will be passed to the <code class="docutils literal notranslate"><span class="pre">renderer</span></code> to generate the html content.</p>
+<p>These tokens can be themselves parsed again to generate more tokens (ex: a <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">token</span></code> can be divided into multiple <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">tokens</span></code>).</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">env</span></code> sandbox can be used alongside tokens to inject external variables for your parsers and renderers.</p>
+<p>Each chain (core / block / inline) uses an independent <code class="docutils literal notranslate"><span class="pre">state</span></code> object when parsing data, so that each parsing operation is independent and can be disabled on the fly.</p>
+</div>
+<div class="section" id="token-stream">
+<h2>Token stream<a class="headerlink" href="#token-stream" title="永久链接至标题">¶</a></h2>
+<p>Instead of traditional AST we use more low-level data representation - <em>tokens</em>.
+The difference is simple:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/jgm/CommonMark">https://github.com/jgm/CommonMark</a> - reference CommonMark implementations in C &amp; JS, also contains latest spec &amp; online demo.</p></li>
-<li><p><a class="reference external" href="http://talk.commonmark.org">http://talk.commonmark.org</a> - CommonMark forum, good place to collaborate developers’ efforts.</p></li>
+<li><p>Tokens are a simple sequence (Array).</p></li>
+<li><p>Opening and closing tags are separate.</p></li>
+<li><p>There are special token objects, “inline containers”, having nested tokens.
+sequences with inline markup (bold, italic, text, …).</p></li>
 </ul>
-<div class="toctree-wrapper compound">
+<p>See <a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/token.py">token class</a>
+for details about each token content.</p>
+<p>In total, a token stream is:</p>
+<ul class="simple">
+<li><p>On the top level - array of paired or single “block” tokens:</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="using.html">Using <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="using.html#quick-start">Quick-Start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#the-parser">The Parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#the-token-stream">The Token Stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#renderers">Renderers</a></li>
+<li><p>open/close for headers, lists, blockquotes, paragraphs, …</p></li>
+<li><p>codes, fenced blocks, horizontal rules, html blocks, inlines containers</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">markdown-it design principles</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#data-flow">Data flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#token-stream">Token stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#rules">Rules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#renderer">Renderer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#summary">Summary</a></li>
+<li><p>Each inline token have a <code class="docutils literal notranslate"><span class="pre">.children</span></code> property with a nested token stream for inline content:</p>
+<ul>
+<li><p>open/close for strong, em, link, code, …</p></li>
+<li><p>text, line breaks</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="other.html">Security</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="other.html#plugins">Plugins</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="other.html#performance">Performance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin extensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribute to markdown-it-py</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#development-guidance">Development guidance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-style">Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#contributing-a-plugin">Contributing a plugin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#faq">FAQ</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/markdown_it.html">markdown_it package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/markdown_it.html#subpackages">Subpackages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/markdown_it.html#submodules">Submodules</a></li>
-</ul>
-</li>
+<p>Why not AST? Because it’s not needed for our tasks. We follow KISS principle.
+If you wish - you can call a parser without a renderer and convert the token stream
+to an AST.</p>
+<p>More details about tokens:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/renderer.py">Renderer source</a></p></li>
+<li><p><a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/token.py">Token source</a></p></li>
+<li><p><a class="reference external" href="https://markdown-it.github.io/">Live demo</a> - type your text and click <code class="docutils literal notranslate"><span class="pre">debug</span></code> tab.</p></li>
 </ul>
 </div>
+<div class="section" id="rules">
+<h2>Rules<a class="headerlink" href="#rules" title="永久链接至标题">¶</a></h2>
+<p>Rules are functions, doing “magic” with parser <code class="docutils literal notranslate"><span class="pre">state</span></code> objects. A rule is associated with one or more <em>chains</em> and is unique. For instance, a <code class="docutils literal notranslate"><span class="pre">blockquote</span></code> token is associated with <code class="docutils literal notranslate"><span class="pre">blockquote</span></code>, <code class="docutils literal notranslate"><span class="pre">paragraph</span></code>, <code class="docutils literal notranslate"><span class="pre">heading</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span></code> chains.</p>
+<p>Rules are managed by names via <a class="reference external" href="https://markdown-it.github.io/markdown-it/#Ruler">Ruler</a> instances and can be  <code class="docutils literal notranslate"><span class="pre">enabled</span></code> / <code class="docutils literal notranslate"><span class="pre">disabled</span></code> from the <a class="reference external" href="https://markdown-it.github.io/markdown-it/#MarkdownIt">MarkdownIt</a> methods.</p>
+<p>You can note, that some rules have a <code class="docutils literal notranslate"><span class="pre">validation</span> <span class="pre">mode</span></code> - in this mode rules do not
+modify the token stream, and only look ahead for the end of a token. It’s one
+important design principle - a token stream is “write only” on block &amp; inline parse stages.</p>
+<p>Parsers are designed to keep rules independent of each other. You can safely enable/disable them, or
+add new ones. There are no universal recipes for how to create new rules - design of
+distributed state machines with good data isolation is a tricky business. But you
+can investigate existing rules &amp; plugins to see possible approaches.</p>
+<p>Also, in complex cases you can try to ask for help in tracker. Condition is very
+simple - it should be clear from your ticket, that you studied docs, sources,
+and tried to do something yourself. We never reject with help to real developers.</p>
+</div>
+<div class="section" id="renderer">
+<h2>Renderer<a class="headerlink" href="#renderer" title="永久链接至标题">¶</a></h2>
+<p>After the token stream is generated, it’s passed to a <a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/renderer.py">renderer</a>.
+It then plays all the tokens, passing each to a rule with the same name as token type.</p>
+<p>Renderer rules are located in <code class="docutils literal notranslate"><span class="pre">md.renderer.rules[name]</span></code> and are simple functions
+with the same signature:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">htmlResult</span>
+</pre></div>
+</div>
+<p>In many cases that allows easy output change even without parser intrusion.
+For example, let’s replace images with vimeo links to player’s iframe:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">)</span>
+
+<span class="n">vimeoRE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^https?:\/\/(www\.)?vimeo.com\/(\d+)($|\/)&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">render_vimeo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">vimeoRE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;src&quot;</span><span class="p">]):</span>
+
+        <span class="n">ident</span> <span class="o">=</span> <span class="n">vimeoRE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;src&quot;</span><span class="p">])[</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span>
+               <span class="s1">&#39;  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;//player.vimeo.com/video/&#39;</span> <span class="o">+</span>
+                <span class="n">ident</span> <span class="o">+</span> <span class="s1">&#39;&quot;&gt;&lt;/iframe&gt;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span>
+               <span class="s1">&#39;&lt;/div&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">)</span>
+<span class="n">md</span><span class="o">.</span><span class="n">add_render_rule</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">render_vimeo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;![](https://www.vimeo.com/123)&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Here is another example, how to add <code class="docutils literal notranslate"><span class="pre">target=&quot;_blank&quot;</span></code> to all links:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it</span> <span class="kn">import</span> <span class="n">MarkdownIt</span>
+
+<span class="k">def</span> <span class="nf">render_blank_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+    <span class="n">tokens</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">attrSet</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="s2">&quot;_blank&quot;</span><span class="p">)</span>
+
+    <span class="c1"># pass token to default renderer.</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">renderToken</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">)</span>
+<span class="n">md</span><span class="o">.</span><span class="n">add_render_rule</span><span class="p">(</span><span class="s2">&quot;link_open&quot;</span><span class="p">,</span> <span class="n">render_blank_link</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;[a]</span><span class="se">\n\n</span><span class="s2">[a]: b&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Note, if you need to add attributes, you can do things without renderer override.
+For example, you can update tokens in <code class="docutils literal notranslate"><span class="pre">core</span></code> chain. That is slower, than direct
+renderer override, but can be more simple.</p>
+<p>You also can write your own renderer to generate other formats than HTML, such as
+JSON/XML… You can even use it to generate AST.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="永久链接至标题">¶</a></h2>
+<p>This was mentioned in <a class="reference external" href="#data-flow">Data flow</a>, but let’s repeat sequence again:</p>
+<ol class="simple">
+<li><p>Blocks are parsed, and top level of token stream filled with block tokens.</p></li>
+<li><p>Content on inline containers is parsed, filling <code class="docutils literal notranslate"><span class="pre">.children</span></code> properties.</p></li>
+<li><p>Rendering happens.</p></li>
+</ol>
+<p>And somewhere between you can apply additional transformations :) . Full content
+of each chain can be seen on the top of
+<a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/parser_core.py">parser_core.py</a>,
+<a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/parser_block.py">parser_block.py</a> and
+<a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/parser_inline.py">parser_inline.py</a>
+files.</p>
+<p>Also you can change output directly in <a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/renderer.py">renderer</a> for many simple cases.</p>
 </div>
 </div>
 
@@ -654,11 +758,18 @@ It is very simple to write complimentary extensions for both language implementa
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="using.html" title="下一页 页">
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="using.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">Using <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="other.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">Using <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code></p>
+        <p class="prev-next-title">Security</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

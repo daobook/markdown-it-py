@@ -1,0 +1,7 @@
+markdown\_it.rules\_core.state\_core module
+===========================================
+
+.. automodule:: markdown_it.rules_core.state_core
+   :members:
+   :undoc-members:
+   :show-inheritance:

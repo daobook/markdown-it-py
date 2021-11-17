@@ -1,0 +1,7 @@
+markdown\_it.cli.parse module
+=============================
+
+.. automodule:: markdown_it.cli.parse
+   :members:
+   :undoc-members:
+   :show-inheritance:

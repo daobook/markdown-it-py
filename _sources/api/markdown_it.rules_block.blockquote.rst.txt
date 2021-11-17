@@ -1,0 +1,7 @@
+markdown\_it.rules\_block.blockquote module
+===========================================
+
+.. automodule:: markdown_it.rules_block.blockquote
+   :members:
+   :undoc-members:
+   :show-inheritance:

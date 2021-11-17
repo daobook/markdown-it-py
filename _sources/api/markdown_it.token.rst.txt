@@ -1,0 +1,7 @@
+markdown\_it.token module
+=========================
+
+.. automodule:: markdown_it.token
+   :members:
+   :undoc-members:
+   :show-inheritance:

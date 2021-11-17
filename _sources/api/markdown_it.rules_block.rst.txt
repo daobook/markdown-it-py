@@ -1,0 +1,26 @@
+markdown\_it.rules\_block package
+=================================
+
+.. automodule:: markdown_it.rules_block
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   markdown_it.rules_block.blockquote
+   markdown_it.rules_block.code
+   markdown_it.rules_block.fence
+   markdown_it.rules_block.heading
+   markdown_it.rules_block.hr
+   markdown_it.rules_block.html_block
+   markdown_it.rules_block.lheading
+   markdown_it.rules_block.list
+   markdown_it.rules_block.paragraph
+   markdown_it.rules_block.reference
+   markdown_it.rules_block.state_block
+   markdown_it.rules_block.table

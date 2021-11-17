@@ -1,0 +1,7 @@
+markdown\_it.common.html\_blocks module
+=======================================
+
+.. automodule:: markdown_it.common.html_blocks
+   :members:
+   :undoc-members:
+   :show-inheritance:

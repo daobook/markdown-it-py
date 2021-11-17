@@ -1,0 +1,7 @@
+markdown\_it.presets.default module
+===================================
+
+.. automodule:: markdown_it.presets.default
+   :members:
+   :undoc-members:
+   :show-inheritance:

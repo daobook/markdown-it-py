@@ -1,0 +1,7 @@
+markdown\_it.tree module
+========================
+
+.. automodule:: markdown_it.tree
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+markdown\_it.rules\_core.replacements module
+============================================
+
+.. automodule:: markdown_it.rules_core.replacements
+   :members:
+   :undoc-members:
+   :show-inheritance:

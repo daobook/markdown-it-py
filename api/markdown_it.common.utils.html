@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>markdown_it.common.utils module &#8212; markdown-it-py</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="markdown_it.helpers package" href="markdown_it.helpers.html" />
+    <link rel="prev" title="markdown_it.common.normalize_url module" href="markdown_it.common.normalize_url.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">markdown-it-py</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../using.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     markdown_it
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../architecture.html">
+   markdown-it design principles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../other.html">
+   Security
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../plugins.html">
+   Plugin extensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../contributing.html">
+   Contribute to markdown-it-py
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="markdown_it.html">
+   markdown_it package
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="markdown_it.cli.html">
+     markdown_it.cli package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.cli.parse.html">
+       markdown_it.cli.parse module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="markdown_it.common.html">
+     markdown_it.common package
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.common.entities.html">
+       markdown_it.common.entities module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.common.html_blocks.html">
+       markdown_it.common.html_blocks module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.common.html_re.html">
+       markdown_it.common.html_re module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.common.normalize_url.html">
+       markdown_it.common.normalize_url module
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       markdown_it.common.utils module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="markdown_it.helpers.html">
+     markdown_it.helpers package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.helpers.parse_link_destination.html">
+       markdown_it.helpers.parse_link_destination module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.helpers.parse_link_label.html">
+       markdown_it.helpers.parse_link_label module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.helpers.parse_link_title.html">
+       markdown_it.helpers.parse_link_title module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="markdown_it.presets.html">
+     markdown_it.presets package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.presets.commonmark.html">
+       markdown_it.presets.commonmark module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.presets.default.html">
+       markdown_it.presets.default module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.presets.zero.html">
+       markdown_it.presets.zero module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="markdown_it.rules_block.html">
+     markdown_it.rules_block package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.blockquote.html">
+       markdown_it.rules_block.blockquote module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.code.html">
+       markdown_it.rules_block.code module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.fence.html">
+       markdown_it.rules_block.fence module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.heading.html">
+       markdown_it.rules_block.heading module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.hr.html">
+       markdown_it.rules_block.hr module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.html_block.html">
+       markdown_it.rules_block.html_block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.lheading.html">
+       markdown_it.rules_block.lheading module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.list.html">
+       markdown_it.rules_block.list module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.paragraph.html">
+       markdown_it.rules_block.paragraph module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.reference.html">
+       markdown_it.rules_block.reference module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.state_block.html">
+       markdown_it.rules_block.state_block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_block.table.html">
+       markdown_it.rules_block.table module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="markdown_it.rules_core.html">
+     markdown_it.rules_core package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_core.block.html">
+       markdown_it.rules_core.block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_core.inline.html">
+       markdown_it.rules_core.inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_core.linkify.html">
+       markdown_it.rules_core.linkify module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_core.normalize.html">
+       markdown_it.rules_core.normalize module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_core.replacements.html">
+       markdown_it.rules_core.replacements module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_core.smartquotes.html">
+       markdown_it.rules_core.smartquotes module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_core.state_core.html">
+       markdown_it.rules_core.state_core module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="markdown_it.rules_inline.html">
+     markdown_it.rules_inline package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.autolink.html">
+       markdown_it.rules_inline.autolink module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.backticks.html">
+       markdown_it.rules_inline.backticks module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.balance_pairs.html">
+       markdown_it.rules_inline.balance_pairs module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.emphasis.html">
+       markdown_it.rules_inline.emphasis module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.entity.html">
+       markdown_it.rules_inline.entity module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.escape.html">
+       markdown_it.rules_inline.escape module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.html_inline.html">
+       markdown_it.rules_inline.html_inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.image.html">
+       markdown_it.rules_inline.image module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.link.html">
+       markdown_it.rules_inline.link module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.newline.html">
+       markdown_it.rules_inline.newline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.state_inline.html">
+       markdown_it.rules_inline.state_inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.strikethrough.html">
+       markdown_it.rules_inline.strikethrough module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.text.html">
+       markdown_it.rules_inline.text module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="markdown_it.rules_inline.text_collapse.html">
+       markdown_it.rules_inline.text_collapse module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown_it.main.html">
+     markdown_it.main module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown_it.parser_block.html">
+     markdown_it.parser_block module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown_it.parser_core.html">
+     markdown_it.parser_core module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown_it.parser_inline.html">
+     markdown_it.parser_inline module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown_it.renderer.html">
+     markdown_it.renderer module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown_it.ruler.html">
+     markdown_it.ruler module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown_it.token.html">
+     markdown_it.token module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown_it.tree.html">
+     markdown_it.tree module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown_it.utils.html">
+     markdown_it.utils module
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/api/markdown_it.common.utils.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/executablebooks/markdown-it-py/edit/master/docs/api/markdown_it.common.utils.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="module-markdown_it.common.utils">
+<span id="markdown-it-common-utils-module"></span><h1>markdown_it.common.utils module<a class="headerlink" href="#module-markdown_it.common.utils" title="永久链接至标题">¶</a></h1>
+<p>Utilities for parsing source text</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.arrayReplaceAt">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">arrayReplaceAt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#list" title="(在 Python v3.7)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(在 Python v3.7)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">newElements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#list" title="(在 Python v3.7)"><span class="pre">list</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#list" title="(在 Python v3.7)"><span class="pre">list</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#arrayReplaceAt"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.arrayReplaceAt" title="永久链接至目标">¶</a></dt>
+<dd><p>Remove element from array and put another array at those position.
+Useful for some operations with tokens</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.assign">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#assign"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.assign" title="永久链接至目标">¶</a></dt>
+<dd><p>Merge objects /<em>from1, from2, from3, …</em>/)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.charCodeAt">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">charCodeAt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(在 Python v3.7)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#charCodeAt"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.charCodeAt" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns the Unicode value of the character at the specified location.</p>
+<p>&#64;param - index The zero-based index of the desired character.
+If there is no character at the specified index, NaN is returned.</p>
+<p>This was added for compatibility with python</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.escapeHtml">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">escapeHtml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#escapeHtml"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.escapeHtml" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.escapeRE">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">escapeRE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#escapeRE"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.escapeRE" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.fromCodePoint">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">fromCodePoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(在 Python v3.7)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#fromCodePoint"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.fromCodePoint" title="永久链接至目标">¶</a></dt>
+<dd><p>Convert ordinal to unicode.</p>
+<p>Note, in the original Javascript two string characters were required,
+for codepoints larger than <cite>0xFFFF</cite>.
+But Python 3 can represent any unicode codepoint in one character.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.isMdAsciiPunct">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">isMdAsciiPunct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(在 Python v3.7)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#bool" title="(在 Python v3.7)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#isMdAsciiPunct"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.isMdAsciiPunct" title="永久链接至目标">¶</a></dt>
+<dd><p>Markdown ASCII punctuation characters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!, &quot;, #, $, %, &amp;, &#39;, (, ), *, +, ,, -, ., /, :, ;, &lt;, =, &gt;, ?, @, [, \, ], ^, _, `, {, |, }, or ~
+</pre></div>
+</div>
+<p>See <a class="reference external" href="http://spec.commonmark.org/0.15/#ascii-punctuation-character">http://spec.commonmark.org/0.15/#ascii-punctuation-character</a></p>
+<p>Don’t confuse with unicode punctuation !!! It lacks some chars in ascii range.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.isPunctChar">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">isPunctChar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#bool" title="(在 Python v3.7)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#isPunctChar"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.isPunctChar" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.isSpace">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">isSpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#object" title="(在 Python v3.7)"><span class="pre">object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#bool" title="(在 Python v3.7)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#isSpace"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.isSpace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.isString">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">isString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#object" title="(在 Python v3.7)"><span class="pre">object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#bool" title="(在 Python v3.7)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#isString"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.isString" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.isValidEntityCode">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">isValidEntityCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(在 Python v3.7)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#bool" title="(在 Python v3.7)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#isValidEntityCode"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.isValidEntityCode" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.isWhiteSpace">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">isWhiteSpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(在 Python v3.7)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#bool" title="(在 Python v3.7)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#isWhiteSpace"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.isWhiteSpace" title="永久链接至目标">¶</a></dt>
+<dd><p>Zs (unicode class) || [tfvrn]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.normalizeReference">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">normalizeReference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#normalizeReference"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.normalizeReference" title="永久链接至目标">¶</a></dt>
+<dd><p>Helper to unify [reference labels].</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.replaceEntityPattern">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">replaceEntityPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">match</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#replaceEntityPattern"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.replaceEntityPattern" title="永久链接至目标">¶</a></dt>
+<dd><p>Convert HTML entity patterns</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span> <span class="o">-&gt;</span> <span class="n">https</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.stripEscape">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">stripEscape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#stripEscape"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.stripEscape" title="永久链接至目标">¶</a></dt>
+<dd><p>Strip escape characters</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.unescapeAll">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">unescapeAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#unescapeAll"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.unescapeAll" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markdown_it.common.utils.unescapeMd">
+<span class="sig-prename descclassname"><span class="pre">markdown_it.common.utils.</span></span><span class="sig-name descname"><span class="pre">unescapeMd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(在 Python v3.7)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/markdown_it/common/utils.html#unescapeMd"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#markdown_it.common.utils.unescapeMd" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="markdown_it.common.normalize_url.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">markdown_it.common.normalize_url module</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="markdown_it.helpers.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">markdown_it.helpers package</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By executable book project<br/>
+        
+            &copy; Copyright 2020, executable book project.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

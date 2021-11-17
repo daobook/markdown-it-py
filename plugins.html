@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>markdown-it-py &#8212; markdown-it-py</title>
+    <title>Plugin extensions &#8212; markdown-it-py</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -44,7 +44,8 @@
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Using markdown_it" href="using.html" />
+    <link rel="next" title="Contribute to markdown-it-py" href="contributing.html" />
+    <link rel="prev" title="Security" href="other.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -64,7 +65,7 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="#">
+    <a class="navbar-brand text-wrap" href="index.html">
       
       
       
@@ -76,7 +77,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="using.html">
    Using
@@ -97,8 +98,8 @@
    Security
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plugins.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Plugin extensions
   </a>
  </li>
@@ -514,7 +515,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/index.md.txt"><button type="button"
+        <a class="dropdown-buttons" href="_sources/plugins.md.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -531,7 +532,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/executablebooks/markdown-it-py/edit/master/docs/index.md"><button
+        <a class="edit-button" href="https://github.com/executablebooks/markdown-it-py/edit/master/docs/plugins.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -551,24 +552,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references-thanks">
-   References &amp; Thanks
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#related-links">
-   Related Links
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -577,75 +560,46 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="markdown-it-py">
-<h1>markdown-it-py<a class="headerlink" href="#markdown-it-py" title="永久链接至标题">¶</a></h1>
-<blockquote>
-<div><p>Markdown parser done right.</p>
-</div></blockquote>
+  <div class="tex2jax_ignore mathjax_ignore section" id="plugin-extensions">
+<span id="md-plugins"></span><h1>Plugin extensions<a class="headerlink" href="#plugin-extensions" title="永久链接至标题">¶</a></h1>
+<p>The following plugins are embedded within the core package:</p>
 <ul class="simple">
-<li><p><span class="fa fa-check text-success mr-1"></span> Follows the <strong><a class="reference external" href="http://spec.commonmark.org/">CommonMark spec</a></strong> for baseline parsing</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> Configurable syntax: you can add new rules and even replace existing ones.</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> Pluggable: Adds syntax extensions to extend the parser (see the <a class="reference internal" href="plugins.html#md-plugins"><span class="std std-ref">plugin list</span></a>)</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> High speed (see our <a class="reference internal" href="other.html#md-performance"><span class="std std-ref">benchmarking tests</span></a>)</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="other.html#md-security"><span class="std std-ref">Safe by default</span></a></p></li>
+<li><p><a class="reference external" href="https://help.github.com/articles/organizing-information-with-tables/">tables</a> (GFM)</p></li>
+<li><p><a class="reference external" href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#styling-text">strikethrough</a> (GFM)</p></li>
 </ul>
-<p>For a good introduction to <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a> see the <strong><a class="reference external" href="https://markdown-it.github.io">Live demo</a></strong>.
-This is a Python port of the well used <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a>, and some of its associated plugins.
-The driving design philosophy of the port has been to change as little of the fundamental code structure (file names, function name, etc) as possible, just sprinkling in a little Python syntactical sugar ✨.
-It is very simple to write complimentary extensions for both language implementations!</p>
-<div class="section" id="references-thanks">
-<h2>References &amp; Thanks<a class="headerlink" href="#references-thanks" title="永久链接至标题">¶</a></h2>
-<p>Big thanks to the authors of <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a></p>
-<ul class="simple">
-<li><p>Alex Kocharin <a class="reference external" href="https://github.com/rlidwka">github/rlidwka</a></p></li>
-<li><p>Vitaly Puzrin <a class="reference external" href="https://github.com/puzrin">github/puzrin</a></p></li>
-</ul>
-<p>Also <a class="reference external" href="https://github.com/jgm">John MacFarlane</a> for his work on the CommonMark spec and reference implementations.</p>
+<p>These can be enabled individually:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it</span> <span class="kn">import</span> <span class="n">MarkdownIt</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="related-links">
-<h2>Related Links<a class="headerlink" href="#related-links" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/jgm/CommonMark">https://github.com/jgm/CommonMark</a> - reference CommonMark implementations in C &amp; JS, also contains latest spec &amp; online demo.</p></li>
-<li><p><a class="reference external" href="http://talk.commonmark.org">http://talk.commonmark.org</a> - CommonMark forum, good place to collaborate developers’ efforts.</p></li>
-</ul>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="using.html">Using <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="using.html#quick-start">Quick-Start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#the-parser">The Parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#the-token-stream">The Token Stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#renderers">Renderers</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">markdown-it design principles</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#data-flow">Data flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#token-stream">Token stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#rules">Rules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#renderer">Renderer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#summary">Summary</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="other.html">Security</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="other.html#plugins">Plugins</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="other.html#performance">Performance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin extensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribute to markdown-it-py</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#development-guidance">Development guidance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-style">Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#contributing-a-plugin">Contributing a plugin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#faq">FAQ</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/markdown_it.html">markdown_it package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/markdown_it.html#subpackages">Subpackages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/markdown_it.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
+<p>or as part of a configuration:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it</span> <span class="kn">import</span> <span class="n">MarkdownIt</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;gfm-like&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<p>See <a class="reference internal" href="using.html"><span class="doc std std-doc">Using markdown_it</span></a></p>
+</div>
+<p>Many other plugins are then available <em>via</em> the <code class="docutils literal notranslate"><span class="pre">mdit-py-plugins</span></code> package, including:</p>
+<ul class="simple">
+<li><p>Front-matter</p></li>
+<li><p>Footnotes</p></li>
+<li><p>Definition lists</p></li>
+<li><p>Task lists</p></li>
+<li><p>Heading anchors</p></li>
+<li><p>LaTeX math</p></li>
+<li><p>Containers</p></li>
+<li><p>Word count</p></li>
+</ul>
+<p>For full information see: <a class="reference external" href="https://mdit-py-plugins.readthedocs.io">https://mdit-py-plugins.readthedocs.io</a></p>
+<p>Or you can write them yourself!</p>
+<p>They can be chained and loaded <em>via</em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it</span> <span class="kn">import</span> <span class="n">MarkdownIt</span>
+<span class="kn">from</span> <span class="nn">mdit_py_plugins</span> <span class="kn">import</span> <span class="n">plugin1</span><span class="p">,</span> <span class="n">plugin2</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">()</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">plugin1</span><span class="p">,</span> <span class="n">keyword</span><span class="o">=</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">plugin2</span><span class="p">,</span> <span class="n">keyword</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+<span class="n">html_string</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;some *Markdown*&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 
@@ -654,11 +608,18 @@ It is very simple to write complimentary extensions for both language implementa
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="using.html" title="下一页 页">
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="other.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">Security</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="contributing.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">Using <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code></p>
+        <p class="prev-next-title">Contribute to markdown-it-py</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

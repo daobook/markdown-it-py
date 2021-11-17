@@ -1,0 +1,7 @@
+markdown\_it.rules\_block.heading module
+========================================
+
+.. automodule:: markdown_it.rules_block.heading
+   :members:
+   :undoc-members:
+   :show-inheritance:

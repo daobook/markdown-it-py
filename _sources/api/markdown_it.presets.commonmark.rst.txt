@@ -1,0 +1,7 @@
+markdown\_it.presets.commonmark module
+======================================
+
+.. automodule:: markdown_it.presets.commonmark
+   :members:
+   :undoc-members:
+   :show-inheritance:

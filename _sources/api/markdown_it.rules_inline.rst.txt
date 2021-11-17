@@ -1,0 +1,28 @@
+markdown\_it.rules\_inline package
+==================================
+
+.. automodule:: markdown_it.rules_inline
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   markdown_it.rules_inline.autolink
+   markdown_it.rules_inline.backticks
+   markdown_it.rules_inline.balance_pairs
+   markdown_it.rules_inline.emphasis
+   markdown_it.rules_inline.entity
+   markdown_it.rules_inline.escape
+   markdown_it.rules_inline.html_inline
+   markdown_it.rules_inline.image
+   markdown_it.rules_inline.link
+   markdown_it.rules_inline.newline
+   markdown_it.rules_inline.state_inline
+   markdown_it.rules_inline.strikethrough
+   markdown_it.rules_inline.text
+   markdown_it.rules_inline.text_collapse

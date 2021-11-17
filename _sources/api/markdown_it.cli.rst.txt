@@ -1,0 +1,15 @@
+markdown\_it.cli package
+========================
+
+.. automodule:: markdown_it.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   markdown_it.cli.parse

@@ -1,0 +1,1367 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using markdown_it &#8212; markdown-it-py</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="markdown-it design principles" href="architecture.html" />
+    <link rel="prev" title="markdown-it-py" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">markdown-it-py</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     markdown_it
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="architecture.html">
+   markdown-it design principles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="other.html">
+   Security
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plugins.html">
+   Plugin extensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="contributing.html">
+   Contribute to markdown-it-py
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="api/markdown_it.html">
+   markdown_it package
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api/markdown_it.cli.html">
+     markdown_it.cli package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.cli.parse.html">
+       markdown_it.cli.parse module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api/markdown_it.common.html">
+     markdown_it.common package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.common.entities.html">
+       markdown_it.common.entities module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.common.html_blocks.html">
+       markdown_it.common.html_blocks module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.common.html_re.html">
+       markdown_it.common.html_re module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.common.normalize_url.html">
+       markdown_it.common.normalize_url module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.common.utils.html">
+       markdown_it.common.utils module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api/markdown_it.helpers.html">
+     markdown_it.helpers package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.helpers.parse_link_destination.html">
+       markdown_it.helpers.parse_link_destination module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.helpers.parse_link_label.html">
+       markdown_it.helpers.parse_link_label module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.helpers.parse_link_title.html">
+       markdown_it.helpers.parse_link_title module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api/markdown_it.presets.html">
+     markdown_it.presets package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.presets.commonmark.html">
+       markdown_it.presets.commonmark module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.presets.default.html">
+       markdown_it.presets.default module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.presets.zero.html">
+       markdown_it.presets.zero module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api/markdown_it.rules_block.html">
+     markdown_it.rules_block package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.blockquote.html">
+       markdown_it.rules_block.blockquote module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.code.html">
+       markdown_it.rules_block.code module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.fence.html">
+       markdown_it.rules_block.fence module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.heading.html">
+       markdown_it.rules_block.heading module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.hr.html">
+       markdown_it.rules_block.hr module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.html_block.html">
+       markdown_it.rules_block.html_block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.lheading.html">
+       markdown_it.rules_block.lheading module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.list.html">
+       markdown_it.rules_block.list module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.paragraph.html">
+       markdown_it.rules_block.paragraph module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.reference.html">
+       markdown_it.rules_block.reference module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.state_block.html">
+       markdown_it.rules_block.state_block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_block.table.html">
+       markdown_it.rules_block.table module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api/markdown_it.rules_core.html">
+     markdown_it.rules_core package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_core.block.html">
+       markdown_it.rules_core.block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_core.inline.html">
+       markdown_it.rules_core.inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_core.linkify.html">
+       markdown_it.rules_core.linkify module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_core.normalize.html">
+       markdown_it.rules_core.normalize module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_core.replacements.html">
+       markdown_it.rules_core.replacements module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_core.smartquotes.html">
+       markdown_it.rules_core.smartquotes module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_core.state_core.html">
+       markdown_it.rules_core.state_core module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api/markdown_it.rules_inline.html">
+     markdown_it.rules_inline package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.autolink.html">
+       markdown_it.rules_inline.autolink module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.backticks.html">
+       markdown_it.rules_inline.backticks module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.balance_pairs.html">
+       markdown_it.rules_inline.balance_pairs module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.emphasis.html">
+       markdown_it.rules_inline.emphasis module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.entity.html">
+       markdown_it.rules_inline.entity module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.escape.html">
+       markdown_it.rules_inline.escape module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.html_inline.html">
+       markdown_it.rules_inline.html_inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.image.html">
+       markdown_it.rules_inline.image module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.link.html">
+       markdown_it.rules_inline.link module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.newline.html">
+       markdown_it.rules_inline.newline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.state_inline.html">
+       markdown_it.rules_inline.state_inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.strikethrough.html">
+       markdown_it.rules_inline.strikethrough module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.text.html">
+       markdown_it.rules_inline.text module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/markdown_it.rules_inline.text_collapse.html">
+       markdown_it.rules_inline.text_collapse module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/markdown_it.main.html">
+     markdown_it.main module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/markdown_it.parser_block.html">
+     markdown_it.parser_block module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/markdown_it.parser_core.html">
+     markdown_it.parser_core module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/markdown_it.parser_inline.html">
+     markdown_it.parser_inline module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/markdown_it.renderer.html">
+     markdown_it.renderer module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/markdown_it.ruler.html">
+     markdown_it.ruler module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/markdown_it.token.html">
+     markdown_it.token module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/markdown_it.tree.html">
+     markdown_it.tree module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/markdown_it.utils.html">
+     markdown_it.utils module
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/using.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/executablebooks/markdown-it-py/edit/master/docs/using.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quick-start">
+   Quick-Start
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-parser">
+   The Parser
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#typographic-components">
+     Typographic components
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linkify">
+     Linkify
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plugins-load">
+     Plugins load
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-token-stream">
+   The Token Stream
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-syntax-tree">
+     Creating a syntax tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#renderers">
+   Renderers
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="using-markdown-it">
+<h1>Using <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code><a class="headerlink" href="#using-markdown-it" title="永久链接至标题">¶</a></h1>
+<blockquote>
+<div><p>This document can be opened to execute with <a class="reference external" href="https://jupytext.readthedocs.io">Jupytext</a>!</p>
+</div></blockquote>
+<p>markdown-it-py may be used as an API <em>via</em> the <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code> package.</p>
+<p>The raw text is first parsed to syntax ‘tokens’,
+then these are converted to other formats using ‘renderers’.</p>
+<div class="section" id="quick-start">
+<h2>Quick-Start<a class="headerlink" href="#quick-start" title="永久链接至标题">¶</a></h2>
+<p>The simplest way to understand how text will be parsed is using:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">markdown_it</span> <span class="kn">import</span> <span class="n">MarkdownIt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">()</span>
+<span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;some *text*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;p&gt;some &lt;em&gt;text&lt;/em&gt;&lt;/p&gt;\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">md</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;some *text*&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Token(type=&#39;paragraph_open&#39;, tag=&#39;p&#39;, nesting=1, attrs={}, map=[0, 1], level=0, children=None, content=&#39;&#39;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=True, hidden=False)
+
+Token(type=&#39;inline&#39;, tag=&#39;&#39;, nesting=0, attrs={}, map=[0, 1], level=1, children=[Token(type=&#39;text&#39;, tag=&#39;&#39;, nesting=0, attrs={}, map=None, level=0, children=None, content=&#39;some &#39;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False), Token(type=&#39;em_open&#39;, tag=&#39;em&#39;, nesting=1, attrs={}, map=None, level=0, children=None, content=&#39;&#39;, markup=&#39;*&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False), Token(type=&#39;text&#39;, tag=&#39;&#39;, nesting=0, attrs={}, map=None, level=1, children=None, content=&#39;text&#39;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False), Token(type=&#39;em_close&#39;, tag=&#39;em&#39;, nesting=-1, attrs={}, map=None, level=0, children=None, content=&#39;&#39;, markup=&#39;*&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False)], content=&#39;some *text*&#39;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=True, hidden=False)
+
+Token(type=&#39;paragraph_close&#39;, tag=&#39;p&#39;, nesting=-1, attrs={}, map=None, level=0, children=None, content=&#39;&#39;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=True, hidden=False)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-parser">
+<h2>The Parser<a class="headerlink" href="#the-parser" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">MarkdownIt</span></code> class is instantiated with parsing configuration options,
+dictating the syntax rules and additional options for the parser and renderer.
+You can define this configuration <em>via</em> directly supplying a dictionary or a preset name:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zero</span></code>: This configures the minimum components to parse text (i.e. just paragraphs and text)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">commonmark</span></code> (default): This configures the parser to strictly comply with the <a class="reference external" href="http://spec.commonmark.org/">CommonMark specification</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">js-default</span></code>: This is the default in the JavaScript version.
+Compared to <code class="docutils literal notranslate"><span class="pre">commonmark</span></code>, it disables HTML parsing and enables the table and strikethrough components.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gfm-like</span></code>: This configures the parser to approximately comply with the <a class="reference external" href="https://github.github.com/gfm/">GitHub Flavored Markdown specification</a>.
+Compared to <code class="docutils literal notranslate"><span class="pre">commonmark</span></code>, it enables the table, strikethrough and linkify components.
+<strong>Important</strong>, to use this configuration you must have <code class="docutils literal notranslate"><span class="pre">linkify-it-py</span></code> installed.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it.presets</span> <span class="kn">import</span> <span class="n">zero</span>
+<span class="n">zero</span><span class="o">.</span><span class="n">make</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;options&#39;: {&#39;maxNesting&#39;: 20,
+  &#39;html&#39;: False,
+  &#39;linkify&#39;: False,
+  &#39;typographer&#39;: False,
+  &#39;quotes&#39;: &#39;“”‘’&#39;,
+  &#39;xhtmlOut&#39;: False,
+  &#39;breaks&#39;: False,
+  &#39;langPrefix&#39;: &#39;language-&#39;,
+  &#39;highlight&#39;: None},
+ &#39;components&#39;: {&#39;core&#39;: {&#39;rules&#39;: [&#39;normalize&#39;, &#39;block&#39;, &#39;inline&#39;]},
+  &#39;block&#39;: {&#39;rules&#39;: [&#39;paragraph&#39;]},
+  &#39;inline&#39;: {&#39;rules&#39;: [&#39;text&#39;], &#39;rules2&#39;: [&#39;balance_pairs&#39;, &#39;text_collapse&#39;]}}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;zero&quot;</span><span class="p">)</span>
+<span class="n">md</span><span class="o">.</span><span class="n">options</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;maxNesting&#39;: 20,
+ &#39;html&#39;: False,
+ &#39;linkify&#39;: False,
+ &#39;typographer&#39;: False,
+ &#39;quotes&#39;: &#39;“”‘’&#39;,
+ &#39;xhtmlOut&#39;: False,
+ &#39;breaks&#39;: False,
+ &#39;langPrefix&#39;: &#39;language-&#39;,
+ &#39;highlight&#39;: None}
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also override specific options:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;maxNesting&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">})</span>
+<span class="n">md</span><span class="o">.</span><span class="n">options</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;maxNesting&#39;: 99,
+ &#39;html&#39;: False,
+ &#39;linkify&#39;: False,
+ &#39;typographer&#39;: False,
+ &#39;quotes&#39;: &#39;“”‘’&#39;,
+ &#39;xhtmlOut&#39;: False,
+ &#39;breaks&#39;: False,
+ &#39;langPrefix&#39;: &#39;language-&#39;,
+ &#39;highlight&#39;: None}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">get_active_rules</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;block&#39;: [&#39;paragraph&#39;],
+ &#39;core&#39;: [&#39;normalize&#39;, &#39;block&#39;, &#39;inline&#39;],
+ &#39;inline&#39;: [&#39;text&#39;],
+ &#39;inline2&#39;: [&#39;balance_pairs&#39;, &#39;text_collapse&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can find all the parsing rules in the source code:
+<code class="docutils literal notranslate"><span class="pre">parser_core.py</span></code>, <code class="docutils literal notranslate"><span class="pre">parser_block.py</span></code>,
+<code class="docutils literal notranslate"><span class="pre">parser_inline.py</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">get_all_rules</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;block&#39;: [&#39;table&#39;,
+           &#39;code&#39;,
+           &#39;fence&#39;,
+           &#39;blockquote&#39;,
+           &#39;hr&#39;,
+           &#39;list&#39;,
+           &#39;reference&#39;,
+           &#39;html_block&#39;,
+           &#39;heading&#39;,
+           &#39;lheading&#39;,
+           &#39;paragraph&#39;],
+ &#39;core&#39;: [&#39;normalize&#39;,
+          &#39;block&#39;,
+          &#39;inline&#39;,
+          &#39;linkify&#39;,
+          &#39;replacements&#39;,
+          &#39;smartquotes&#39;],
+ &#39;inline&#39;: [&#39;text&#39;,
+            &#39;newline&#39;,
+            &#39;escape&#39;,
+            &#39;backticks&#39;,
+            &#39;strikethrough&#39;,
+            &#39;emphasis&#39;,
+            &#39;link&#39;,
+            &#39;image&#39;,
+            &#39;autolink&#39;,
+            &#39;html_inline&#39;,
+            &#39;entity&#39;],
+ &#39;inline2&#39;: [&#39;balance_pairs&#39;, &#39;strikethrough&#39;, &#39;emphasis&#39;, &#39;text_collapse&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Any of the parsing rules can be enabled/disabled, and these methods are “chainable”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;- __*emphasise this*__&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;p&gt;- __*emphasise this*__&lt;/p&gt;\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span><span class="o">.</span><span class="n">enable</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;emphasis&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;- __*emphasise this*__&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;&lt;em&gt;emphasise this&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can temporarily modify rules with the <code class="docutils literal notranslate"><span class="pre">reset_rules</span></code> context manager.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">md</span><span class="o">.</span><span class="n">reset_rules</span><span class="p">():</span>
+    <span class="n">md</span><span class="o">.</span><span class="n">disable</span><span class="p">(</span><span class="s2">&quot;emphasis&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;__*emphasise this*__&quot;</span><span class="p">))</span>
+<span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;__*emphasise this*__&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p&gt;__*emphasise this*__&lt;/p&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;p&gt;&lt;strong&gt;&lt;em&gt;emphasise this&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Additionally <code class="docutils literal notranslate"><span class="pre">renderInline</span></code> runs the parser with all block syntax rules disabled.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span><span class="o">.</span><span class="n">renderInline</span><span class="p">(</span><span class="s2">&quot;__*emphasise this*__&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;strong&gt;&lt;em&gt;emphasise this&lt;/em&gt;&lt;/strong&gt;&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="typographic-components">
+<h3>Typographic components<a class="headerlink" href="#typographic-components" title="永久链接至标题">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">smartquotes</span></code> and <code class="docutils literal notranslate"><span class="pre">replacements</span></code> components are intended to improve typography:</p>
+<p><code class="docutils literal notranslate"><span class="pre">smartquotes</span></code> will convert basic quote marks to their opening and closing variants:</p>
+<ul class="simple">
+<li><p>‘single quotes’ -&gt; ‘single quotes’</p></li>
+<li><p>“double quotes” -&gt; “double quotes”</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">replacements</span></code> will replace particular text constructs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(c)</span></code>, <code class="docutils literal notranslate"><span class="pre">(C)</span></code> → ©</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(tm)</span></code>, <code class="docutils literal notranslate"><span class="pre">(TM)</span></code> → ™</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(r)</span></code>, <code class="docutils literal notranslate"><span class="pre">(R)</span></code> → ®</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(p)</span></code>, <code class="docutils literal notranslate"><span class="pre">(P)</span></code> → §</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+-</span></code> → ±</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">...</span></code> → …</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?....</span></code> → ?..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!....</span></code> → !..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">????????</span></code> → ???</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!!!!!</span></code> → !!!</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">,,,</span></code> → ,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--</span></code> → &amp;ndash</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">---</span></code> → &amp;mdash</p></li>
+</ul>
+<p>Both of these components require typography to be turned on, as well as the components enabled:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;typographer&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+<span class="n">md</span><span class="o">.</span><span class="n">enable</span><span class="p">([</span><span class="s2">&quot;replacements&quot;</span><span class="p">,</span> <span class="s2">&quot;smartquotes&quot;</span><span class="p">])</span>
+<span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;&#39;single quotes&#39; (c)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;p&gt;‘single quotes’ ©&lt;/p&gt;\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="linkify">
+<h3>Linkify<a class="headerlink" href="#linkify" title="永久链接至标题">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">linkify</span></code> component requires that <a class="reference external" href="https://github.com/tsutsu3/linkify-it-py">linkify-it-py</a> be installed (e.g. <em>via</em> <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">markdown-it-py[linkify]</span></code>).
+This allows URI autolinks to be identified, without the need for enclosing in <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> brackets:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;linkify&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+<span class="n">md</span><span class="o">.</span><span class="n">enable</span><span class="p">([</span><span class="s2">&quot;linkify&quot;</span><span class="p">])</span>
+<span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;github.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;p&gt;&lt;a href=&quot;http://github.com&quot;&gt;github.com&lt;/a&gt;&lt;/p&gt;\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plugins-load">
+<h3>Plugins load<a class="headerlink" href="#plugins-load" title="永久链接至标题">¶</a></h3>
+<p>Plugins load collections of additional syntax rules and render methods into the parser.
+A number of useful plugins are available in <a class="reference external" href="https://github.com/executablebooks/mdit-py-plugins"><code class="docutils literal notranslate"><span class="pre">mdit_py_plugins</span></code></a> (see <a class="reference internal" href="plugins.html"><span class="doc std std-doc">the plugin list</span></a>),
+or you can create your own (following the <a class="reference internal" href="architecture.html"><span class="doc std std-doc">markdown-it design principles</span></a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it</span> <span class="kn">import</span> <span class="n">MarkdownIt</span>
+<span class="kn">import</span> <span class="nn">mdit_py_plugins</span>
+<span class="kn">from</span> <span class="nn">mdit_py_plugins.front_matter</span> <span class="kn">import</span> <span class="n">front_matter_plugin</span>
+<span class="kn">from</span> <span class="nn">mdit_py_plugins.footnote</span> <span class="kn">import</span> <span class="n">footnote_plugin</span>
+
+<span class="n">md</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">MarkdownIt</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">front_matter_plugin</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">footnote_plugin</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">---</span>
+<span class="s2">a: 1</span>
+<span class="s2">---</span>
+
+<span class="s2">a | b</span>
+<span class="s2">- | -</span>
+<span class="s2">1 | 2</span>
+
+<span class="s2">A footnote [^1]</span>
+
+<span class="s2">[^1]: some details</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;hr /&gt;\n&lt;h2&gt;a: 1&lt;/h2&gt;\n&lt;p&gt;a | b&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;| -\n1 | 2&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;A footnote &lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn1&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;\n&lt;hr class=&quot;footnotes-sep&quot; /&gt;\n&lt;section class=&quot;footnotes&quot;&gt;\n&lt;ol class=&quot;footnotes-list&quot;&gt;\n&lt;li id=&quot;fn1&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;some details &lt;a href=&quot;#fnref1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ol&gt;\n&lt;/section&gt;\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-token-stream">
+<h2>The Token Stream<a class="headerlink" href="#the-token-stream" title="永久链接至标题">¶</a></h2>
+<p>Before rendering, the text is parsed to a flat token stream of block level syntax elements, with nesting defined by opening (1) and closing (-1) attributes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Here&#39;s some *text*</span>
+
+<span class="s2">1. a list</span>
+
+<span class="s2">&gt; a *quote*&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">nesting</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;paragraph_open&#39;, 1),
+ (&#39;inline&#39;, 0),
+ (&#39;paragraph_close&#39;, -1),
+ (&#39;ordered_list_open&#39;, 1),
+ (&#39;list_item_open&#39;, 1),
+ (&#39;paragraph_open&#39;, 1),
+ (&#39;inline&#39;, 0),
+ (&#39;paragraph_close&#39;, -1),
+ (&#39;list_item_close&#39;, -1),
+ (&#39;ordered_list_close&#39;, -1),
+ (&#39;blockquote_open&#39;, 1),
+ (&#39;paragraph_open&#39;, 1),
+ (&#39;inline&#39;, 0),
+ (&#39;paragraph_close&#39;, -1),
+ (&#39;blockquote_close&#39;, -1)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Naturally all openings should eventually be closed,
+such that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">nesting</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>All tokens are the same class, which can also be created outside the parser:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Token(type=&#39;paragraph_open&#39;, tag=&#39;p&#39;, nesting=1, attrs={}, map=[1, 2], level=0, children=None, content=&#39;&#39;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=True, hidden=False)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it.token</span> <span class="kn">import</span> <span class="n">Token</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">Token</span><span class="p">(</span><span class="s2">&quot;paragraph_open&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">map</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">token</span> <span class="o">==</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">'inline'</span></code> type token contain the inline tokens as children:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Token(type=&#39;inline&#39;, tag=&#39;&#39;, nesting=0, attrs={}, map=[1, 2], level=1, children=[Token(type=&#39;text&#39;, tag=&#39;&#39;, nesting=0, attrs={}, map=None, level=0, children=None, content=&quot;Here&#39;s some &quot;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False), Token(type=&#39;em_open&#39;, tag=&#39;em&#39;, nesting=1, attrs={}, map=None, level=0, children=None, content=&#39;&#39;, markup=&#39;*&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False), Token(type=&#39;text&#39;, tag=&#39;&#39;, nesting=0, attrs={}, map=None, level=1, children=None, content=&#39;text&#39;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False), Token(type=&#39;em_close&#39;, tag=&#39;em&#39;, nesting=-1, attrs={}, map=None, level=0, children=None, content=&#39;&#39;, markup=&#39;*&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False)], content=&quot;Here&#39;s some *text*&quot;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=True, hidden=False)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can serialize a token (and its children) to a JSONable dictionary using:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">as_dict</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;type&#39;: &#39;inline&#39;, &#39;tag&#39;: &#39;&#39;, &#39;nesting&#39;: 0, &#39;attrs&#39;: None, &#39;map&#39;: [1, 2], &#39;level&#39;: 1, &#39;children&#39;: [{&#39;type&#39;: &#39;text&#39;, &#39;tag&#39;: &#39;&#39;, &#39;nesting&#39;: 0, &#39;attrs&#39;: None, &#39;map&#39;: None, &#39;level&#39;: 0, &#39;children&#39;: None, &#39;content&#39;: &quot;Here&#39;s some &quot;, &#39;markup&#39;: &#39;&#39;, &#39;info&#39;: &#39;&#39;, &#39;meta&#39;: {}, &#39;block&#39;: False, &#39;hidden&#39;: False}, {&#39;type&#39;: &#39;em_open&#39;, &#39;tag&#39;: &#39;em&#39;, &#39;nesting&#39;: 1, &#39;attrs&#39;: None, &#39;map&#39;: None, &#39;level&#39;: 0, &#39;children&#39;: None, &#39;content&#39;: &#39;&#39;, &#39;markup&#39;: &#39;*&#39;, &#39;info&#39;: &#39;&#39;, &#39;meta&#39;: {}, &#39;block&#39;: False, &#39;hidden&#39;: False}, {&#39;type&#39;: &#39;text&#39;, &#39;tag&#39;: &#39;&#39;, &#39;nesting&#39;: 0, &#39;attrs&#39;: None, &#39;map&#39;: None, &#39;level&#39;: 1, &#39;children&#39;: None, &#39;content&#39;: &#39;text&#39;, &#39;markup&#39;: &#39;&#39;, &#39;info&#39;: &#39;&#39;, &#39;meta&#39;: {}, &#39;block&#39;: False, &#39;hidden&#39;: False}, {&#39;type&#39;: &#39;em_close&#39;, &#39;tag&#39;: &#39;em&#39;, &#39;nesting&#39;: -1, &#39;attrs&#39;: None, &#39;map&#39;: None, &#39;level&#39;: 0, &#39;children&#39;: None, &#39;content&#39;: &#39;&#39;, &#39;markup&#39;: &#39;*&#39;, &#39;info&#39;: &#39;&#39;, &#39;meta&#39;: {}, &#39;block&#39;: False, &#39;hidden&#39;: False}], &#39;content&#39;: &quot;Here&#39;s some *text*&quot;, &#39;markup&#39;: &#39;&#39;, &#39;info&#39;: &#39;&#39;, &#39;meta&#39;: {}, &#39;block&#39;: True, &#39;hidden&#39;: False}
+</pre></div>
+</div>
+</div>
+</div>
+<p>This dictionary can also be deserialized:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Token</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">as_dict</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Token(type=&#39;inline&#39;, tag=&#39;&#39;, nesting=0, attrs={}, map=[1, 2], level=1, children=[Token(type=&#39;text&#39;, tag=&#39;&#39;, nesting=0, attrs={}, map=None, level=0, children=None, content=&quot;Here&#39;s some &quot;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False), Token(type=&#39;em_open&#39;, tag=&#39;em&#39;, nesting=1, attrs={}, map=None, level=0, children=None, content=&#39;&#39;, markup=&#39;*&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False), Token(type=&#39;text&#39;, tag=&#39;&#39;, nesting=0, attrs={}, map=None, level=1, children=None, content=&#39;text&#39;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False), Token(type=&#39;em_close&#39;, tag=&#39;em&#39;, nesting=-1, attrs={}, map=None, level=0, children=None, content=&#39;&#39;, markup=&#39;*&#39;, info=&#39;&#39;, meta={}, block=False, hidden=False)], content=&quot;Here&#39;s some *text*&quot;, markup=&#39;&#39;, info=&#39;&#39;, meta={}, block=True, hidden=False)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-syntax-tree">
+<h3>Creating a syntax tree<a class="headerlink" href="#creating-a-syntax-tree" title="永久链接至标题">¶</a></h3>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 0.7.0 版更改: </span><code class="docutils literal notranslate"><span class="pre">nest_tokens</span></code> and <code class="docutils literal notranslate"><span class="pre">NestedTokens</span></code> are deprecated and replaced by <code class="docutils literal notranslate"><span class="pre">SyntaxTreeNode</span></code>.</p>
+</div>
+<p>In some use cases it may be useful to convert the token stream into a syntax tree,
+with opening/closing tokens collapsed into a single token that contains children.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it.tree</span> <span class="kn">import</span> <span class="n">SyntaxTreeNode</span>
+
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2"># Header</span>
+
+<span class="s2">Here&#39;s some text and an image ![title](image.png)</span>
+
+<span class="s2">1. a **list**</span>
+
+<span class="s2">&gt; a *quote*</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">node</span> <span class="o">=</span> <span class="n">SyntaxTreeNode</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">pretty</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">show_text</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;root&gt;
+  &lt;heading&gt;
+    &lt;inline&gt;
+      &lt;text&gt;
+        Header
+  &lt;paragraph&gt;
+    &lt;inline&gt;
+      &lt;text&gt;
+        Here&#39;s some text and an image 
+      &lt;image src=&#39;image.png&#39; alt=&#39;&#39;&gt;
+        &lt;text&gt;
+          title
+  &lt;ordered_list&gt;
+    &lt;list_item&gt;
+      &lt;paragraph&gt;
+        &lt;inline&gt;
+          &lt;text&gt;
+            a 
+          &lt;strong&gt;
+            &lt;text&gt;
+              list
+          &lt;text&gt;
+  &lt;blockquote&gt;
+    &lt;paragraph&gt;
+      &lt;inline&gt;
+        &lt;text&gt;
+          a 
+        &lt;em&gt;
+          &lt;text&gt;
+            quote
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can then use methods to traverse the tree</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">children</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[SyntaxTreeNode(heading),
+ SyntaxTreeNode(paragraph),
+ SyntaxTreeNode(ordered_list),
+ SyntaxTreeNode(blockquote)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">next_sibling</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SyntaxTreeNode(heading)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SyntaxTreeNode(paragraph)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="renderers">
+<h2>Renderers<a class="headerlink" href="#renderers" title="永久链接至标题">¶</a></h2>
+<p>After the token stream is generated, it’s passed to a <a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/renderer.py">renderer</a>.
+It then plays all the tokens, passing each to a rule with the same name as token type.</p>
+<p>Renderer rules are located in <code class="docutils literal notranslate"><span class="pre">md.renderer.rules</span></code> and are simple functions
+with the same signature:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">htmlResult</span>
+</pre></div>
+</div>
+<p>You can inject render methods into the instantiated render class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">render_em_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;&lt;em class=&quot;myclass&quot;&gt;&#39;</span>
+
+<span class="n">md</span><span class="o">.</span><span class="n">add_render_rule</span><span class="p">(</span><span class="s2">&quot;em_open&quot;</span><span class="p">,</span> <span class="n">render_em_open</span><span class="p">)</span>
+<span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;*a*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;p&gt;&lt;em class=&quot;myclass&quot;&gt;a&lt;/em&gt;&lt;/p&gt;\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a slight change to the JS version, where the renderer argument is at the end.
+Also <code class="docutils literal notranslate"><span class="pre">add_render_rule</span></code> method is specific to Python, rather than adding directly to the <code class="docutils literal notranslate"><span class="pre">md.renderer.rules</span></code>, this ensures the method is bound to the renderer.</p>
+<p>You can also subclass a render and add the method there:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it.renderer</span> <span class="kn">import</span> <span class="n">RendererHTML</span>
+
+<span class="k">class</span> <span class="nc">MyRenderer</span><span class="p">(</span><span class="n">RendererHTML</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">em_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;em class=&quot;myclass&quot;&gt;&#39;</span>
+
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">,</span> <span class="n">renderer_cls</span><span class="o">=</span><span class="n">MyRenderer</span><span class="p">)</span>
+<span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;*a*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&lt;p&gt;&lt;em class=&quot;myclass&quot;&gt;a&lt;/em&gt;&lt;/p&gt;\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plugins can support multiple render types, using the <code class="docutils literal notranslate"><span class="pre">__ouput__</span></code> attribute (this is currently a Python only feature).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it.renderer</span> <span class="kn">import</span> <span class="n">RendererHTML</span>
+
+<span class="k">class</span> <span class="nc">MyRenderer1</span><span class="p">(</span><span class="n">RendererHTML</span><span class="p">):</span>
+    <span class="n">__output__</span> <span class="o">=</span> <span class="s2">&quot;html1&quot;</span>
+
+<span class="k">class</span> <span class="nc">MyRenderer2</span><span class="p">(</span><span class="n">RendererHTML</span><span class="p">):</span>
+    <span class="n">__output__</span> <span class="o">=</span> <span class="s2">&quot;html2&quot;</span>
+
+<span class="k">def</span> <span class="nf">plugin</span><span class="p">(</span><span class="n">md</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">render_em_open1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;em class=&quot;myclass1&quot;&gt;&#39;</span>
+    <span class="k">def</span> <span class="nf">render_em_open2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;em class=&quot;myclass2&quot;&gt;&#39;</span>
+    <span class="n">md</span><span class="o">.</span><span class="n">add_render_rule</span><span class="p">(</span><span class="s2">&quot;em_open&quot;</span><span class="p">,</span> <span class="n">render_em_open1</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;html1&quot;</span><span class="p">)</span>
+    <span class="n">md</span><span class="o">.</span><span class="n">add_render_rule</span><span class="p">(</span><span class="s2">&quot;em_open&quot;</span><span class="p">,</span> <span class="n">render_em_open2</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;html2&quot;</span><span class="p">)</span>
+
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">,</span> <span class="n">renderer_cls</span><span class="o">=</span><span class="n">MyRenderer1</span><span class="p">)</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">plugin</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;*a*&quot;</span><span class="p">))</span>
+
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">,</span> <span class="n">renderer_cls</span><span class="o">=</span><span class="n">MyRenderer2</span><span class="p">)</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">plugin</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;*a*&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p&gt;&lt;em class=&quot;myclass1&quot;&gt;a&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em class=&quot;myclass2&quot;&gt;a&lt;/em&gt;&lt;/p&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a more concrete example; let’s replace images with vimeo links to player’s iframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">markdown_it</span> <span class="kn">import</span> <span class="n">MarkdownIt</span>
+
+<span class="n">vimeoRE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^https?:\/\/(www\.)?vimeo.com\/(\d+)($|\/)&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">render_vimeo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">vimeoRE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;src&quot;</span><span class="p">]):</span>
+
+        <span class="n">ident</span> <span class="o">=</span> <span class="n">vimeoRE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;src&quot;</span><span class="p">])[</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span>
+               <span class="s1">&#39;  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;//player.vimeo.com/video/&#39;</span> <span class="o">+</span>
+                <span class="n">ident</span> <span class="o">+</span> <span class="s1">&#39;&quot;&gt;&lt;/iframe&gt;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span>
+               <span class="s1">&#39;&lt;/div&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">)</span>
+<span class="n">md</span><span class="o">.</span><span class="n">add_render_rule</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">render_vimeo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;![](https://www.vimeo.com/123)&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p&gt;&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;//player.vimeo.com/video/123&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is another example, how to add <code class="docutils literal notranslate"><span class="pre">target=&quot;_blank&quot;</span></code> to all links:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it</span> <span class="kn">import</span> <span class="n">MarkdownIt</span>
+
+<span class="k">def</span> <span class="nf">render_blank_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+    <span class="n">tokens</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">attrSet</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="s2">&quot;_blank&quot;</span><span class="p">)</span>
+
+    <span class="c1"># pass token to default renderer.</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">renderToken</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">)</span>
+<span class="n">md</span><span class="o">.</span><span class="n">add_render_rule</span><span class="p">(</span><span class="s2">&quot;link_open&quot;</span><span class="p">,</span> <span class="n">render_blank_link</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;[a]</span><span class="se">\n\n</span><span class="s2">[a]: b&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p&gt;&lt;a href=&quot;b&quot; target=&quot;_blank&quot;&gt;a&lt;/a&gt;&lt;/p&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">markdown-it-py</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="architecture.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">markdown-it design principles</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By executable book project<br/>
+        
+            &copy; Copyright 2020, executable book project.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

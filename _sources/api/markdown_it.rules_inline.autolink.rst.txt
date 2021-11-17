@@ -1,0 +1,7 @@
+markdown\_it.rules\_inline.autolink module
+==========================================
+
+.. automodule:: markdown_it.rules_inline.autolink
+   :members:
+   :undoc-members:
+   :show-inheritance:

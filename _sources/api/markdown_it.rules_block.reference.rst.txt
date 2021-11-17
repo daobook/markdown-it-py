@@ -1,0 +1,7 @@
+markdown\_it.rules\_block.reference module
+==========================================
+
+.. automodule:: markdown_it.rules_block.reference
+   :members:
+   :undoc-members:
+   :show-inheritance:

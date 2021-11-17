@@ -1,0 +1,900 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>markdown_it.common.utils &#8212; markdown-it-py</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">markdown-it-py</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../using.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     markdown_it
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../architecture.html">
+   markdown-it design principles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../other.html">
+   Security
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../plugins.html">
+   Plugin extensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../contributing.html">
+   Contribute to markdown-it-py
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../api/markdown_it.html">
+   markdown_it package
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.cli.html">
+     markdown_it.cli package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.cli.parse.html">
+       markdown_it.cli.parse module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.common.html">
+     markdown_it.common package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.common.entities.html">
+       markdown_it.common.entities module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.common.html_blocks.html">
+       markdown_it.common.html_blocks module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.common.html_re.html">
+       markdown_it.common.html_re module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.common.normalize_url.html">
+       markdown_it.common.normalize_url module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.common.utils.html">
+       markdown_it.common.utils module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.helpers.html">
+     markdown_it.helpers package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.helpers.parse_link_destination.html">
+       markdown_it.helpers.parse_link_destination module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.helpers.parse_link_label.html">
+       markdown_it.helpers.parse_link_label module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.helpers.parse_link_title.html">
+       markdown_it.helpers.parse_link_title module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.presets.html">
+     markdown_it.presets package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.presets.commonmark.html">
+       markdown_it.presets.commonmark module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.presets.default.html">
+       markdown_it.presets.default module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.presets.zero.html">
+       markdown_it.presets.zero module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.rules_block.html">
+     markdown_it.rules_block package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.blockquote.html">
+       markdown_it.rules_block.blockquote module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.code.html">
+       markdown_it.rules_block.code module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.fence.html">
+       markdown_it.rules_block.fence module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.heading.html">
+       markdown_it.rules_block.heading module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.hr.html">
+       markdown_it.rules_block.hr module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.html_block.html">
+       markdown_it.rules_block.html_block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.lheading.html">
+       markdown_it.rules_block.lheading module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.list.html">
+       markdown_it.rules_block.list module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.paragraph.html">
+       markdown_it.rules_block.paragraph module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.reference.html">
+       markdown_it.rules_block.reference module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.state_block.html">
+       markdown_it.rules_block.state_block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_block.table.html">
+       markdown_it.rules_block.table module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.rules_core.html">
+     markdown_it.rules_core package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.block.html">
+       markdown_it.rules_core.block module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.inline.html">
+       markdown_it.rules_core.inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.linkify.html">
+       markdown_it.rules_core.linkify module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.normalize.html">
+       markdown_it.rules_core.normalize module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.replacements.html">
+       markdown_it.rules_core.replacements module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.smartquotes.html">
+       markdown_it.rules_core.smartquotes module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_core.state_core.html">
+       markdown_it.rules_core.state_core module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../api/markdown_it.rules_inline.html">
+     markdown_it.rules_inline package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.autolink.html">
+       markdown_it.rules_inline.autolink module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.backticks.html">
+       markdown_it.rules_inline.backticks module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.balance_pairs.html">
+       markdown_it.rules_inline.balance_pairs module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.emphasis.html">
+       markdown_it.rules_inline.emphasis module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.entity.html">
+       markdown_it.rules_inline.entity module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.escape.html">
+       markdown_it.rules_inline.escape module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.html_inline.html">
+       markdown_it.rules_inline.html_inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.image.html">
+       markdown_it.rules_inline.image module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.link.html">
+       markdown_it.rules_inline.link module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.newline.html">
+       markdown_it.rules_inline.newline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.state_inline.html">
+       markdown_it.rules_inline.state_inline module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.strikethrough.html">
+       markdown_it.rules_inline.strikethrough module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.text.html">
+       markdown_it.rules_inline.text module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../api/markdown_it.rules_inline.text_collapse.html">
+       markdown_it.rules_inline.text_collapse module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.main.html">
+     markdown_it.main module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.parser_block.html">
+     markdown_it.parser_block module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.parser_core.html">
+     markdown_it.parser_core module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.parser_inline.html">
+     markdown_it.parser_inline module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.renderer.html">
+     markdown_it.renderer module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.ruler.html">
+     markdown_it.ruler module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.token.html">
+     markdown_it.token module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.tree.html">
+     markdown_it.tree module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/markdown_it.utils.html">
+     markdown_it.utils module
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <h1>markdown_it.common.utils 源代码</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Utilities for parsing source text</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">html</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">from</span> <span class="nn">.entities</span> <span class="kn">import</span> <span class="n">entities</span>
+
+<span class="c1"># from .normalize_url import unescape_string</span>
+
+
+<div class="viewcode-block" id="charCodeAt"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.charCodeAt">[文档]</a><span class="k">def</span> <span class="nf">charCodeAt</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the Unicode value of the character at the specified location.</span>
+
+<span class="sd">    @param - index The zero-based index of the desired character.</span>
+<span class="sd">    If there is no character at the specified index, NaN is returned.</span>
+
+<span class="sd">    This was added for compatibility with python</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">ord</span><span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="n">pos</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<span class="c1"># function _class(obj) { return Object.prototype.toString.call(obj); }</span>
+
+
+<div class="viewcode-block" id="isString"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.isString">[文档]</a><span class="k">def</span> <span class="nf">isString</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span></div>
+
+
+<span class="n">has</span> <span class="o">=</span> <span class="nb">hasattr</span>
+
+
+<span class="c1"># Merge objects</span>
+<span class="c1">#</span>
+<div class="viewcode-block" id="assign"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.assign">[文档]</a><span class="k">def</span> <span class="nf">assign</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Merge objects /*from1, from2, from3, ...*/)&quot;&quot;&quot;</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+    <span class="c1"># sources = Array.prototype.slice.call(arguments, 1)</span>
+
+    <span class="c1"># sources.forEach(function (source) {</span>
+    <span class="c1">#   if (!source) { return; }</span>
+
+    <span class="c1">#   if (typeof source !== &#39;object&#39;) {</span>
+    <span class="c1">#     throw new TypeError(source + &#39;must be object&#39;)</span>
+    <span class="c1">#   }</span>
+
+    <span class="c1">#   Object.keys(source).forEach(function (key) {</span>
+    <span class="c1">#     obj[key] = source[key]</span>
+    <span class="c1">#   })</span>
+    <span class="c1"># })</span>
+
+    <span class="c1"># return obj</span>
+
+
+<div class="viewcode-block" id="arrayReplaceAt"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.arrayReplaceAt">[文档]</a><span class="k">def</span> <span class="nf">arrayReplaceAt</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">newElements</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove element from array and put another array at those position.</span>
+<span class="sd">    Useful for some operations with tokens</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">src</span><span class="p">[:</span><span class="n">pos</span><span class="p">]</span> <span class="o">+</span> <span class="n">newElements</span> <span class="o">+</span> <span class="n">src</span><span class="p">[</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]</span></div>
+
+
+<span class="c1">######################################################################</span>
+
+
+<div class="viewcode-block" id="isValidEntityCode"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.isValidEntityCode">[文档]</a><span class="k">def</span> <span class="nf">isValidEntityCode</span><span class="p">(</span><span class="n">c</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+
+    <span class="c1"># broken sequence</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="mh">0xD800</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mh">0xDFFF</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="c1"># never used</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="mh">0xFDD0</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mh">0xFDEF</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">c</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span><span class="p">)</span> <span class="o">==</span> <span class="mh">0xFFFF</span><span class="p">)</span> <span class="ow">or</span> <span class="p">((</span><span class="n">c</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span><span class="p">)</span> <span class="o">==</span> <span class="mh">0xFFFE</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="c1"># control codes</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="mh">0x00</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mh">0x08</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mh">0x0B</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="mh">0x0E</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mh">0x1F</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="mh">0x7F</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mh">0x9F</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="c1"># out of range</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mh">0x10FFFF</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="fromCodePoint"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.fromCodePoint">[文档]</a><span class="k">def</span> <span class="nf">fromCodePoint</span><span class="p">(</span><span class="n">c</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Convert ordinal to unicode.</span>
+
+<span class="sd">    Note, in the original Javascript two string characters were required,</span>
+<span class="sd">    for codepoints larger than `0xFFFF`.</span>
+<span class="sd">    But Python 3 can represent any unicode codepoint in one character.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">chr</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></div>
+
+
+<span class="n">UNESCAPE_MD_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">([!&quot;#$%&amp;</span><span class="se">\&#39;</span><span class="s1">()*+,\-.\/:;&lt;=&gt;?@[</span><span class="se">\\</span><span class="s1">\]^_`{|}~])&#39;</span><span class="p">)</span>
+<span class="c1"># ENTITY_RE_g       = re.compile(r&#39;&amp;([a-z#][a-z0-9]{1,31})&#39;, re.IGNORECASE)</span>
+<span class="n">UNESCAPE_ALL_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">([!&quot;#$%&amp;</span><span class="se">\&#39;</span><span class="s1">()*+,\-.\/:;&lt;=&gt;?@[</span><span class="se">\\</span><span class="s1">\]^_`{|}~])&#39;</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;&amp;([a-z#][a-z0-9]{1,31})&quot;</span><span class="p">,</span>
+    <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">DIGITAL_ENTITY_TEST_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="replaceEntityPattern"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.replaceEntityPattern">[文档]</a><span class="k">def</span> <span class="nf">replaceEntityPattern</span><span class="p">(</span><span class="n">match</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Convert HTML entity patterns</span>
+
+<span class="sd">    ::</span>
+
+<span class="sd">        https://www.google.com -&gt; https%3A//www.google.com</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">entities</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">entities</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">ord</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mh">0x23</span> <span class="ow">and</span> <span class="n">DIGITAL_ENTITY_TEST_RE</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="mi">16</span><span class="p">)</span> <span class="k">if</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;x&quot;</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">isValidEntityCode</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">fromCodePoint</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">match</span></div>
+
+
+<span class="c1"># def replaceEntities(string):</span>
+<span class="c1">#   if (string.indexOf(&#39;&amp;&#39;) &lt; 0):</span>
+<span class="c1">#       return string</span>
+<span class="c1">#   return string.replace(ENTITY_RE, replaceEntityPattern)</span>
+
+
+<div class="viewcode-block" id="unescapeMd"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.unescapeMd">[文档]</a><span class="k">def</span> <span class="nf">unescapeMd</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+    <span class="c1"># if &quot;\\&quot; in string:</span>
+    <span class="c1">#     return string</span>
+    <span class="c1"># return string.replace(UNESCAPE_MD_RE, &quot;$1&quot;)</span>
+
+
+<div class="viewcode-block" id="unescapeAll"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.unescapeAll">[文档]</a><span class="k">def</span> <span class="nf">unescapeAll</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">html</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">string</span><span class="p">)</span></div>
+
+
+<span class="n">ESCAPABLE</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;\\!&quot;#$%&amp;&#39;()*+,./:;&lt;=&gt;?@\[\]^`</span><span class="si">{}</span><span class="s2">|_~-&quot;&quot;&quot;</span>
+<span class="n">ESCAPE_CHAR</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">([&quot;</span> <span class="o">+</span> <span class="n">ESCAPABLE</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;])&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="stripEscape"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.stripEscape">[文档]</a><span class="k">def</span> <span class="nf">stripEscape</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Strip escape \\ characters&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">ESCAPE_CHAR</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\1&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span></div>
+
+
+<span class="c1"># //////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1"># TODO This section changed quite a lot, should re-check</span>
+
+<span class="c1"># UNESCAPE_HTML_RE = re.compile(r&quot;\\&amp;(?=(amp\;|lt\;|gt\;|quot\;))&quot;)</span>
+<span class="c1"># ESCAPE_AND_HTML = re.compile(r&quot;&amp;(?!(amp\;|lt\;|gt\;|quot\;))&quot;)</span>
+<span class="c1"># HTML_ESCAPE_REPLACE_RE = re.compile(r&#39;[&amp;&lt;&gt;&quot;]&#39;)</span>
+
+
+<span class="c1"># def escapeHtml(string: str):</span>
+
+<span class="c1">#     if HTML_ESCAPE_REPLACE_RE.search(string):</span>
+
+<span class="c1">#         string = UNESCAPE_HTML_RE.sub(&quot;&amp;&quot;, string)</span>
+<span class="c1">#         string = ESCAPE_AND_HTML.sub(&quot;&amp;amp;&quot;, string)</span>
+<span class="c1">#         for k, v in {&quot;&lt;&quot;: &quot;&amp;lt;&quot;, &quot;&gt;&quot;: &quot;&amp;gt;&quot;, &#39;&quot;&#39;: &quot;&amp;quot;&quot;}.items():</span>
+<span class="c1">#             string = string.replace(k, v)</span>
+
+<span class="c1">#     return string</span>
+
+
+<div class="viewcode-block" id="escapeHtml"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.escapeHtml">[文档]</a><span class="k">def</span> <span class="nf">escapeHtml</span><span class="p">(</span><span class="n">raw</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="c1"># return html.escape(html.unescape(raw)).replace(&quot;&amp;#x27;&quot;, &quot;&#39;&quot;)</span>
+    <span class="k">return</span> <span class="n">html</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&amp;#x27;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span></div>
+
+
+<span class="c1"># //////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="n">REGEXP_ESCAPE_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[.?*+^$[\]</span><span class="se">\\</span><span class="s2">()</span><span class="si">{}</span><span class="s2">|-]&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="escapeRE"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.escapeRE">[文档]</a><span class="k">def</span> <span class="nf">escapeRE</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">REGEXP_ESCAPE_RE</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">$&amp;&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">string</span></div>
+
+
+<span class="c1"># //////////////////////////////////////////////////////////////////////////////</span>
+
+
+<div class="viewcode-block" id="isSpace"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.isSpace">[文档]</a><span class="k">def</span> <span class="nf">isSpace</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">code</span> <span class="ow">in</span> <span class="p">{</span><span class="mh">0x09</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">}</span></div>
+
+
+<span class="n">MD_WHITESPACE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mh">0x09</span><span class="p">,</span>  <span class="c1"># \t</span>
+    <span class="mh">0x0A</span><span class="p">,</span>  <span class="c1"># \n</span>
+    <span class="mh">0x0B</span><span class="p">,</span>  <span class="c1"># \v</span>
+    <span class="mh">0x0C</span><span class="p">,</span>  <span class="c1"># \f</span>
+    <span class="mh">0x0D</span><span class="p">,</span>  <span class="c1"># \r</span>
+    <span class="mh">0x20</span><span class="p">,</span>
+    <span class="mh">0xA0</span><span class="p">,</span>
+    <span class="mh">0x1680</span><span class="p">,</span>
+    <span class="mh">0x202F</span><span class="p">,</span>
+    <span class="mh">0x205F</span><span class="p">,</span>
+    <span class="mh">0x3000</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="isWhiteSpace"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.isWhiteSpace">[文档]</a><span class="k">def</span> <span class="nf">isWhiteSpace</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Zs (unicode class) || [\t\f\v\r\n]&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">code</span> <span class="o">&gt;=</span> <span class="mh">0x2000</span> <span class="ow">and</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x200A</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">MD_WHITESPACE</span></div>
+
+
+<span class="c1"># //////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="n">UNICODE_PUNCT_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s2">&quot;[!-#%-\*,-\/:;\?@\[-\]_\{\}\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u09FD\u0A76\u0AF0\u0C84\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166D\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2308-\u230B\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E4E\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA8FC\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]|\uD800[\uDD00-\uDD02\uDF9F\uDFD0]|\uD801\uDD6F|\uD802[\uDC57\uDD1F\uDD3F\uDE50-\uDE58\uDE7F\uDEF0-\uDEF6\uDF39-\uDF3F\uDF99-\uDF9C]|\uD803[\uDF55-\uDF59]|\uD804[\uDC47-\uDC4D\uDCBB\uDCBC\uDCBE-\uDCC1\uDD40-\uDD43\uDD74\uDD75\uDDC5-\uDDC8\uDDCD\uDDDB\uDDDD-\uDDDF\uDE38-\uDE3D\uDEA9]|\uD805[\uDC4B-\uDC4F\uDC5B\uDC5D\uDCC6\uDDC1-\uDDD7\uDE41-\uDE43\uDE60-\uDE6C\uDF3C-\uDF3E]|\uD806[\uDC3B\uDE3F-\uDE46\uDE9A-\uDE9C\uDE9E-\uDEA2]|\uD807[\uDC41-\uDC45\uDC70\uDC71\uDEF7\uDEF8]|\uD809[\uDC70-\uDC74]|\uD81A[\uDE6E\uDE6F\uDEF5\uDF37-\uDF3B\uDF44]|\uD81B[\uDE97-\uDE9A]|\uD82F\uDC9F|\uD836[\uDE87-\uDE8B]|\uD83A[\uDD5E\uDD5F]&quot;</span>  <span class="c1"># noqa: E501</span>
+<span class="p">)</span>
+
+
+<span class="c1"># Currently without astral characters support.</span>
+<div class="viewcode-block" id="isPunctChar"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.isPunctChar">[文档]</a><span class="k">def</span> <span class="nf">isPunctChar</span><span class="p">(</span><span class="n">ch</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">UNICODE_PUNCT_RE</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+
+<span class="n">MD_ASCII_PUNCT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mh">0x21</span><span class="p">,</span>  <span class="c1"># /* ! */</span>
+    <span class="mh">0x22</span><span class="p">,</span>  <span class="c1"># /* &quot; */</span>
+    <span class="mh">0x23</span><span class="p">,</span>  <span class="c1"># /* # */</span>
+    <span class="mh">0x24</span><span class="p">,</span>  <span class="c1"># /* $ */</span>
+    <span class="mh">0x25</span><span class="p">,</span>  <span class="c1"># /* % */</span>
+    <span class="mh">0x26</span><span class="p">,</span>  <span class="c1"># /* &amp; */</span>
+    <span class="mh">0x27</span><span class="p">,</span>  <span class="c1"># /* &#39; */</span>
+    <span class="mh">0x28</span><span class="p">,</span>  <span class="c1"># /* ( */</span>
+    <span class="mh">0x29</span><span class="p">,</span>  <span class="c1"># /* ) */</span>
+    <span class="mh">0x2A</span><span class="p">,</span>  <span class="c1"># /* * */</span>
+    <span class="mh">0x2B</span><span class="p">,</span>  <span class="c1"># /* + */</span>
+    <span class="mh">0x2C</span><span class="p">,</span>  <span class="c1"># /* , */</span>
+    <span class="mh">0x2D</span><span class="p">,</span>  <span class="c1"># /* - */</span>
+    <span class="mh">0x2E</span><span class="p">,</span>  <span class="c1"># /* . */</span>
+    <span class="mh">0x2F</span><span class="p">,</span>  <span class="c1"># /* / */</span>
+    <span class="mh">0x3A</span><span class="p">,</span>  <span class="c1"># /* : */</span>
+    <span class="mh">0x3B</span><span class="p">,</span>  <span class="c1"># /* ; */</span>
+    <span class="mh">0x3C</span><span class="p">,</span>  <span class="c1"># /* &lt; */</span>
+    <span class="mh">0x3D</span><span class="p">,</span>  <span class="c1"># /* = */</span>
+    <span class="mh">0x3E</span><span class="p">,</span>  <span class="c1"># /* &gt; */</span>
+    <span class="mh">0x3F</span><span class="p">,</span>  <span class="c1"># /* ? */</span>
+    <span class="mh">0x40</span><span class="p">,</span>  <span class="c1"># /* @ */</span>
+    <span class="mh">0x5B</span><span class="p">,</span>  <span class="c1"># /* [ */</span>
+    <span class="mh">0x5C</span><span class="p">,</span>  <span class="c1"># /* \ */</span>
+    <span class="mh">0x5D</span><span class="p">,</span>  <span class="c1"># /* ] */</span>
+    <span class="mh">0x5E</span><span class="p">,</span>  <span class="c1"># /* ^ */</span>
+    <span class="mh">0x5F</span><span class="p">,</span>  <span class="c1"># /* _ */</span>
+    <span class="mh">0x60</span><span class="p">,</span>  <span class="c1"># /* ` */</span>
+    <span class="mh">0x7B</span><span class="p">,</span>  <span class="c1"># /* { */</span>
+    <span class="mh">0x7C</span><span class="p">,</span>  <span class="c1"># /* | */</span>
+    <span class="mh">0x7D</span><span class="p">,</span>  <span class="c1"># /* } */</span>
+    <span class="mh">0x7E</span><span class="p">,</span>  <span class="c1"># /* ~ */</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="isMdAsciiPunct"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.isMdAsciiPunct">[文档]</a><span class="k">def</span> <span class="nf">isMdAsciiPunct</span><span class="p">(</span><span class="n">ch</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Markdown ASCII punctuation characters.</span>
+
+<span class="sd">    ::</span>
+
+<span class="sd">        !, &quot;, #, $, %, &amp;, &#39;, (, ), *, +, ,, -, ., /, :, ;, &lt;, =, &gt;, ?, @, [, \\, ], ^, _, `, {, |, }, or ~</span>
+
+<span class="sd">    See http://spec.commonmark.org/0.15/#ascii-punctuation-character</span>
+
+<span class="sd">    Don&#39;t confuse with unicode punctuation !!! It lacks some chars in ascii range.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>  <span class="c1"># noqa: E501</span>
+    <span class="k">return</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">MD_ASCII_PUNCT</span></div>
+
+
+<div class="viewcode-block" id="normalizeReference"><a class="viewcode-back" href="../../../api/markdown_it.common.utils.html#markdown_it.common.utils.normalizeReference">[文档]</a><span class="k">def</span> <span class="nf">normalizeReference</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Helper to unify [reference labels].&quot;&quot;&quot;</span>
+    <span class="c1"># Trim and collapse whitespace</span>
+    <span class="c1">#</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+
+    <span class="c1"># In node v10 &#39;ẞ&#39;.toLowerCase() === &#39;Ṿ&#39;, which is presumed to be a bug</span>
+    <span class="c1"># fixed in v12 (couldn&#39;t find any details).</span>
+    <span class="c1">#</span>
+    <span class="c1"># So treat this one as a special case</span>
+    <span class="c1"># (remove this when node v10 is no longer supported).</span>
+    <span class="c1">#</span>
+    <span class="c1"># if (&#39;ẞ&#39;.toLowerCase() === &#39;Ṿ&#39;) {</span>
+    <span class="c1">#   str = str.replace(/ẞ/g, &#39;ß&#39;)</span>
+    <span class="c1"># }</span>
+
+    <span class="c1"># .toLowerCase().toUpperCase() should get rid of all differences</span>
+    <span class="c1"># between letter variants.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Simple .toLowerCase() doesn&#39;t normalize 125 code points correctly,</span>
+    <span class="c1"># and .toUpperCase doesn&#39;t normalize 6 of them (list of exceptions:</span>
+    <span class="c1"># İ, ϴ, ẞ, Ω, K, Å - those are already uppercased, but have differently</span>
+    <span class="c1"># uppercased versions).</span>
+    <span class="c1">#</span>
+    <span class="c1"># Here&#39;s an example showing how it happens. Lets take greek letter omega:</span>
+    <span class="c1"># uppercase U+0398 (Θ), U+03f4 (ϴ) and lowercase U+03b8 (θ), U+03d1 (ϑ)</span>
+    <span class="c1">#</span>
+    <span class="c1"># Unicode entries:</span>
+    <span class="c1"># 0398;GREEK CAPITAL LETTER THETA;Lu;0;L;;;;;N;;;;03B8</span>
+    <span class="c1"># 03B8;GREEK SMALL LETTER THETA;Ll;0;L;;;;;N;;;0398;;0398</span>
+    <span class="c1"># 03D1;GREEK THETA SYMBOL;Ll;0;L;&lt;compat&gt; 03B8;;;;N;GREEK SMALL LETTER SCRIPT THETA;;0398;;0398</span>
+    <span class="c1"># 03F4;GREEK CAPITAL THETA SYMBOL;Lu;0;L;&lt;compat&gt; 0398;;;;N;;;;03B8</span>
+    <span class="c1">#</span>
+    <span class="c1"># Case-insensitive comparison should treat all of them as equivalent.</span>
+    <span class="c1">#</span>
+    <span class="c1"># But .toLowerCase() doesn&#39;t change ϑ (it&#39;s already lowercase),</span>
+    <span class="c1"># and .toUpperCase() doesn&#39;t change ϴ (already uppercase).</span>
+    <span class="c1">#</span>
+    <span class="c1"># Applying first lower then upper case normalizes any character:</span>
+    <span class="c1"># &#39;\u0398\u03f4\u03b8\u03d1&#39;.toLowerCase().toUpperCase() === &#39;\u0398\u0398\u0398\u0398&#39;</span>
+    <span class="c1">#</span>
+    <span class="c1"># Note: this is equivalent to unicode case folding; unicode normalization</span>
+    <span class="c1"># is a different step that is not required here.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Final result should be uppercased, because it&#39;s later stored in an object</span>
+    <span class="c1"># (this avoid a conflict with Object.prototype members,</span>
+    <span class="c1"># most notably, `__proto__`)</span>
+    <span class="c1">#</span>
+    <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span></div>
+</pre></div>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By executable book project<br/>
+        
+            &copy; Copyright 2020, executable book project.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

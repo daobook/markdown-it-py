@@ -1,0 +1,7 @@
+markdown\_it.parser\_core module
+================================
+
+.. automodule:: markdown_it.parser_core
+   :members:
+   :undoc-members:
+   :show-inheritance:

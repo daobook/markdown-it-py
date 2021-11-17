@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>markdown-it-py &#8212; markdown-it-py</title>
+    <title>Contribute to markdown-it-py &#8212; markdown-it-py</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -44,7 +44,8 @@
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Using markdown_it" href="using.html" />
+    <link rel="next" title="markdown_it package" href="api/markdown_it.html" />
+    <link rel="prev" title="Plugin extensions" href="plugins.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -64,7 +65,7 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="#">
+    <a class="navbar-brand text-wrap" href="index.html">
       
       
       
@@ -76,7 +77,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="using.html">
    Using
@@ -102,8 +103,8 @@
    Plugin extensions
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="contributing.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Contribute to markdown-it-py
   </a>
  </li>
@@ -514,7 +515,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/index.md.txt"><button type="button"
+        <a class="dropdown-buttons" href="_sources/contributing.md.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -531,7 +532,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/executablebooks/markdown-it-py/edit/master/docs/index.md"><button
+        <a class="edit-button" href="https://github.com/executablebooks/markdown-it-py/edit/master/docs/contributing.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -557,14 +558,46 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references-thanks">
-   References &amp; Thanks
+  <a class="reference internal nav-link" href="#development-guidance">
+   Development guidance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#related-links">
-   Related Links
+  <a class="reference internal nav-link" href="#code-style">
+   Code Style
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing">
+   Testing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contributing-a-plugin">
+   Contributing a plugin
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#faq">
+   FAQ
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-need-async-rule-how-to-do-it">
+     I need async rule, how to do it?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-replace-part-of-text-token-with-link">
+     How to replace part of text token with link?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-is-my-inline-rule-not-executed">
+     Why is my inline rule not executed?
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -577,74 +610,106 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="markdown-it-py">
-<h1>markdown-it-py<a class="headerlink" href="#markdown-it-py" title="永久链接至标题">¶</a></h1>
-<blockquote>
-<div><p>Markdown parser done right.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p><span class="fa fa-check text-success mr-1"></span> Follows the <strong><a class="reference external" href="http://spec.commonmark.org/">CommonMark spec</a></strong> for baseline parsing</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> Configurable syntax: you can add new rules and even replace existing ones.</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> Pluggable: Adds syntax extensions to extend the parser (see the <a class="reference internal" href="plugins.html#md-plugins"><span class="std std-ref">plugin list</span></a>)</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> High speed (see our <a class="reference internal" href="other.html#md-performance"><span class="std std-ref">benchmarking tests</span></a>)</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="other.html#md-security"><span class="std std-ref">Safe by default</span></a></p></li>
-</ul>
-<p>For a good introduction to <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a> see the <strong><a class="reference external" href="https://markdown-it.github.io">Live demo</a></strong>.
-This is a Python port of the well used <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a>, and some of its associated plugins.
-The driving design philosophy of the port has been to change as little of the fundamental code structure (file names, function name, etc) as possible, just sprinkling in a little Python syntactical sugar ✨.
-It is very simple to write complimentary extensions for both language implementations!</p>
-<div class="section" id="references-thanks">
-<h2>References &amp; Thanks<a class="headerlink" href="#references-thanks" title="永久链接至标题">¶</a></h2>
-<p>Big thanks to the authors of <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a></p>
-<ul class="simple">
-<li><p>Alex Kocharin <a class="reference external" href="https://github.com/rlidwka">github/rlidwka</a></p></li>
-<li><p>Vitaly Puzrin <a class="reference external" href="https://github.com/puzrin">github/puzrin</a></p></li>
-</ul>
-<p>Also <a class="reference external" href="https://github.com/jgm">John MacFarlane</a> for his work on the CommonMark spec and reference implementations.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="contribute-to-markdown-it-py">
+<h1>Contribute to markdown-it-py<a class="headerlink" href="#contribute-to-markdown-it-py" title="永久链接至标题">¶</a></h1>
+<p>We welcome all contributions! ✨</p>
+<p>See the <a class="reference external" href="https://executablebooks.org/en/latest/contributing.html">EBP Contributing Guide</a> for general details, and below for guidance specific to markdown-it-py.</p>
+<p>Before continuing, make sure you’ve read:</p>
+<ol class="simple">
+<li><p><a class="reference internal" href="architecture.html#md-architecture"><span class="std std-ref">Architecture description</span></a></p></li>
+<li><p><a class="reference internal" href="other.html#md-security"><span class="std std-ref">Security considerations</span></a></p></li>
+<li><p><a class="reference internal" href="api/markdown_it.html"><span class="doc std std-doc">API documentation</span></a></p></li>
+</ol>
+<div class="section" id="development-guidance">
+<h2>Development guidance<a class="headerlink" href="#development-guidance" title="永久链接至标题">¶</a></h2>
+<p>Details of the port can be found in the <code class="docutils literal notranslate"><span class="pre">markdown_it/port.yaml</span></code> and in <code class="docutils literal notranslate"><span class="pre">port.yaml</span></code> files, within the extension folders.</p>
 </div>
-<div class="section" id="related-links">
-<h2>Related Links<a class="headerlink" href="#related-links" title="永久链接至标题">¶</a></h2>
+<div class="section" id="code-style">
+<h2>Code Style<a class="headerlink" href="#code-style" title="永久链接至标题">¶</a></h2>
+<p>Code style is tested using <a class="reference external" href="http://flake8.pycqa.org">flake8</a>, with the configuration set in <code class="docutils literal notranslate"><span class="pre">.flake8</span></code>, and code formatted with <a class="reference external" href="https://github.com/ambv/black">black</a>.</p>
+<p>Installing with <code class="docutils literal notranslate"><span class="pre">markdown-it-py[code_style]</span></code> makes the <a class="reference external" href="https://pre-commit.com/">pre-commit</a> package available, which will ensure this style is met before commits are submitted, by reformatting the code and testing for lint errors.
+It can be setup by:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt;&gt; <span class="nb">cd</span> markdown-it-py
+&gt;&gt; pre-commit install
+</pre></div>
+</div>
+<p>Editors like VS Code also have automatic code reformat utilities, which can adhere to this standard.</p>
+<p>All functions and class methods should be annotated with types and include a docstring.
+The prefered docstring format is outlined in <code class="docutils literal notranslate"><span class="pre">markdown-it-py/docstring.fmt.mustache</span></code> and can be used automatically with the <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring">autodocstring</a> VS Code extension.</p>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="永久链接至标题">¶</a></h2>
+<p>For code tests, markdown-it-py uses <a class="reference external" href="https://docs.pytest.org">pytest</a>):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt;&gt; <span class="nb">cd</span> markdown-it-py
+&gt;&gt; pytest
+</pre></div>
+</div>
+<p>You can also use <a class="reference external" href="https://tox.readthedocs.io">tox</a>, to run the tests in multiple isolated environments (see the <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code> file for available test environments):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt;&gt; <span class="nb">cd</span> markdown-it-py
+&gt;&gt; tox -p
+</pre></div>
+</div>
+<p>This can also be used to run benchmarking tests using <a class="reference external" href="https://pytest-benchmark.readthedocs.io">pytest-benchmark</a>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt;&gt; <span class="nb">cd</span> markdown-it-py
+tox -e py38-bench-packages -- --benchmark-min-rounds <span class="m">50</span>
+</pre></div>
+</div>
+<p>For documentation build tests:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt;&gt; <span class="nb">cd</span> markdown-it-py/docs
+&gt;&gt; make clean
+&gt;&gt; make html-strict
+</pre></div>
+</div>
+</div>
+<div class="section" id="contributing-a-plugin">
+<h2>Contributing a plugin<a class="headerlink" href="#contributing-a-plugin" title="永久链接至标题">¶</a></h2>
+<ol class="simple">
+<li><p>Does it already exist as JavaScript implementation (<a class="reference external" href="https://www.npmjs.com/search?q=keywords:markdown-it-plugin">see npm</a>)?
+Where possible try to port directly from that.
+It is usually better to modify existing code, instead of writing all from scratch.</p></li>
+<li><p>Try to find the right place for your plugin rule:</p></li>
+</ol>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/jgm/CommonMark">https://github.com/jgm/CommonMark</a> - reference CommonMark implementations in C &amp; JS, also contains latest spec &amp; online demo.</p></li>
-<li><p><a class="reference external" href="http://talk.commonmark.org">http://talk.commonmark.org</a> - CommonMark forum, good place to collaborate developers’ efforts.</p></li>
-</ul>
-<div class="toctree-wrapper compound">
+<li><p>Will it conflict with existing markup (by priority)?</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="using.html">Using <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="using.html#quick-start">Quick-Start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#the-parser">The Parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#the-token-stream">The Token Stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#renderers">Renderers</a></li>
+<li><p>If yes - you need to write an inline or block rule.</p></li>
+<li><p>If no - you can morph tokens within core chains.</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">markdown-it design principles</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#data-flow">Data flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#token-stream">Token stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#rules">Rules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#renderer">Renderer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#summary">Summary</a></li>
+<li><p>Remember that token morphing in core chains is always more simple than writing
+block or inline rules, if you don’t copy existing ones. However,
+block and inline rules are usually faster.</p></li>
+<li><p>Sometimes, it’s enough to only modify the renderer, for example, to add
+header IDs or <code class="docutils literal notranslate"><span class="pre">target=&quot;_blank&quot;</span></code> for the links.</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="other.html">Security</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="other.html#plugins">Plugins</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="other.html#performance">Performance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin extensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribute to markdown-it-py</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#development-guidance">Development guidance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-style">Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#contributing-a-plugin">Contributing a plugin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#faq">FAQ</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/markdown_it.html">markdown_it package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/markdown_it.html#subpackages">Subpackages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/markdown_it.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
+</div>
+<div class="section" id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="永久链接至标题">¶</a></h2>
+<div class="section" id="i-need-async-rule-how-to-do-it">
+<h3>I need async rule, how to do it?<a class="headerlink" href="#i-need-async-rule-how-to-do-it" title="永久链接至标题">¶</a></h3>
+<p>Sorry. You can’t do it directly. All complex parsers are sync by nature. But you
+can use workarounds:</p>
+<ol class="simple">
+<li><p>On parse phase, replace content by random number and store it in <code class="docutils literal notranslate"><span class="pre">env</span></code>.</p></li>
+<li><p>Do async processing over collected data.</p></li>
+<li><p>Render content and replace those random numbers with text; or replace first, then render.</p></li>
+</ol>
+<p>Alternatively, you can render HTML, then parse it to DOM, or
+<a class="reference external" href="https://github.com/cheeriojs/cheerio">cheerio</a> AST, and apply transformations
+in a more convenient way.</p>
+</div>
+<div class="section" id="how-to-replace-part-of-text-token-with-link">
+<h3>How to replace part of text token with link?<a class="headerlink" href="#how-to-replace-part-of-text-token-with-link" title="永久链接至标题">¶</a></h3>
+<p>The right sequence is to split text to several tokens and add link tokens in between.
+The result will be: <code class="docutils literal notranslate"><span class="pre">text</span></code> + <code class="docutils literal notranslate"><span class="pre">link_open</span></code> + <code class="docutils literal notranslate"><span class="pre">text</span></code> + <code class="docutils literal notranslate"><span class="pre">link_close</span></code> + <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
+<p>See implementations of <a class="reference external" href="https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/linkify.js">linkify</a> and <a class="reference external" href="https://github.com/markdown-it/markdown-it-emoji/blob/master/lib/replace.js">emoji</a> - those do text token splits.</p>
+<p><strong>Note:</strong> Don’t try to replace text with HTML markup! That’s not secure.</p>
+</div>
+<div class="section" id="why-is-my-inline-rule-not-executed">
+<h3>Why is my inline rule not executed?<a class="headerlink" href="#why-is-my-inline-rule-not-executed" title="永久链接至标题">¶</a></h3>
+<p>The inline parser skips pieces of texts to optimize speed. It stops only on <a class="reference external" href="https://github.com/markdown-it/markdown-it/blob/master/lib/rules_inline/text.js">a small set of chars</a>, which can be tokens. We did not made this list extensible for performance reasons too.</p>
+<p>If you are absolutely sure that something important is missing there - create a
+ticket and we will consider adding it as a new charcode.</p>
 </div>
 </div>
 </div>
@@ -654,11 +719,18 @@ It is very simple to write complimentary extensions for both language implementa
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="using.html" title="下一页 页">
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="plugins.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">Plugin extensions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="api/markdown_it.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">Using <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code></p>
+        <p class="prev-next-title">markdown_it package</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

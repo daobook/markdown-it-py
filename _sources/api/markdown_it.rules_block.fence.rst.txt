@@ -1,0 +1,7 @@
+markdown\_it.rules\_block.fence module
+======================================
+
+.. automodule:: markdown_it.rules_block.fence
+   :members:
+   :undoc-members:
+   :show-inheritance:

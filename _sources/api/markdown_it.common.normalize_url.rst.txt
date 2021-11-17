@@ -1,0 +1,7 @@
+markdown\_it.common.normalize\_url module
+=========================================
+
+.. automodule:: markdown_it.common.normalize_url
+   :members:
+   :undoc-members:
+   :show-inheritance:

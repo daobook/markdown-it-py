@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>markdown-it-py &#8212; markdown-it-py</title>
+    <title>Python 模块索引 &#8212; markdown-it-py</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -44,13 +44,15 @@
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Using markdown_it" href="using.html" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
 
     <!-- Google Analytics -->
     
+
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -64,7 +66,7 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="#">
+    <a class="navbar-brand text-wrap" href="index.html">
       
       
       
@@ -506,36 +508,7 @@
             </button>
             
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/index.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
             <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        
-        <a class="edit-button" href="https://github.com/executablebooks/markdown-it-py/edit/master/docs/index.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
 
@@ -551,24 +524,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references-thanks">
-   References &amp; Thanks
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#related-links">
-   Related Links
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -577,77 +532,329 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="markdown-it-py">
-<h1>markdown-it-py<a class="headerlink" href="#markdown-it-py" title="永久链接至标题">¶</a></h1>
-<blockquote>
-<div><p>Markdown parser done right.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p><span class="fa fa-check text-success mr-1"></span> Follows the <strong><a class="reference external" href="http://spec.commonmark.org/">CommonMark spec</a></strong> for baseline parsing</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> Configurable syntax: you can add new rules and even replace existing ones.</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> Pluggable: Adds syntax extensions to extend the parser (see the <a class="reference internal" href="plugins.html#md-plugins"><span class="std std-ref">plugin list</span></a>)</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> High speed (see our <a class="reference internal" href="other.html#md-performance"><span class="std std-ref">benchmarking tests</span></a>)</p></li>
-<li><p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="other.html#md-security"><span class="std std-ref">Safe by default</span></a></p></li>
-</ul>
-<p>For a good introduction to <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a> see the <strong><a class="reference external" href="https://markdown-it.github.io">Live demo</a></strong>.
-This is a Python port of the well used <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a>, and some of its associated plugins.
-The driving design philosophy of the port has been to change as little of the fundamental code structure (file names, function name, etc) as possible, just sprinkling in a little Python syntactical sugar ✨.
-It is very simple to write complimentary extensions for both language implementations!</p>
-<div class="section" id="references-thanks">
-<h2>References &amp; Thanks<a class="headerlink" href="#references-thanks" title="永久链接至标题">¶</a></h2>
-<p>Big thanks to the authors of <a class="reference external" href="https://github.com/markdown-it/markdown-it">markdown-it</a></p>
-<ul class="simple">
-<li><p>Alex Kocharin <a class="reference external" href="https://github.com/rlidwka">github/rlidwka</a></p></li>
-<li><p>Vitaly Puzrin <a class="reference external" href="https://github.com/puzrin">github/puzrin</a></p></li>
-</ul>
-<p>Also <a class="reference external" href="https://github.com/jgm">John MacFarlane</a> for his work on the CommonMark spec and reference implementations.</p>
-</div>
-<div class="section" id="related-links">
-<h2>Related Links<a class="headerlink" href="#related-links" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/jgm/CommonMark">https://github.com/jgm/CommonMark</a> - reference CommonMark implementations in C &amp; JS, also contains latest spec &amp; online demo.</p></li>
-<li><p><a class="reference external" href="http://talk.commonmark.org">http://talk.commonmark.org</a> - CommonMark forum, good place to collaborate developers’ efforts.</p></li>
-</ul>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="using.html">Using <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="using.html#quick-start">Quick-Start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#the-parser">The Parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#the-token-stream">The Token Stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using.html#renderers">Renderers</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">markdown-it design principles</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#data-flow">Data flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#token-stream">Token stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#rules">Rules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#renderer">Renderer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#summary">Summary</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="other.html">Security</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="other.html#plugins">Plugins</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="other.html#performance">Performance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin extensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribute to markdown-it-py</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#development-guidance">Development guidance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-style">Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#contributing-a-plugin">Contributing a plugin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#faq">FAQ</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/markdown_it.html">markdown_it package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/markdown_it.html#subpackages">Subpackages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/markdown_it.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
+
+   <h1>Python 模块索引</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-m"><strong>m</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-m"><td></td><td>
+       <strong>m</strong></td><td></td></tr>
+     <tr>
+       <td><img src="_static/minus.png" class="toggler"
+              id="toggle-1" style="display: none" alt="-" /></td>
+       <td>
+       <a href="api/markdown_it.html#module-markdown_it"><code class="xref">markdown_it</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.cli.html#module-markdown_it.cli"><code class="xref">markdown_it.cli</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.cli.parse.html#module-markdown_it.cli.parse"><code class="xref">markdown_it.cli.parse</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.common.html#module-markdown_it.common"><code class="xref">markdown_it.common</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.common.entities.html#module-markdown_it.common.entities"><code class="xref">markdown_it.common.entities</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.common.html_blocks.html#module-markdown_it.common.html_blocks"><code class="xref">markdown_it.common.html_blocks</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.common.html_re.html#module-markdown_it.common.html_re"><code class="xref">markdown_it.common.html_re</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.common.normalize_url.html#module-markdown_it.common.normalize_url"><code class="xref">markdown_it.common.normalize_url</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.common.utils.html#module-markdown_it.common.utils"><code class="xref">markdown_it.common.utils</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.helpers.html#module-markdown_it.helpers"><code class="xref">markdown_it.helpers</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.helpers.parse_link_destination.html#module-markdown_it.helpers.parse_link_destination"><code class="xref">markdown_it.helpers.parse_link_destination</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.helpers.parse_link_label.html#module-markdown_it.helpers.parse_link_label"><code class="xref">markdown_it.helpers.parse_link_label</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.helpers.parse_link_title.html#module-markdown_it.helpers.parse_link_title"><code class="xref">markdown_it.helpers.parse_link_title</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.main.html#module-markdown_it.main"><code class="xref">markdown_it.main</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.parser_block.html#module-markdown_it.parser_block"><code class="xref">markdown_it.parser_block</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.parser_core.html#module-markdown_it.parser_core"><code class="xref">markdown_it.parser_core</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.parser_inline.html#module-markdown_it.parser_inline"><code class="xref">markdown_it.parser_inline</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.presets.html#module-markdown_it.presets"><code class="xref">markdown_it.presets</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.presets.commonmark.html#module-markdown_it.presets.commonmark"><code class="xref">markdown_it.presets.commonmark</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.presets.default.html#module-markdown_it.presets.default"><code class="xref">markdown_it.presets.default</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.presets.zero.html#module-markdown_it.presets.zero"><code class="xref">markdown_it.presets.zero</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.renderer.html#module-markdown_it.renderer"><code class="xref">markdown_it.renderer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.ruler.html#module-markdown_it.ruler"><code class="xref">markdown_it.ruler</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.html#module-markdown_it.rules_block"><code class="xref">markdown_it.rules_block</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.blockquote.html#module-markdown_it.rules_block.blockquote"><code class="xref">markdown_it.rules_block.blockquote</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.code.html#module-markdown_it.rules_block.code"><code class="xref">markdown_it.rules_block.code</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.fence.html#module-markdown_it.rules_block.fence"><code class="xref">markdown_it.rules_block.fence</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.heading.html#module-markdown_it.rules_block.heading"><code class="xref">markdown_it.rules_block.heading</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.hr.html#module-markdown_it.rules_block.hr"><code class="xref">markdown_it.rules_block.hr</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.html_block.html#module-markdown_it.rules_block.html_block"><code class="xref">markdown_it.rules_block.html_block</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.lheading.html#module-markdown_it.rules_block.lheading"><code class="xref">markdown_it.rules_block.lheading</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.list.html#module-markdown_it.rules_block.list"><code class="xref">markdown_it.rules_block.list</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.paragraph.html#module-markdown_it.rules_block.paragraph"><code class="xref">markdown_it.rules_block.paragraph</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.reference.html#module-markdown_it.rules_block.reference"><code class="xref">markdown_it.rules_block.reference</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.state_block.html#module-markdown_it.rules_block.state_block"><code class="xref">markdown_it.rules_block.state_block</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_block.table.html#module-markdown_it.rules_block.table"><code class="xref">markdown_it.rules_block.table</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_core.html#module-markdown_it.rules_core"><code class="xref">markdown_it.rules_core</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_core.block.html#module-markdown_it.rules_core.block"><code class="xref">markdown_it.rules_core.block</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_core.inline.html#module-markdown_it.rules_core.inline"><code class="xref">markdown_it.rules_core.inline</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_core.linkify.html#module-markdown_it.rules_core.linkify"><code class="xref">markdown_it.rules_core.linkify</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_core.normalize.html#module-markdown_it.rules_core.normalize"><code class="xref">markdown_it.rules_core.normalize</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_core.replacements.html#module-markdown_it.rules_core.replacements"><code class="xref">markdown_it.rules_core.replacements</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_core.smartquotes.html#module-markdown_it.rules_core.smartquotes"><code class="xref">markdown_it.rules_core.smartquotes</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_core.state_core.html#module-markdown_it.rules_core.state_core"><code class="xref">markdown_it.rules_core.state_core</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.html#module-markdown_it.rules_inline"><code class="xref">markdown_it.rules_inline</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.autolink.html#module-markdown_it.rules_inline.autolink"><code class="xref">markdown_it.rules_inline.autolink</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.backticks.html#module-markdown_it.rules_inline.backticks"><code class="xref">markdown_it.rules_inline.backticks</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.balance_pairs.html#module-markdown_it.rules_inline.balance_pairs"><code class="xref">markdown_it.rules_inline.balance_pairs</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.emphasis.html#module-markdown_it.rules_inline.emphasis"><code class="xref">markdown_it.rules_inline.emphasis</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.entity.html#module-markdown_it.rules_inline.entity"><code class="xref">markdown_it.rules_inline.entity</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.escape.html#module-markdown_it.rules_inline.escape"><code class="xref">markdown_it.rules_inline.escape</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.html_inline.html#module-markdown_it.rules_inline.html_inline"><code class="xref">markdown_it.rules_inline.html_inline</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.image.html#module-markdown_it.rules_inline.image"><code class="xref">markdown_it.rules_inline.image</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.link.html#module-markdown_it.rules_inline.link"><code class="xref">markdown_it.rules_inline.link</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.newline.html#module-markdown_it.rules_inline.newline"><code class="xref">markdown_it.rules_inline.newline</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.state_inline.html#module-markdown_it.rules_inline.state_inline"><code class="xref">markdown_it.rules_inline.state_inline</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.strikethrough.html#module-markdown_it.rules_inline.strikethrough"><code class="xref">markdown_it.rules_inline.strikethrough</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.text.html#module-markdown_it.rules_inline.text"><code class="xref">markdown_it.rules_inline.text</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.rules_inline.text_collapse.html#module-markdown_it.rules_inline.text_collapse"><code class="xref">markdown_it.rules_inline.text_collapse</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.token.html#module-markdown_it.token"><code class="xref">markdown_it.token</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.tree.html#module-markdown_it.tree"><code class="xref">markdown_it.tree</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/markdown_it.utils.html#module-markdown_it.utils"><code class="xref">markdown_it.utils</code></a></td><td>
+       <em></em></td></tr>
+   </table>
 
 
               </div>
@@ -655,13 +862,6 @@ It is very simple to write complimentary extensions for both language implementa
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="using.html" title="下一页 页">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">Using <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code></p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
         
         </div>

@@ -1,0 +1,7 @@
+markdown\_it.common.entities module
+===================================
+
+.. automodule:: markdown_it.common.entities
+   :members:
+   :undoc-members:
+   :show-inheritance:

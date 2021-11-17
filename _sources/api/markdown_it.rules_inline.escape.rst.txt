@@ -1,0 +1,7 @@
+markdown\_it.rules\_inline.escape module
+========================================
+
+.. automodule:: markdown_it.rules_inline.escape
+   :members:
+   :undoc-members:
+   :show-inheritance:

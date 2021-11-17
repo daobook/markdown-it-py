@@ -1,0 +1,7 @@
+markdown\_it.renderer module
+============================
+
+.. automodule:: markdown_it.renderer
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,21 @@
+markdown\_it.rules\_core package
+================================
+
+.. automodule:: markdown_it.rules_core
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   markdown_it.rules_core.block
+   markdown_it.rules_core.inline
+   markdown_it.rules_core.linkify
+   markdown_it.rules_core.normalize
+   markdown_it.rules_core.replacements
+   markdown_it.rules_core.smartquotes
+   markdown_it.rules_core.state_core

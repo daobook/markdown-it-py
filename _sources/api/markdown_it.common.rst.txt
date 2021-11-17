@@ -1,0 +1,19 @@
+markdown\_it.common package
+===========================
+
+.. automodule:: markdown_it.common
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   markdown_it.common.entities
+   markdown_it.common.html_blocks
+   markdown_it.common.html_re
+   markdown_it.common.normalize_url
+   markdown_it.common.utils

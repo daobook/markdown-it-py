@@ -1,0 +1,7 @@
+markdown\_it.main module
+========================
+
+.. automodule:: markdown_it.main
+   :members:
+   :undoc-members:
+   :show-inheritance:

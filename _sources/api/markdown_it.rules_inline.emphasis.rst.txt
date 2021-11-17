@@ -1,0 +1,7 @@
+markdown\_it.rules\_inline.emphasis module
+==========================================
+
+.. automodule:: markdown_it.rules_inline.emphasis
+   :members:
+   :undoc-members:
+   :show-inheritance:

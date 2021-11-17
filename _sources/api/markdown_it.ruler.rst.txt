@@ -1,0 +1,7 @@
+markdown\_it.ruler module
+=========================
+
+.. automodule:: markdown_it.ruler
+   :members:
+   :undoc-members:
+   :show-inheritance:

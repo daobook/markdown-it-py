@@ -1,0 +1,17 @@
+markdown\_it.presets package
+============================
+
+.. automodule:: markdown_it.presets
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   markdown_it.presets.commonmark
+   markdown_it.presets.default
+   markdown_it.presets.zero

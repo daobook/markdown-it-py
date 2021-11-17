@@ -1,0 +1,7 @@
+markdown\_it.parser\_block module
+=================================
+
+.. automodule:: markdown_it.parser_block
+   :members:
+   :undoc-members:
+   :show-inheritance:

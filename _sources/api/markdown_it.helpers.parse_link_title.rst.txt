@@ -1,0 +1,7 @@
+markdown\_it.helpers.parse\_link\_title module
+==============================================
+
+.. automodule:: markdown_it.helpers.parse_link_title
+   :members:
+   :undoc-members:
+   :show-inheritance:

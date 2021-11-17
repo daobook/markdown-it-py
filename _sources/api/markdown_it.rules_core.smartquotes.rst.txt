@@ -1,0 +1,7 @@
+markdown\_it.rules\_core.smartquotes module
+===========================================
+
+.. automodule:: markdown_it.rules_core.smartquotes
+   :members:
+   :undoc-members:
+   :show-inheritance:

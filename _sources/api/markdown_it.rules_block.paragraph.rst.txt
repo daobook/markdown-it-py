@@ -1,0 +1,7 @@
+markdown\_it.rules\_block.paragraph module
+==========================================
+
+.. automodule:: markdown_it.rules_block.paragraph
+   :members:
+   :undoc-members:
+   :show-inheritance:
