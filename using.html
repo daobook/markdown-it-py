@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using markdown_it &#8212; markdown-it-py</title>
+    <title>使用 markdown_it &#8212; markdown-it-py</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -80,7 +80,7 @@
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Using
+   使用
    <code class="docutils literal notranslate">
     <span class="pre">
      markdown_it
@@ -559,17 +559,17 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#quick-start">
-   Quick-Start
+   快速入门
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-parser">
-   The Parser
+   解析器
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#typographic-components">
-     Typographic components
+     排版组件
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -579,26 +579,26 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#plugins-load">
-     Plugins load
+     加载插件
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-token-stream">
-   The Token Stream
+   形符流
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creating-a-syntax-tree">
-     Creating a syntax tree
+     创建语法树
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#renderers">
-   Renderers
+   渲染器
   </a>
  </li>
 </ul>
@@ -613,16 +613,15 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="using-markdown-it">
-<h1>Using <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code><a class="headerlink" href="#using-markdown-it" title="永久链接至标题">¶</a></h1>
+<h1>使用 <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code><a class="headerlink" href="#using-markdown-it" title="永久链接至标题">¶</a></h1>
 <blockquote>
-<div><p>This document can be opened to execute with <a class="reference external" href="https://jupytext.readthedocs.io">Jupytext</a>!</p>
+<div><p>这个文档可以用 <a class="reference external" href="https://jupytext.readthedocs.io">Jupytext</a> 打开来执行！</p>
 </div></blockquote>
-<p>markdown-it-py may be used as an API <em>via</em> the <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code> package.</p>
-<p>The raw text is first parsed to syntax ‘tokens’,
-then these are converted to other formats using ‘renderers’.</p>
+<p><em>借用</em> <code class="docutils literal notranslate"><span class="pre">markdown_it</span></code> 包，markdown-it-py 可以作为一个 API 使用。</p>
+<p>原始文本首先被解析为语法 “形符”，然后使用 “渲染器” 将这些文本转换为其他格式。</p>
 <div class="section" id="quick-start">
-<h2>Quick-Start<a class="headerlink" href="#quick-start" title="永久链接至标题">¶</a></h2>
-<p>The simplest way to understand how text will be parsed is using:</p>
+<h2>快速入门<a class="headerlink" href="#quick-start" title="永久链接至标题">¶</a></h2>
+<p>了解文本将如何被解析的最简单方法是使用：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
@@ -664,18 +663,13 @@ Token(type=&#39;paragraph_close&#39;, tag=&#39;p&#39;, nesting=-1, attrs={}, map
 </div>
 </div>
 <div class="section" id="the-parser">
-<h2>The Parser<a class="headerlink" href="#the-parser" title="永久链接至标题">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">MarkdownIt</span></code> class is instantiated with parsing configuration options,
-dictating the syntax rules and additional options for the parser and renderer.
-You can define this configuration <em>via</em> directly supplying a dictionary or a preset name:</p>
+<h2>解析器<a class="headerlink" href="#the-parser" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">MarkdownIt</span></code> 类的实例化带有解析配置选项，规定了语法规则以及解析器和渲染器的附加选项。你可以通过直接提供一个字典或一个预设名称来定义这个配置：</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">zero</span></code>: This configures the minimum components to parse text (i.e. just paragraphs and text)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">commonmark</span></code> (default): This configures the parser to strictly comply with the <a class="reference external" href="http://spec.commonmark.org/">CommonMark specification</a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">js-default</span></code>: This is the default in the JavaScript version.
-Compared to <code class="docutils literal notranslate"><span class="pre">commonmark</span></code>, it disables HTML parsing and enables the table and strikethrough components.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gfm-like</span></code>: This configures the parser to approximately comply with the <a class="reference external" href="https://github.github.com/gfm/">GitHub Flavored Markdown specification</a>.
-Compared to <code class="docutils literal notranslate"><span class="pre">commonmark</span></code>, it enables the table, strikethrough and linkify components.
-<strong>Important</strong>, to use this configuration you must have <code class="docutils literal notranslate"><span class="pre">linkify-it-py</span></code> installed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zero</span></code>：这配置了解析文本的最小组件（即只有段落和文本）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">commonmark</span></code>（默认）：这将配置解析器，使其严格遵守 <a class="reference external" href="http://spec.commonmark.org/">CommonMark 规范</a>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">js-default</span></code>：这是 JavaScript 版本中的默认值。与 <code class="docutils literal notranslate"><span class="pre">commonmark</span></code> 相比，它禁用了 HTML 解析，并启用了表格和删除线组件。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gfm-like</span></code>：这将解析器配置为大致符合 <a class="reference external" href="https://github.github.com/gfm/">GitHub 风味的 Markdown 规范</a>。与 <code class="docutils literal notranslate"><span class="pre">commonmark</span></code> 相比，它启用了表格、删除线和 linkify 组件。<strong>重要的是</strong>，要使用这个配置，你必须安装 <code class="docutils literal notranslate"><span class="pre">linkify-it-py</span></code>。</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -722,7 +716,7 @@ Compared to <code class="docutils literal notranslate"><span class="pre">commonm
 </div>
 </div>
 </div>
-<p>You can also override specific options:</p>
+<p>你也可以覆盖特定的选项：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;maxNesting&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">})</span>
@@ -759,9 +753,7 @@ Compared to <code class="docutils literal notranslate"><span class="pre">commonm
 </div>
 </div>
 </div>
-<p>You can find all the parsing rules in the source code:
-<code class="docutils literal notranslate"><span class="pre">parser_core.py</span></code>, <code class="docutils literal notranslate"><span class="pre">parser_block.py</span></code>,
-<code class="docutils literal notranslate"><span class="pre">parser_inline.py</span></code>.</p>
+<p>你可以在源代码中找到所有的解析规则：<code class="docutils literal notranslate"><span class="pre">parser_core.py</span></code>、<code class="docutils literal notranslate"><span class="pre">parser_block.py</span></code>、<code class="docutils literal notranslate"><span class="pre">parser_inline.py</span></code>。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">get_all_rules</span><span class="p">())</span>
@@ -802,7 +794,7 @@ Compared to <code class="docutils literal notranslate"><span class="pre">commonm
 </div>
 </div>
 </div>
-<p>Any of the parsing rules can be enabled/disabled, and these methods are “chainable”:</p>
+<p>任何解析规则都可以被启用/禁用，这些方法是：”chainable” ：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;- __*emphasise this*__&quot;</span><span class="p">)</span>
@@ -827,7 +819,7 @@ Compared to <code class="docutils literal notranslate"><span class="pre">commonm
 </div>
 </div>
 </div>
-<p>You can temporarily modify rules with the <code class="docutils literal notranslate"><span class="pre">reset_rules</span></code> context manager.</p>
+<p>你可以用 <code class="docutils literal notranslate"><span class="pre">reset_rules</span></code> 上下文管理器临时修改规则。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">md</span><span class="o">.</span><span class="n">reset_rules</span><span class="p">():</span>
@@ -846,7 +838,7 @@ Compared to <code class="docutils literal notranslate"><span class="pre">commonm
 </div>
 </div>
 </div>
-<p>Additionally <code class="docutils literal notranslate"><span class="pre">renderInline</span></code> runs the parser with all block syntax rules disabled.</p>
+<p>另外 <code class="docutils literal notranslate"><span class="pre">renderInline</span></code> 在运行解析器时禁用所有块语法规则。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span><span class="o">.</span><span class="n">renderInline</span><span class="p">(</span><span class="s2">&quot;__*emphasise this*__&quot;</span><span class="p">)</span>
@@ -860,14 +852,14 @@ Compared to <code class="docutils literal notranslate"><span class="pre">commonm
 </div>
 </div>
 <div class="section" id="typographic-components">
-<h3>Typographic components<a class="headerlink" href="#typographic-components" title="永久链接至标题">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">smartquotes</span></code> and <code class="docutils literal notranslate"><span class="pre">replacements</span></code> components are intended to improve typography:</p>
-<p><code class="docutils literal notranslate"><span class="pre">smartquotes</span></code> will convert basic quote marks to their opening and closing variants:</p>
+<h3>排版组件<a class="headerlink" href="#typographic-components" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">smartquotes</span></code> 和 <code class="docutils literal notranslate"><span class="pre">replacements</span></code> 组件的目的是改善排版：</p>
+<p><code class="docutils literal notranslate"><span class="pre">smartquotes</span></code> 将把基本引号转换为其开头和结尾的变体：</p>
 <ul class="simple">
-<li><p>‘single quotes’ -&gt; ‘single quotes’</p></li>
-<li><p>“double quotes” -&gt; “double quotes”</p></li>
+<li><p>‘单引号’ -&gt; ‘单引号’。</p></li>
+<li><p>“双引号” -&gt; “双引号”</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">replacements</span></code> will replace particular text constructs:</p>
+<p><code class="docutils literal notranslate"><span class="pre">replacements</span></code> 将替换特定的文本结构：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">(c)</span></code>, <code class="docutils literal notranslate"><span class="pre">(C)</span></code> → ©</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(tm)</span></code>, <code class="docutils literal notranslate"><span class="pre">(TM)</span></code> → ™</p></li>
@@ -883,7 +875,7 @@ Compared to <code class="docutils literal notranslate"><span class="pre">commonm
 <li><p><code class="docutils literal notranslate"><span class="pre">--</span></code> → &amp;ndash</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">---</span></code> → &amp;mdash</p></li>
 </ul>
-<p>Both of these components require typography to be turned on, as well as the components enabled:</p>
+<p>这两个组件都需要打开排版，以及启用组件：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;typographer&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
@@ -901,8 +893,7 @@ Compared to <code class="docutils literal notranslate"><span class="pre">commonm
 </div>
 <div class="section" id="linkify">
 <h3>Linkify<a class="headerlink" href="#linkify" title="永久链接至标题">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">linkify</span></code> component requires that <a class="reference external" href="https://github.com/tsutsu3/linkify-it-py">linkify-it-py</a> be installed (e.g. <em>via</em> <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">markdown-it-py[linkify]</span></code>).
-This allows URI autolinks to be identified, without the need for enclosing in <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> brackets:</p>
+<p><code class="docutils literal notranslate"><span class="pre">linkify</span></code> 组件需要安装 <a class="reference external" href="https://github.com/tsutsu3/linkify-it-py">linkify-it-py</a>（例如，<em>通过</em> <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">markdown-it-py[linkify]</span></code>）。这允许识别 URI 自动链接，而不需要用 <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> 括号括起来：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;linkify&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
@@ -919,10 +910,8 @@ This allows URI autolinks to be identified, without the need for enclosing in <c
 </div>
 </div>
 <div class="section" id="plugins-load">
-<h3>Plugins load<a class="headerlink" href="#plugins-load" title="永久链接至标题">¶</a></h3>
-<p>Plugins load collections of additional syntax rules and render methods into the parser.
-A number of useful plugins are available in <a class="reference external" href="https://github.com/executablebooks/mdit-py-plugins"><code class="docutils literal notranslate"><span class="pre">mdit_py_plugins</span></code></a> (see <a class="reference internal" href="plugins.html"><span class="doc std std-doc">the plugin list</span></a>),
-or you can create your own (following the <a class="reference internal" href="architecture.html"><span class="doc std std-doc">markdown-it design principles</span></a>).</p>
+<h3>加载插件<a class="headerlink" href="#plugins-load" title="永久链接至标题">¶</a></h3>
+<p>插件将额外的语法规则和渲染方法的集合加载到解析器中。在 <a class="reference external" href="https://github.com/executablebooks/mdit-py-plugins"><code class="docutils literal notranslate"><span class="pre">mdit_py_plugins</span></code></a> 中有许多有用的插件（见 <a class="reference internal" href="plugins.html"><span class="doc std std-doc">插件列表</span></a>），或者你可以自己创建（遵循 <a class="reference internal" href="architecture.html"><span class="doc std std-doc">markdown-it 设计原则</span></a>）。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it</span> <span class="kn">import</span> <span class="n">MarkdownIt</span>
@@ -962,8 +951,8 @@ or you can create your own (following the <a class="reference internal" href="ar
 </div>
 </div>
 <div class="section" id="the-token-stream">
-<h2>The Token Stream<a class="headerlink" href="#the-token-stream" title="永久链接至标题">¶</a></h2>
-<p>Before rendering, the text is parsed to a flat token stream of block level syntax elements, with nesting defined by opening (1) and closing (-1) attributes:</p>
+<h2>形符流<a class="headerlink" href="#the-token-stream" title="永久链接至标题">¶</a></h2>
+<p>在渲染之前，文本被解析为块级语法元素的扁平形符流，嵌套由开口（1）和闭口（-1）属性定义：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">)</span>
@@ -997,8 +986,7 @@ or you can create your own (following the <a class="reference internal" href="ar
 </div>
 </div>
 </div>
-<p>Naturally all openings should eventually be closed,
-such that:</p>
+<p>自然，所有的开口最终都应该被关闭，这样一来：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">nesting</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
@@ -1011,7 +999,7 @@ such that:</p>
 </div>
 </div>
 </div>
-<p>All tokens are the same class, which can also be created outside the parser:</p>
+<p>所有的形符都是同一个类别，也可以在解析器之外创建：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1038,7 +1026,7 @@ such that:</p>
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">'inline'</span></code> type token contain the inline tokens as children:</p>
+<p><code class="docutils literal notranslate"><span class="pre">'inline'</span></code> 类型形符包含内联形符作为子项：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -1051,7 +1039,7 @@ such that:</p>
 </div>
 </div>
 </div>
-<p>You can serialize a token (and its children) to a JSONable dictionary using:</p>
+<p>你可以用以下方法将一个形符（和它的孩子）序列化为一个 JSONable 字典：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">as_dict</span><span class="p">())</span>
@@ -1064,7 +1052,7 @@ such that:</p>
 </div>
 </div>
 </div>
-<p>This dictionary can also be deserialized:</p>
+<p>这个字典也可以被反序列化：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Token</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">as_dict</span><span class="p">())</span>
@@ -1078,12 +1066,11 @@ such that:</p>
 </div>
 </div>
 <div class="section" id="creating-a-syntax-tree">
-<h3>Creating a syntax tree<a class="headerlink" href="#creating-a-syntax-tree" title="永久链接至标题">¶</a></h3>
+<h3>创建语法树<a class="headerlink" href="#creating-a-syntax-tree" title="永久链接至标题">¶</a></h3>
 <div class="versionchanged">
-<p><span class="versionmodified changed">在 0.7.0 版更改: </span><code class="docutils literal notranslate"><span class="pre">nest_tokens</span></code> and <code class="docutils literal notranslate"><span class="pre">NestedTokens</span></code> are deprecated and replaced by <code class="docutils literal notranslate"><span class="pre">SyntaxTreeNode</span></code>.</p>
+<p><span class="versionmodified changed">在 0.7.0 版更改: </span><code class="docutils literal notranslate"><span class="pre">nest_tokens</span></code> 和 <code class="docutils literal notranslate"><span class="pre">NestedTokens</span></code> 已被废弃，由 <code class="docutils literal notranslate"><span class="pre">SyntaxTreeNode</span></code> 取代。</p>
 </div>
-<p>In some use cases it may be useful to convert the token stream into a syntax tree,
-with opening/closing tokens collapsed into a single token that contains children.</p>
+<p>在某些用例中，将形符流转换为语法树可能是有用的，开放/关闭的形符被折叠成一个包含子代的单一形符。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it.tree</span> <span class="kn">import</span> <span class="n">SyntaxTreeNode</span>
@@ -1139,7 +1126,7 @@ with opening/closing tokens collapsed into a single token that contains children
 </div>
 </div>
 </div>
-<p>You can then use methods to traverse the tree</p>
+<p>然后，你可以使用方法来遍历树结构</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">children</span>
@@ -1174,16 +1161,14 @@ with opening/closing tokens collapsed into a single token that contains children
 </div>
 </div>
 <div class="section" id="renderers">
-<h2>Renderers<a class="headerlink" href="#renderers" title="永久链接至标题">¶</a></h2>
-<p>After the token stream is generated, it’s passed to a <a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/renderer.py">renderer</a>.
-It then plays all the tokens, passing each to a rule with the same name as token type.</p>
-<p>Renderer rules are located in <code class="docutils literal notranslate"><span class="pre">md.renderer.rules</span></code> and are simple functions
-with the same signature:</p>
+<h2>渲染器<a class="headerlink" href="#renderers" title="永久链接至标题">¶</a></h2>
+<p>形符流生成后，它被传递给一个 <a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/renderer.py">渲染器</a>。然后，它播放所有的形符，将每个形符传递给一个与形符类型同名的规则。</p>
+<p>渲染器规则位于 <code class="docutils literal notranslate"><span class="pre">md.renderer.rules</span></code> 中，是具有相同签名的简单函数：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">htmlResult</span>
 </pre></div>
 </div>
-<p>You can inject render methods into the instantiated render class.</p>
+<p>你可以将渲染方法注入到实例化的渲染类中。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">MarkdownIt</span><span class="p">(</span><span class="s2">&quot;commonmark&quot;</span><span class="p">)</span>
@@ -1202,9 +1187,8 @@ with the same signature:</p>
 </div>
 </div>
 </div>
-<p>This is a slight change to the JS version, where the renderer argument is at the end.
-Also <code class="docutils literal notranslate"><span class="pre">add_render_rule</span></code> method is specific to Python, rather than adding directly to the <code class="docutils literal notranslate"><span class="pre">md.renderer.rules</span></code>, this ensures the method is bound to the renderer.</p>
-<p>You can also subclass a render and add the method there:</p>
+<p>这是对 JS 版本的轻微改变，渲染器的参数在最后。另外 <code class="docutils literal notranslate"><span class="pre">add_render_rule</span></code> 方法是 Python 特有的，而不是直接添加到 <code class="docutils literal notranslate"><span class="pre">md.renderer.rules</span></code> 中，这确保了该方法被绑定到渲染器上。</p>
+<p>你也可以对渲染器进行子类化，并在那里添加这个方法：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it.renderer</span> <span class="kn">import</span> <span class="n">RendererHTML</span>
@@ -1224,7 +1208,7 @@ Also <code class="docutils literal notranslate"><span class="pre">add_render_rul
 </div>
 </div>
 </div>
-<p>Plugins can support multiple render types, using the <code class="docutils literal notranslate"><span class="pre">__ouput__</span></code> attribute (this is currently a Python only feature).</p>
+<p>插件可以支持多种渲染类型，使用 <code class="docutils literal notranslate"><span class="pre">__ouput__</span></code> 属性（目前这只是一个 Python 功能）。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it.renderer</span> <span class="kn">import</span> <span class="n">RendererHTML</span>
@@ -1259,7 +1243,7 @@ Also <code class="docutils literal notranslate"><span class="pre">add_render_rul
 </div>
 </div>
 </div>
-<p>Here’s a more concrete example; let’s replace images with vimeo links to player’s iframe:</p>
+<p>这里有一个更具体的例子；让我们用 vimeo 链接替换图片到播放器的 iframe：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -1295,7 +1279,7 @@ Also <code class="docutils literal notranslate"><span class="pre">add_render_rul
 </div>
 </div>
 </div>
-<p>Here is another example, how to add <code class="docutils literal notranslate"><span class="pre">target=&quot;_blank&quot;</span></code> to all links:</p>
+<p>下面是另一个例子，如何将 <code class="docutils literal notranslate"><span class="pre">target=&quot;_blank&quot;</span></code> 添加到所有链接：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown_it</span> <span class="kn">import</span> <span class="n">MarkdownIt</span>
