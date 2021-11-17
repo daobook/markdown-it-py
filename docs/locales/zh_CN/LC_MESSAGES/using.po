@@ -20,35 +20,37 @@ msgstr ""
 
 #: ../../using.md:15
 msgid "Using `markdown_it`"
-msgstr ""
+msgstr "使用 `markdown_it`"
 
 #: ../../using.md:17
 msgid ""
 "This document can be opened to execute with "
 "[Jupytext](https://jupytext.readthedocs.io)!"
 msgstr ""
+"这个文档可以用 [Jupytext](https://jupytext.readthedocs.io) 打开来执行！"
 
 #: ../../using.md:19
 msgid "markdown-it-py may be used as an API *via* the `markdown_it` package."
-msgstr ""
+msgstr "*借用* `markdown_it` 包，markdown-it-py 可以作为一个 API 使用。"
 
 #: ../../using.md:21
 msgid ""
 "The raw text is first parsed to syntax 'tokens', then these are converted"
 " to other formats using 'renderers'."
 msgstr ""
+"原始文本首先被解析为语法 “形符”，然后使用 “渲染器” 将这些文本转换为其他格式。"
 
 #: ../../using.md:26
 msgid "Quick-Start"
-msgstr ""
+msgstr "快速入门"
 
 #: ../../using.md:28
 msgid "The simplest way to understand how text will be parsed is using:"
-msgstr ""
+msgstr "了解文本将如何被解析的最简单方法是使用："
 
 #: ../../using.md:46
 msgid "The Parser"
-msgstr ""
+msgstr "解析器"
 
 #: ../../using.md:50
 msgid ""
@@ -57,18 +59,23 @@ msgid ""
 " and renderer. You can define this configuration *via* directly supplying"
 " a dictionary or a preset name:"
 msgstr ""
+"`MarkdownIt` 类的实例化带有解析配置选项，"
+"规定了语法规则以及解析器和渲染器的附加选项。"
+"你可以通过直接提供一个字典或一个预设名称来定义这个配置："
 
 #: ../../using.md:54
 msgid ""
 "`zero`: This configures the minimum components to parse text (i.e. just "
 "paragraphs and text)"
 msgstr ""
+"`zero`：这配置了解析文本的最小组件（即只有段落和文本）"
 
 #: ../../using.md:55
 msgid ""
 "`commonmark` (default): This configures the parser to strictly comply "
 "with the [CommonMark specification](http://spec.commonmark.org/)."
 msgstr ""
+"`commonmark`（默认）：这将配置解析器，使其严格遵守 [CommonMark 规范](http://spec.commonmark.org/)。"
 
 #: ../../using.md:56
 msgid ""
@@ -76,6 +83,8 @@ msgid ""
 "`commonmark`, it disables HTML parsing and enables the table and "
 "strikethrough components."
 msgstr ""
+"`js-default`：这是 JavaScript 版本中的默认值。"
+"与 `commonmark` 相比，它禁用了 HTML 解析，并启用了表格和删除线组件。"
 
 #: ../../using.md:58
 msgid ""
@@ -85,60 +94,68 @@ msgid ""
 "linkify components. **Important**, to use this configuration you must "
 "have `linkify-it-py` installed."
 msgstr ""
+"`gfm-like`：这将解析器配置为大致符合 [GitHub 风味的 Markdown 规范](https://github.github.com/gfm/)。"
+"与 `commonmark` 相比，它启用了表格、删除线和 linkify 组件。"
+"**重要的是**，要使用这个配置，你必须安装 `linkify-it-py`。"
 
 #: ../../using.md:72
 msgid "You can also override specific options:"
-msgstr ""
+msgstr "你也可以覆盖特定的选项："
 
 #: ../../using.md:83
 msgid ""
 "You can find all the parsing rules in the source code: `parser_core.py`, "
 "`parser_block.py`, `parser_inline.py`."
 msgstr ""
+"你可以在源代码中找到所有的解析规则：`parser_core.py`、`parser_block.py`、`parser_inline.py`。"
 
 #: ../../using.md:91
 msgid ""
 "Any of the parsing rules can be enabled/disabled, and these methods are "
 "\"chainable\":"
 msgstr ""
+"任何解析规则都可以被启用/禁用，这些方法是：\"chainable\" ："
 
 #: ../../using.md:101
 msgid "You can temporarily modify rules with the `reset_rules` context manager."
-msgstr ""
+msgstr "你可以用 `reset_rules` 上下文管理器临时修改规则。"
 
 #: ../../using.md:110
 msgid ""
 "Additionally `renderInline` runs the parser with all block syntax rules "
 "disabled."
 msgstr ""
+"另外 `renderInline` 在运行解析器时禁用所有块语法规则。"
 
 #: ../../using.md:116
 msgid "Typographic components"
-msgstr ""
+msgstr "排版组件"
 
 #: ../../using.md:118
 msgid ""
 "The `smartquotes` and `replacements` components are intended to improve "
 "typography:"
 msgstr ""
+"`smartquotes` 和 `replacements` 组件的目的是改善排版："
 
 #: ../../using.md:120
 msgid ""
 "`smartquotes` will convert basic quote marks to their opening and closing"
 " variants:"
 msgstr ""
+"`smartquotes` 将把基本引号转换为其开头和结尾的变体："
 
 #: ../../using.md:122
 msgid "'single quotes' -> ‘single quotes’"
-msgstr ""
+msgstr "'单引号' -> ‘单引号’。"
 
 #: ../../using.md:123
 msgid "\"double quotes\" -> “double quotes”"
-msgstr ""
+msgstr "\"双引号\" -> “双引号”"
 
 #: ../../using.md:125
 msgid "`replacements` will replace particular text constructs:"
-msgstr ""
+msgstr "`replacements` 将替换特定的文本结构："
 
 #: ../../using.md:127
 msgid "``(c)``, ``(C)`` → ©"
@@ -197,6 +214,7 @@ msgid ""
 "Both of these components require typography to be turned on, as well as "
 "the components enabled:"
 msgstr ""
+"这两个组件都需要打开排版，以及启用组件："
 
 #: ../../using.md:149
 msgid "Linkify"
@@ -209,10 +227,13 @@ msgid ""
 "`pip install markdown-it-py[linkify]`). This allows URI autolinks to be "
 "identified, without the need for enclosing in `<>` brackets:"
 msgstr ""
+"`linkify` 组件需要安装 [linkify-it-py](https://github.com/tsutsu3/linkify-it-py)"
+"（例如，*通过* `pip install markdown-it-py[linkify]`）。"
+"这允许识别 URI 自动链接，而不需要用 `<>` 括号括起来："
 
 #: ../../using.md:160
 msgid "Plugins load"
-msgstr ""
+msgstr "加载插件"
 
 #: ../../using.md:162
 msgid ""
@@ -222,10 +243,13 @@ msgid ""
 "(see [the plugin list](./plugins.md)), or you can create your own "
 "(following the [markdown-it design principles](./architecture.md))."
 msgstr ""
+"插件将额外的语法规则和渲染方法的集合加载到解析器中。"
+"在 [`mdit_py_plugins`](https://github.com/executablebooks/mdit-py-plugins) 中有许多有用的插件"
+"（见 [插件列表](./plugins.md)），或者你可以自己创建（遵循 [markdown-it 设计原则](./architecture.md)）。"
 
 #: ../../using.md:194
 msgid "The Token Stream"
-msgstr ""
+msgstr "形符流"
 
 #: ../../using.md:198
 msgid ""
@@ -233,40 +257,45 @@ msgid ""
 "level syntax elements, with nesting defined by opening (1) and closing "
 "(-1) attributes:"
 msgstr ""
+"在渲染之前，文本被解析为块级语法元素的扁平形符流，"
+"嵌套由开口（1）和闭口（-1）属性定义："
 
 #: ../../using.md:211
 msgid "Naturally all openings should eventually be closed, such that:"
-msgstr ""
+msgstr "自然，所有的开口最终都应该被关闭，这样一来："
 
 #: ../../using.md:218
 msgid ""
 "All tokens are the same class, which can also be created outside the "
 "parser:"
 msgstr ""
+"所有的形符都是同一个类别，也可以在解析器之外创建："
 
 #: ../../using.md:230
 msgid "The `'inline'` type token contain the inline tokens as children:"
-msgstr ""
+msgstr "`'inline'` 类型形符包含内联形符作为子项："
 
 #: ../../using.md:236
 msgid ""
 "You can serialize a token (and its children) to a JSONable dictionary "
 "using:"
 msgstr ""
+"你可以用以下方法将一个形符（和它的孩子）序列化为一个 JSONable 字典："
 
 #: ../../using.md:242
 msgid "This dictionary can also be deserialized:"
-msgstr ""
+msgstr "这个字典也可以被反序列化："
 
 #: ../../using.md:248
 msgid "Creating a syntax tree"
-msgstr ""
+msgstr "创建语法树"
 
 #: ../../using.md:1
 msgid ""
 "`nest_tokens` and `NestedTokens` are deprecated and replaced by "
 "`SyntaxTreeNode`."
 msgstr ""
+"`nest_tokens` 和 `NestedTokens` 已被废弃，由 `SyntaxTreeNode` 取代。"
 
 #: ../../using.md:254
 msgid ""
@@ -274,14 +303,16 @@ msgid ""
 "syntax tree, with opening/closing tokens collapsed into a single token "
 "that contains children."
 msgstr ""
+"在某些用例中，将形符流转换为语法树可能是有用的，"
+"开放/关闭的形符被折叠成一个包含子代的单一形符。"
 
 #: ../../using.md:275
 msgid "You can then use methods to traverse the tree"
-msgstr ""
+msgstr "然后，你可以使用方法来遍历树结构"
 
 #: ../../using.md:286
 msgid "Renderers"
-msgstr ""
+msgstr "渲染器"
 
 #: ../../using.md:290
 msgid ""
@@ -290,16 +321,20 @@ msgid ""
 "py/tree/master/markdown_it/renderer.py). It then plays all the tokens, "
 "passing each to a rule with the same name as token type."
 msgstr ""
+"形符流生成后，它被传递给一个 "
+"[渲染器](https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/renderer.py)。"
+"然后，它播放所有的形符，将每个形符传递给一个与形符类型同名的规则。"
 
 #: ../../using.md:293
 msgid ""
 "Renderer rules are located in `md.renderer.rules` and are simple "
 "functions with the same signature:"
 msgstr ""
+"渲染器规则位于 `md.renderer.rules` 中，是具有相同签名的简单函数："
 
 #: ../../using.md:303
 msgid "You can inject render methods into the instantiated render class."
-msgstr ""
+msgstr "你可以将渲染方法注入到实例化的渲染类中。"
 
 #: ../../using.md:315
 msgid ""
@@ -308,24 +343,29 @@ msgid ""
 "than adding directly to the `md.renderer.rules`, this ensures the method "
 "is bound to the renderer."
 msgstr ""
+"这是对 JS 版本的轻微改变，渲染器的参数在最后。"
+"另外 `add_render_rule` 方法是 Python 特有的，"
+"而不是直接添加到 `md.renderer.rules` 中，这确保了该方法被绑定到渲染器上。"
 
 #: ../../using.md:320
 msgid "You can also subclass a render and add the method there:"
-msgstr ""
+msgstr "你也可以对渲染器进行子类化，并在那里添加这个方法："
 
 #: ../../using.md:333
 msgid ""
 "Plugins can support multiple render types, using the `__ouput__` "
 "attribute (this is currently a Python only feature)."
 msgstr ""
+"插件可以支持多种渲染类型，使用 `__ouput__` 属性"
+"（目前这只是一个 Python 功能）。"
 
 #: ../../using.md:359
 msgid ""
 "Here's a more concrete example; let's replace images with vimeo links to "
 "player's iframe:"
 msgstr ""
+"这里有一个更具体的例子；让我们用 vimeo 链接替换图片到播放器的 iframe："
 
 #: ../../using.md:385
 msgid "Here is another example, how to add `target=\"_blank\"` to all links:"
-msgstr ""
-
+msgstr "下面是另一个例子，如何将 `target=\"_blank\"` 添加到所有链接："

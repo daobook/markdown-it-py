@@ -11,6 +11,11 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
+import sys
+
+if sys.platform == 'win32':
+    import asyncio
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
@@ -69,7 +74,7 @@ html_theme_options = {
     "repository_branch": "master",
     "path_to_docs": "docs",
 }
-panels_add_boostrap_css = False
+panels_add_bootstrap_css = False
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
