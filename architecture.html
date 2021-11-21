@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>markdown-it design principles &#8212; markdown-it-py</title>
+    <title>markdown-it 设计原则 &#8212; markdown-it-py</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -90,7 +90,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   markdown-it design principles
+   markdown-it 设计原则
   </a>
  </li>
  <li class="toctree-l1">
@@ -559,17 +559,17 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-flow">
-   Data flow
+   数据流
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#token-stream">
-   Token stream
+   形符流
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rules">
-   Rules
+   规则
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -594,11 +594,10 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="markdown-it-design-principles">
-<span id="md-architecture"></span><h1>markdown-it design principles<a class="headerlink" href="#markdown-it-design-principles" title="永久链接至标题">¶</a></h1>
+<span id="md-architecture"></span><h1>markdown-it 设计原则<a class="headerlink" href="#markdown-it-design-principles" title="永久链接至标题">¶</a></h1>
 <div class="section" id="data-flow">
-<h2>Data flow<a class="headerlink" href="#data-flow" title="永久链接至标题">¶</a></h2>
-<p>Input data is parsed via nested chains of rules. There are 3 nested chains -
-<code class="docutils literal notranslate"><span class="pre">core</span></code>, <code class="docutils literal notranslate"><span class="pre">block</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">inline</span></code>:</p>
+<h2>数据流<a class="headerlink" href="#data-flow" title="永久链接至标题">¶</a></h2>
+<p>输入数据是通过规则的嵌套链来解析的。有 3 条嵌套链 - <code class="docutils literal notranslate"><span class="pre">core</span></code>、<code class="docutils literal notranslate"><span class="pre">block</span></code> 和 <code class="docutils literal notranslate"><span class="pre">inline</span></code>：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">core</span>
     <span class="n">core</span><span class="o">.</span><span class="n">rule1</span> <span class="p">(</span><span class="n">normalize</span><span class="p">)</span>
     <span class="o">...</span>
@@ -623,50 +622,45 @@
 
 </pre></div>
 </div>
-<p>The result of the parsing is a <em>list of tokens</em>, that will be passed to the <code class="docutils literal notranslate"><span class="pre">renderer</span></code> to generate the html content.</p>
-<p>These tokens can be themselves parsed again to generate more tokens (ex: a <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">token</span></code> can be divided into multiple <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">tokens</span></code>).</p>
-<p>An <code class="docutils literal notranslate"><span class="pre">env</span></code> sandbox can be used alongside tokens to inject external variables for your parsers and renderers.</p>
-<p>Each chain (core / block / inline) uses an independent <code class="docutils literal notranslate"><span class="pre">state</span></code> object when parsing data, so that each parsing operation is independent and can be disabled on the fly.</p>
+<p>解析的结果是一个 <em>形符列表</em>，它将被传递给 <code class="docutils literal notranslate"><span class="pre">renderer</span></code> 以生成 html 内容。</p>
+<p>这些形符本身可以再次被解析以产生更多的形符（例如：一个 <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">token</span></code> 可以被分成多个 <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">tokens</span></code>）。</p>
+<p>一个 <code class="docutils literal notranslate"><span class="pre">env</span></code> 沙盒可以和形符一起使用，为你的解析器和渲染器注入外部变量。</p>
+<p>每条链（core / block / inline）在解析数据时都使用一个独立的 <code class="docutils literal notranslate"><span class="pre">state</span></code> 对象，因此每个解析操作都是独立的，可以即时禁用。</p>
 </div>
 <div class="section" id="token-stream">
-<h2>Token stream<a class="headerlink" href="#token-stream" title="永久链接至标题">¶</a></h2>
-<p>Instead of traditional AST we use more low-level data representation - <em>tokens</em>.
-The difference is simple:</p>
+<h2>形符流<a class="headerlink" href="#token-stream" title="永久链接至标题">¶</a></h2>
+<p>代替传统的 AST，我们使用更低级的数据表示– <em>形符</em>。其区别很简单：</p>
 <ul class="simple">
-<li><p>Tokens are a simple sequence (Array).</p></li>
-<li><p>Opening and closing tags are separate.</p></li>
-<li><p>There are special token objects, “inline containers”, having nested tokens.
-sequences with inline markup (bold, italic, text, …).</p></li>
+<li><p>形符是一个简单的序列（Array）。</p></li>
+<li><p>开头和结尾标记是分开的。</p></li>
+<li><p>有一些特殊的形符对象，即 “内联容器”，具有嵌套的形符。具有内联标记的序列（粗体、斜体、文本，……）。</p></li>
 </ul>
-<p>See <a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/token.py">token class</a>
-for details about each token content.</p>
-<p>In total, a token stream is:</p>
+<p>参见 <a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/token.py">形符类</a>，了解每个形符内容的详情。</p>
+<p>总的来说，一个形符流是：</p>
 <ul class="simple">
-<li><p>On the top level - array of paired or single “block” tokens:</p>
+<li><p>在顶层 – 成对的或单一的 “block” 形符数组。</p>
 <ul>
-<li><p>open/close for headers, lists, blockquotes, paragraphs, …</p></li>
-<li><p>codes, fenced blocks, horizontal rules, html blocks, inlines containers</p></li>
+<li><p>打开/关闭标题、列表、分块引号、段落，……。</p></li>
+<li><p>代码、栅栏式块、水平规则、HTML 块、内联式容器</p></li>
 </ul>
 </li>
-<li><p>Each inline token have a <code class="docutils literal notranslate"><span class="pre">.children</span></code> property with a nested token stream for inline content:</p>
+<li><p>每个内联标记都有一个 <code class="docutils literal notranslate"><span class="pre">.children</span></code> 属性，有一个内联内容的嵌套形符流：</p>
 <ul>
-<li><p>open/close for strong, em, link, code, …</p></li>
-<li><p>text, line breaks</p></li>
+<li><p>打开/关闭为 strong、em、link、code，…</p></li>
+<li><p>文本、换行</p></li>
 </ul>
 </li>
 </ul>
-<p>Why not AST? Because it’s not needed for our tasks. We follow KISS principle.
-If you wish - you can call a parser without a renderer and convert the token stream
-to an AST.</p>
-<p>More details about tokens:</p>
+<p>为什么不是 AST？因为我们的任务不需要它。我们遵循 KISS 原则。如果你愿意 – 你可以调用一个没有渲染器的解析器，并将标记流转换为 AST。</p>
+<p>关于形符的更多细节：</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/renderer.py">Renderer source</a></p></li>
-<li><p><a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/token.py">Token source</a></p></li>
-<li><p><a class="reference external" href="https://markdown-it.github.io/">Live demo</a> - type your text and click <code class="docutils literal notranslate"><span class="pre">debug</span></code> tab.</p></li>
+<li><p><a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/renderer.py">渲染器源码</a></p></li>
+<li><p><a class="reference external" href="https://github.com/executablebooks/markdown-it-py/tree/master/markdown_it/token.py">形符源码</a></p></li>
+<li><p><a class="reference external" href="https://markdown-it.github.io/">实时演示</a> - 键入你的文本并点击 <code class="docutils literal notranslate"><span class="pre">debug</span></code> tab。</p></li>
 </ul>
 </div>
 <div class="section" id="rules">
-<h2>Rules<a class="headerlink" href="#rules" title="永久链接至标题">¶</a></h2>
+<h2>规则<a class="headerlink" href="#rules" title="永久链接至标题">¶</a></h2>
 <p>Rules are functions, doing “magic” with parser <code class="docutils literal notranslate"><span class="pre">state</span></code> objects. A rule is associated with one or more <em>chains</em> and is unique. For instance, a <code class="docutils literal notranslate"><span class="pre">blockquote</span></code> token is associated with <code class="docutils literal notranslate"><span class="pre">blockquote</span></code>, <code class="docutils literal notranslate"><span class="pre">paragraph</span></code>, <code class="docutils literal notranslate"><span class="pre">heading</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span></code> chains.</p>
 <p>Rules are managed by names via <a class="reference external" href="https://markdown-it.github.io/markdown-it/#Ruler">Ruler</a> instances and can be  <code class="docutils literal notranslate"><span class="pre">enabled</span></code> / <code class="docutils literal notranslate"><span class="pre">disabled</span></code> from the <a class="reference external" href="https://markdown-it.github.io/markdown-it/#MarkdownIt">MarkdownIt</a> methods.</p>
 <p>You can note, that some rules have a <code class="docutils literal notranslate"><span class="pre">validation</span> <span class="pre">mode</span></code> - in this mode rules do not
