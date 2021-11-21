@@ -20,35 +20,41 @@ msgstr ""
 
 #: ../../architecture.md:3
 msgid "markdown-it design principles"
-msgstr ""
+msgstr "markdown-it 设计原则"
 
 #: ../../architecture.md:5
 msgid "Data flow"
-msgstr ""
+msgstr "数据流"
 
 #: ../../architecture.md:7
 msgid ""
 "Input data is parsed via nested chains of rules. There are 3 nested "
 "chains - `core`, `block` & `inline`:"
 msgstr ""
+"输入数据是通过规则的嵌套链来解析的。"
+"有 3 条嵌套链 - `core`、`block` 和 `inline`："
 
 #: ../../architecture.md:35
 msgid ""
 "The result of the parsing is a *list of tokens*, that will be passed to "
 "the `renderer` to generate the html content."
 msgstr ""
+"解析的结果是一个 *形符列表*，它将被传递给 `renderer` 以生成 html 内容。"
 
 #: ../../architecture.md:37
 msgid ""
 "These tokens can be themselves parsed again to generate more tokens (ex: "
 "a `list token` can be divided into multiple `inline tokens`)."
 msgstr ""
+"这些形符本身可以再次被解析以产生更多的形符"
+"（例如：一个 `list token` 可以被分成多个 `inline tokens`）。"
 
 #: ../../architecture.md:39
 msgid ""
 "An `env` sandbox can be used alongside tokens to inject external "
 "variables for your parsers and renderers."
 msgstr ""
+"一个 `env` 沙盒可以和形符一起使用，为你的解析器和渲染器注入外部变量。"
 
 #: ../../architecture.md:41
 msgid ""
@@ -56,30 +62,35 @@ msgid ""
 "when parsing data, so that each parsing operation is independent and can "
 "be disabled on the fly."
 msgstr ""
+"每条链（core / block / inline）在解析数据时都使用一个独立的 `state` 对象，"
+"因此每个解析操作都是独立的，可以即时禁用。"
 
 #: ../../architecture.md:44
 msgid "Token stream"
-msgstr ""
+msgstr "形符流"
 
 #: ../../architecture.md:46
 msgid ""
 "Instead of traditional AST we use more low-level data representation - "
 "*tokens*. The difference is simple:"
 msgstr ""
+"代替传统的 AST，我们使用更低级的数据表示-- *形符*。其区别很简单："
 
 #: ../../architecture.md:49
 msgid "Tokens are a simple sequence (Array)."
-msgstr ""
+msgstr "形符是一个简单的序列（Array）。"
 
 #: ../../architecture.md:50
 msgid "Opening and closing tags are separate."
-msgstr ""
+msgstr "开头和结尾标记是分开的。"
 
 #: ../../architecture.md:51
 msgid ""
 "There are special token objects, \"inline containers\", having nested "
 "tokens. sequences with inline markup (bold, italic, text, ...)."
 msgstr ""
+"有一些特殊的形符对象，即 \"内联容器\"，具有嵌套的形符。"
+"具有内联标记的序列（粗体、斜体、文本，......）。"
 
 #: ../../architecture.md:54
 msgid ""
@@ -87,36 +98,39 @@ msgid ""
 "py/tree/master/markdown_it/token.py) for details about each token "
 "content."
 msgstr ""
+"参见 [形符类](https://github.com/executablebooks/markdown-it-py/"
+"tree/master/markdown_it/token.py)，了解每个形符内容的详情。"
 
 #: ../../architecture.md:57
 msgid "In total, a token stream is:"
-msgstr ""
+msgstr "总的来说，一个形符流是："
 
 #: ../../architecture.md:59
 msgid "On the top level - array of paired or single \"block\" tokens:"
-msgstr ""
+msgstr "在顶层 -- 成对的或单一的 \"block\" 形符数组。"
 
 #: ../../architecture.md:60
 msgid "open/close for headers, lists, blockquotes, paragraphs, ..."
-msgstr ""
+msgstr "打开/关闭标题、列表、分块引号、段落，......。"
 
 #: ../../architecture.md:61
 msgid "codes, fenced blocks, horizontal rules, html blocks, inlines containers"
-msgstr ""
+msgstr "代码、栅栏式块、水平规则、HTML 块、内联式容器"
 
 #: ../../architecture.md:62
 msgid ""
 "Each inline token have a `.children` property with a nested token stream "
 "for inline content:"
 msgstr ""
+"每个内联标记都有一个 `.children` 属性，有一个内联内容的嵌套形符流："
 
 #: ../../architecture.md:63
 msgid "open/close for strong, em, link, code, ..."
-msgstr ""
+msgstr "打开/关闭为 strong、em、link、code，..."
 
 #: ../../architecture.md:64
 msgid "text, line breaks"
-msgstr ""
+msgstr "文本、换行"
 
 #: ../../architecture.md:66
 msgid ""
@@ -124,32 +138,40 @@ msgid ""
 "principle. If you wish - you can call a parser without a renderer and "
 "convert the token stream to an AST."
 msgstr ""
+"为什么不是 AST？因为我们的任务不需要它。"
+"我们遵循 KISS 原则。"
+"如果你愿意 -- 你可以调用一个没有渲染器的解析器，并将标记流转换为 AST。"
 
 #: ../../architecture.md:70
 msgid "More details about tokens:"
-msgstr ""
+msgstr "关于形符的更多细节："
 
 #: ../../architecture.md:72
 msgid ""
 "[Renderer source](https://github.com/executablebooks/markdown-it-"
 "py/tree/master/markdown_it/renderer.py)"
 msgstr ""
+"[渲染器源码](https://github.com/executablebooks/markdown-it-"
+"py/tree/master/markdown_it/renderer.py)"
 
 #: ../../architecture.md:73
 msgid ""
 "[Token source](https://github.com/executablebooks/markdown-it-"
 "py/tree/master/markdown_it/token.py)"
 msgstr ""
+"[形符源码](https://github.com/executablebooks/markdown-it-"
+"py/tree/master/markdown_it/token.py)"
 
 #: ../../architecture.md:74
 msgid ""
 "[Live demo](https://markdown-it.github.io/) - type your text and click "
 "`debug` tab."
 msgstr ""
+"[实时演示](https://markdown-it.github.io/) - 键入你的文本并点击 `debug` tab。"
 
 #: ../../architecture.md:77
 msgid "Rules"
-msgstr ""
+msgstr "规则"
 
 #: ../../architecture.md:79
 msgid ""
