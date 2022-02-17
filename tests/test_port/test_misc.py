@@ -6,7 +6,7 @@ def test_highlight_arguments():
     def highlight_func(str_, lang, attrs):
         assert lang == "a"
         assert attrs == "b  c  d"
-        return "<pre><code>==" + str_ + "==</code></pre>"
+        return f'<pre><code>=={str_}==</code></pre>'
 
     conf = presets.commonmark.make()
     conf["options"]["highlight"] = highlight_func

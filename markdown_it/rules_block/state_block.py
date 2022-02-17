@@ -83,10 +83,7 @@ class StateBlock(StateBase):
                 if isSpace(character):
                     indent += 1
 
-                    if character == 0x09:
-                        offset += 4 - offset % 4
-                    else:
-                        offset += 1
+                    offset += 4 - offset % 4 if character == 0x09 else 1
                     continue
                 else:
                     indent_found = True

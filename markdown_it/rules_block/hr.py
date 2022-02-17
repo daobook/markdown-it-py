@@ -26,7 +26,7 @@ def hr(state: StateBlock, startLine: int, endLine: int, silent: bool):
     pos += 1
 
     # Check hr marker: /* * */ /* - */ /* _ */
-    if marker != 0x2A and marker != 0x2D and marker != 0x5F:
+    if marker not in [0x2A, 0x2D, 0x5F]:
         return False
 
     # markers can be mixed with spaces, but there should be at least 3 of them

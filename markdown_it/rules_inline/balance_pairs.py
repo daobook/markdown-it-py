@@ -37,9 +37,7 @@ def processDelimiters(state: StateInline, delimiters, *args):
 
         # avoid crash if `closer.jump` is pointing outside of the array,
         # e.g. for strikethrough
-        if openerIdx < -1:
-            openerIdx = -1
-
+        openerIdx = max(openerIdx, -1)
         newMinOpenerIdx = openerIdx
 
         while openerIdx > minOpenerIdx:
@@ -51,19 +49,11 @@ def processDelimiters(state: StateInline, delimiters, *args):
 
             if opener.open and opener.end < 0:
 
-                isOddMatch = False
-
-                # from spec:
-                #
-                # If one of the delimiters can both open and close emphasis, then the
-                # sum of the lengths of the delimiter runs containing the opening and
-                # closing delimiters must not be a multiple of 3 unless both lengths
-                # are multiples of 3.
-                #
-                if opener.close or closer.open:
-                    if (opener.length + closer.length) % 3 == 0:
-                        if opener.length % 3 != 0 or closer.length % 3 != 0:
-                            isOddMatch = True
+                isOddMatch = bool(
+                    (opener.close or closer.open)
+                    and (opener.length + closer.length) % 3 == 0
+                    and (opener.length % 3 != 0 or closer.length % 3 != 0)
+                )
 
                 if not isOddMatch:
                     # If previous delimiter cannot be an opener, we can safely skip
@@ -106,9 +96,7 @@ def link_pairs(state: StateInline) -> None:
 
     processDelimiters(state, state.delimiters)
 
-    curr = 0
-    while curr < maximum:
+    for curr in range(maximum):
         curr_meta = tokens_meta[curr]
         if curr_meta and "delimiters" in curr_meta:
             processDelimiters(state, curr_meta["delimiters"])
-        curr += 1

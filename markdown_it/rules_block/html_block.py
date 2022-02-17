@@ -13,7 +13,9 @@ LOGGER = logging.getLogger(__name__)
 # last argument defines whether it can terminate a paragraph or not
 HTML_SEQUENCES: List[Tuple[Pattern, Pattern, bool]] = [
     (
-        re.compile(r"^<(script|pre|style|textarea)(?=(\s|>|$))", re.IGNORECASE),
+        re.compile(
+            r"^<(script|pre|style|textarea)(?=(\s|>|$))", re.IGNORECASE
+        ),
         re.compile(r"<\/(script|pre|style|textarea)>", re.IGNORECASE),
         True,
     ),
@@ -22,11 +24,13 @@ HTML_SEQUENCES: List[Tuple[Pattern, Pattern, bool]] = [
     (re.compile(r"^<![A-Z]"), re.compile(r">"), True),
     (re.compile(r"^<!\[CDATA\["), re.compile(r"\]\]>"), True),
     (
-        re.compile("^</?(" + "|".join(block_names) + ")(?=(\\s|/?>|$))", re.IGNORECASE),
+        re.compile(
+            "^</?(" + "|".join(block_names) + ")(?=(\\s|/?>|$))", re.IGNORECASE
+        ),
         re.compile(r"^$"),
         True,
     ),
-    (re.compile(HTML_OPEN_CLOSE_TAG_STR + "\\s*$"), re.compile(r"^$"), False),
+    (re.compile(f'{HTML_OPEN_CLOSE_TAG_STR}\\s*$'), re.compile(r"^$"), False),
 ]
 
 
@@ -49,11 +53,14 @@ def html_block(state: StateBlock, startLine: int, endLine: int, silent: bool):
 
     lineText = state.src[pos:maximum]
 
-    html_seq = None
-    for HTML_SEQUENCE in HTML_SEQUENCES:
-        if HTML_SEQUENCE[0].search(lineText):
-            html_seq = HTML_SEQUENCE
-            break
+    html_seq = next(
+        (
+            HTML_SEQUENCE
+            for HTML_SEQUENCE in HTML_SEQUENCES
+            if HTML_SEQUENCE[0].search(lineText)
+        ),
+        None,
+    )
 
     if not html_seq:
         return False

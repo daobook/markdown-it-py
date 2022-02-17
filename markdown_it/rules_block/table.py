@@ -107,7 +107,7 @@ def table(state: StateBlock, startLine: int, endLine: int, silent: bool):
         if not t:
             # allow empty columns before and after table, but not in between columns;
             # e.g. allow ` |---| `, disallow ` ---||--- `
-            if i == 0 or i == len(columns) - 1:
+            if i in [0, len(columns) - 1]:
                 continue
             else:
                 return False
@@ -161,7 +161,7 @@ def table(state: StateBlock, startLine: int, endLine: int, silent: bool):
     for i in range(len(columns)):
         token = state.push("th_open", "th", 1)
         if aligns[i]:
-            token.attrs = {"style": "text-align:" + aligns[i]}
+            token.attrs = {"style": f'text-align:{aligns[i]}'}
 
         token = state.push("inline", "", 0)
         # note in markdown-it this map was removed in v12.0.0 however, we keep it,
@@ -180,13 +180,10 @@ def table(state: StateBlock, startLine: int, endLine: int, silent: bool):
         if state.sCount[nextLine] < state.blkIndent:
             break
 
-        terminate = False
-        for i in range(len(terminatorRules)):
-            if terminatorRules[i](state, nextLine, endLine, True):
-                terminate = True
-                break
-
-        if terminate:
+        if terminate := any(
+            terminatorRules[i](state, nextLine, endLine, True)
+            for i in range(len(terminatorRules))
+        ):
             break
         lineText = getLine(state, nextLine).strip()
         if not lineText:
@@ -209,7 +206,7 @@ def table(state: StateBlock, startLine: int, endLine: int, silent: bool):
         for i in range(columnCount):
             token = state.push("td_open", "td", 1)
             if aligns[i]:
-                token.attrs = {"style": "text-align:" + aligns[i]}
+                token.attrs = {"style": f'text-align:{aligns[i]}'}
 
             token = state.push("inline", "", 0)
             # note in markdown-it this map was removed in v12.0.0 however, we keep it,

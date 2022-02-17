@@ -75,7 +75,7 @@ def isValidEntityCode(c: int) -> bool:
     # never used
     if c >= 0xFDD0 and c <= 0xFDEF:
         return False
-    if ((c & 0xFFFF) == 0xFFFF) or ((c & 0xFFFF) == 0xFFFE):
+    if c & 0xFFFF in [0xFFFF, 0xFFFE]:
         return False
     # control codes
     if c >= 0x00 and c <= 0x08:
@@ -150,7 +150,7 @@ def unescapeAll(string: str) -> str:
 
 
 ESCAPABLE = r"""\\!"#$%&'()*+,./:;<=>?@\[\]^`{}|_~-"""
-ESCAPE_CHAR = re.compile(r"\\([" + ESCAPABLE + r"])")
+ESCAPE_CHAR = re.compile(f'\\\\([{ESCAPABLE}])')
 
 
 def stripEscape(string: str) -> str:
@@ -190,8 +190,7 @@ REGEXP_ESCAPE_RE = re.compile(r"[.?*+^$[\]\\(){}|-]")
 
 
 def escapeRE(string: str) -> str:
-    string = REGEXP_ESCAPE_RE.sub("\\$&", string)
-    return string
+    return REGEXP_ESCAPE_RE.sub("\\$&", string)
 
 
 # //////////////////////////////////////////////////////////////////////////////

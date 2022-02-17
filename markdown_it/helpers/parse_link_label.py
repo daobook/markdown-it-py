@@ -10,7 +10,6 @@ from markdown_it.rules_inline import StateInline
 
 def parseLinkLabel(state: StateInline, start: int, disableNested: bool = False) -> int:
 
-    labelEnd = -1
     oldPos = state.pos
     found = False
 
@@ -27,17 +26,16 @@ def parseLinkLabel(state: StateInline, start: int, disableNested: bool = False) 
 
         prevPos = state.pos
         state.md.inline.skipToken(state)
-        if marker == 0x5B:  # /* [ */)
-            if prevPos == state.pos - 1:
+        if prevPos == state.pos - 1:
+            if marker == 0x5B:
                 # increase level if we find text `[`,
                 # which is not a part of any token
                 level += 1
-            elif disableNested:
+        elif disableNested:
+            if marker == 0x5B:
                 state.pos = oldPos
                 return -1
-    if found:
-        labelEnd = state.pos
-
+    labelEnd = state.pos if found else -1
     # restore old state
     state.pos = oldPos
 

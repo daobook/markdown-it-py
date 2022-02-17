@@ -62,12 +62,12 @@ def process_inlines(tokens: List[Token], state: StateCore) -> None:
             # default to space if it's the beginning of the line
             lastChar = 0x20
 
-            if t.start(0) + lastIndex - 1 >= 0:
+            if t.start(0) + lastIndex >= 1:
                 lastChar = charCodeAt(text, t.start(0) + lastIndex - 1)
             else:
                 for j in range(i)[::-1]:
                     # lastChar defaults to 0x20
-                    if tokens[j].type == "softbreak" or tokens[j].type == "hardbreak":
+                    if tokens[j].type in ["softbreak", "hardbreak"]:
                         break
                     # should skip all tokens except 'text', 'html_inline' or 'code_inline'
                     if not tokens[j].content:
@@ -85,7 +85,7 @@ def process_inlines(tokens: List[Token], state: StateCore) -> None:
             else:
                 for j in range(i + 1, len(tokens)):
                     # nextChar defaults to 0x20
-                    if tokens[j].type == "softbreak" or tokens[j].type == "hardbreak":
+                    if tokens[j].type in ["softbreak", "hardbreak"]:
                         break
                     # should skip all tokens except 'text', 'html_inline' or 'code_inline'
                     if not tokens[j].content:
@@ -100,22 +100,32 @@ def process_inlines(tokens: List[Token], state: StateCore) -> None:
             isLastWhiteSpace = isWhiteSpace(lastChar)
             isNextWhiteSpace = isWhiteSpace(nextChar)
 
-            if isNextWhiteSpace:
+            if (
+                not isNextWhiteSpace
+                and isNextPunctChar
+                and not isLastWhiteSpace
+                and not isLastPunctChar
+                or isNextWhiteSpace
+            ):
                 canOpen = False
-            elif isNextPunctChar:
-                if not (isLastWhiteSpace or isLastPunctChar):
-                    canOpen = False
 
-            if isLastWhiteSpace:
+            if (
+                not isLastWhiteSpace
+                and isLastPunctChar
+                and not isNextWhiteSpace
+                and not isNextPunctChar
+                or isLastWhiteSpace
+            ):
                 canClose = False
-            elif isLastPunctChar:
-                if not (isNextWhiteSpace or isNextPunctChar):
-                    canClose = False
 
-            if nextChar == 0x22 and t.group(0) == '"':  # 0x22: "
-                if lastChar >= 0x30 and lastChar <= 0x39:  # 0x30: 0, 0x39: 9
-                    # special case: 1"" - count first quote as an inch
-                    canClose = canOpen = False
+            if (
+                nextChar == 0x22
+                and t.group(0) == '"'
+                and lastChar >= 0x30
+                and lastChar <= 0x39
+            ):
+                # special case: 1"" - count first quote as an inch
+                canClose = canOpen = False
 
             if canOpen and canClose:
                 # Replace quotes in the middle of punctuation sequence, but not

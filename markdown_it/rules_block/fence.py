@@ -25,7 +25,7 @@ def fence(state: StateBlock, startLine: int, endLine: int, silent: bool):
     marker = state.srcCharCode[pos]
 
     # /* ~ */  /* ` */
-    if marker != 0x7E and marker != 0x60:
+    if marker not in [0x7E, 0x60]:
         return False
 
     # scan marker length
@@ -41,9 +41,8 @@ def fence(state: StateBlock, startLine: int, endLine: int, silent: bool):
     params = state.src[pos:maximum]
 
     # /* ` */
-    if marker == 0x60:
-        if chr(marker) in params:
-            return False
+    if marker == 0x60 and chr(marker) in params:
+        return False
 
     # Since start is found, we can report success here in validation mode
     if silent:

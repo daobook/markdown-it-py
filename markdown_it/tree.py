@@ -157,9 +157,7 @@ class SyntaxTreeNode:
 
         Gets the whole group of siblings, including self.
         """
-        if not self.parent:
-            return [self]
-        return self.parent.children
+        return [self] if not self.parent else self.parent.children
 
     @property
     def type(self) -> str:
@@ -195,7 +193,7 @@ class SyntaxTreeNode:
         Returns `None` if this is the first sibling.
         """
         self_index = self.siblings.index(self)
-        if self_index - 1 >= 0:
+        if self_index >= 1:
             return self.siblings[self_index - 1]
         return None
 
@@ -237,7 +235,7 @@ class SyntaxTreeNode:
     ) -> str:
         """Create an XML style string of the tree."""
         prefix = " " * _current
-        text = prefix + f"<{self.type}"
+        text = f'{prefix}<{self.type}'
         if not self.is_root and self.attrs:
             text += " " + " ".join(f"{k}={v!r}" for k, v in self.attrs.items())
         text += ">"
@@ -297,11 +295,7 @@ class SyntaxTreeNode:
     @property
     def map(self) -> Optional[Tuple[int, int]]:
         """Source map info. Format: `Tuple[ line_begin, line_end ]`"""
-        map_ = self._attribute_token().map
-        if map_:
-            # Type ignore because `Token`s attribute types are not perfect
-            return tuple(map_)  # type: ignore
-        return None
+        return tuple(map_) if (map_ := self._attribute_token().map) else None
 
     @property
     def level(self) -> int:

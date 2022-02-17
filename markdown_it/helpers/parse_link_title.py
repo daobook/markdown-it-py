@@ -27,7 +27,7 @@ def parseLinkTitle(string: str, pos: int, maximum: int) -> _Result:
     marker = charCodeAt(string, pos)
 
     # /* " */  /* ' */  /* ( */
-    if marker != 0x22 and marker != 0x27 and marker != 0x28:
+    if marker not in [0x22, 0x27, 0x28]:
         return result
 
     pos += 1

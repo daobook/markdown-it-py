@@ -54,7 +54,7 @@ def autolink(state: StateInline, silent: bool) -> bool:
         return True
 
     if EMAIL_RE.search(url) is not None:
-        fullUrl = state.md.normalizeLink("mailto:" + url)
+        fullUrl = state.md.normalizeLink(f'mailto:{url}')
         if not state.md.validateLink(fullUrl):
             return False
 
