@@ -36,14 +36,10 @@ def paragraph(state: StateBlock, startLine: int, endLine: int, silent: bool = Fa
             nextLine += 1
             continue
 
-        # Some tags can terminate paragraph without empty line.
-        terminate = False
-        for terminatorRule in terminatorRules:
-            if terminatorRule(state, nextLine, endLine, True):
-                terminate = True
-                break
-
-        if terminate:
+        if terminate := any(
+            terminatorRule(state, nextLine, endLine, True)
+            for terminatorRule in terminatorRules
+        ):
             break
 
         nextLine += 1

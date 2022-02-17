@@ -122,11 +122,9 @@ class MarkdownIt:
 
         if "components" in config:
             for name, component in config["components"].items():
-                rules = component.get("rules", None)
-                if rules:
+                if rules := component.get("rules", None):
                     self[name].ruler.enableOnly(rules)
-                rules2 = component.get("rules2", None)
-                if rules2:
+                if rules2 := component.get("rules2", None):
                     self[name].ruler2.enableOnly(rules2)
 
         return self

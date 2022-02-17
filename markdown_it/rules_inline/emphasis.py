@@ -13,7 +13,7 @@ def tokenize(state: StateInline, silent: bool):
         return False
 
     # /* _ */  /* * */
-    if marker != 0x5F and marker != 0x2A:
+    if marker not in [0x5F, 0x2A]:
         return False
 
     scanned = state.scanDelims(state.pos, marker == 0x2A)
@@ -45,7 +45,7 @@ def _postProcess(state, delimiters):
         startDelim = delimiters[i]
 
         # /* _ */  /* * */
-        if startDelim.marker != 0x5F and startDelim.marker != 0x2A:
+        if startDelim.marker not in [0x5F, 0x2A]:
             i -= 1
             continue
 

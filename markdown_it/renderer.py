@@ -105,15 +105,12 @@ class RendererHTML(RendererProtocol):
         :param options: params of parser instance
         :param env: additional data from parsed input (references, for example)
         """
-        result = ""
-
-        for i, token in enumerate(tokens):
-            if token.type in self.rules:
-                result += self.rules[token.type](tokens, i, options, env)
-            else:
-                result += self.renderToken(tokens, i, options, env)
-
-        return result
+        return "".join(
+            self.rules[token.type](tokens, i, options, env)
+            if token.type in self.rules
+            else self.renderToken(tokens, i, options, env)
+            for i, token in enumerate(tokens)
+        )
 
     def renderToken(
         self,
@@ -161,19 +158,18 @@ class RendererHTML(RendererProtocol):
         if token.block:
             needLf = True
 
-            if token.nesting == 1:
-                if idx + 1 < len(tokens):
-                    nextToken = tokens[idx + 1]
+            if token.nesting == 1 and idx + 1 < len(tokens):
+                nextToken = tokens[idx + 1]
 
-                    if nextToken.type == "inline" or nextToken.hidden:
-                        # Block-level tag containing an inline tag.
-                        #
-                        needLf = False
+                if nextToken.type == "inline" or nextToken.hidden:
+                    # Block-level tag containing an inline tag.
+                    #
+                    needLf = False
 
-                    elif nextToken.nesting == -1 and nextToken.tag == token.tag:
-                        # Opening tag + closing tag of the same type. E.g. `<li></li>`.
-                        #
-                        needLf = False
+                elif nextToken.nesting == -1 and nextToken.tag == token.tag:
+                    # Opening tag + closing tag of the same type. E.g. `<li></li>`.
+                    #
+                    needLf = False
 
         result += ">\n" if needLf else ">"
 
@@ -182,12 +178,10 @@ class RendererHTML(RendererProtocol):
     @staticmethod
     def renderAttrs(token: Token) -> str:
         """Render token attributes to string."""
-        result = ""
-
-        for key, value in token.attrItems():
-            result += " " + escapeHtml(key) + '="' + escapeHtml(str(value)) + '"'
-
-        return result
+        return "".join(
+            f' {escapeHtml(key)}' + '="' + escapeHtml(str(value)) + '"'
+            for key, value in token.attrItems()
+        )
 
     def renderInlineAsText(
         self,
@@ -221,13 +215,9 @@ class RendererHTML(RendererProtocol):
 
     def code_inline(self, tokens: Sequence[Token], idx: int, options, env) -> str:
         token = tokens[idx]
-        return (
-            "<code"
+        return (("<code"
             + self.renderAttrs(token)
-            + ">"
-            + escapeHtml(tokens[idx].content)
-            + "</code>"
-        )
+            + ">" + escapeHtml(token.content)) + "</code>")
 
     def code_block(
         self,
@@ -238,13 +228,9 @@ class RendererHTML(RendererProtocol):
     ) -> str:
         token = tokens[idx]
 
-        return (
-            "<pre"
+        return (("<pre"
             + self.renderAttrs(token)
-            + "><code>"
-            + escapeHtml(tokens[idx].content)
-            + "</code></pre>\n"
-        )
+            + "><code>" + escapeHtml(token.content)) + "</code></pre>\n")
 
     def fence(
         self,

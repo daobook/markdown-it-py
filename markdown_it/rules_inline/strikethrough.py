@@ -120,8 +120,7 @@ def postProcess(state: StateInline):
     maximum = len(state.tokens_meta)
     _postProcess(state, state.delimiters)
 
-    curr = 0
-    while curr < maximum:
+    for curr in range(maximum):
         try:
             curr_meta = tokens_meta[curr]
         except IndexError:
@@ -129,4 +128,3 @@ def postProcess(state: StateInline):
         else:
             if curr_meta and "delimiters" in curr_meta:
                 _postProcess(state, curr_meta["delimiters"])
-        curr += 1

@@ -76,10 +76,9 @@ class Ruler:
 
     def __find__(self, name: str) -> int:
         """Find rule index by name"""
-        for i, rule in enumerate(self.__rules__):
-            if rule.name == name:
-                return i
-        return -1
+        return next(
+            (i for i, rule in enumerate(self.__rules__) if rule.name == name), -1
+        )
 
     def __compile__(self) -> None:
         """Build rules lookup cache"""
@@ -176,7 +175,7 @@ class Ruler:
             idx = self.__find__(name)
             if (idx < 0) and ignoreInvalid:
                 continue
-            if (idx < 0) and not ignoreInvalid:
+            if idx < 0:
                 raise KeyError(f"Rules manager: invalid rule name {name}")
             self.__rules__[idx].enabled = True
             result.append(name)
@@ -212,7 +211,7 @@ class Ruler:
             idx = self.__find__(name)
             if (idx < 0) and ignoreInvalid:
                 continue
-            if (idx < 0) and not ignoreInvalid:
+            if idx < 0:
                 raise KeyError(f"Rules manager: invalid rule name {name}")
             self.__rules__[idx].enabled = False
             result.append(name)

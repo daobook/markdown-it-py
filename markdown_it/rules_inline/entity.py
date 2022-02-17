@@ -21,8 +21,7 @@ def entity(state: StateInline, silent: bool):
         ch = state.srcCharCode[pos + 1]
 
         if ch == 0x23:  # /* # */
-            match = DIGITAL_RE.search(state.src[pos:])
-            if match:
+            if match := DIGITAL_RE.search(state.src[pos:]):
                 if not silent:
                     match1 = match.group(1)
                     code = (
@@ -39,14 +38,12 @@ def entity(state: StateInline, silent: bool):
                 state.pos += len(match.group(0))
                 return True
 
-        else:
-            match = NAMED_RE.search(state.src[pos:])
-            if match:
-                if has(entities, match.group(1)):
-                    if not silent:
-                        state.pending += entities[match.group(1)]
-                    state.pos += len(match.group(0))
-                    return True
+        elif match := NAMED_RE.search(state.src[pos:]):
+            if has(entities, match.group(1)):
+                if not silent:
+                    state.pending += entities[match.group(1)]
+                state.pos += len(match.group(0))
+                return True
 
     if not silent:
         state.pending += "&"

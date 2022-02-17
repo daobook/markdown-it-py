@@ -62,12 +62,12 @@ def parseLinkDestination(string: str, pos: int, maximum: int) -> _Result:
             pos += 2
             continue
 
-        if code == 0x28:  # /* ( */)
+        if code == 0x28:
             level += 1
             if level > 32:
                 return result
 
-        if code == 0x29:  # /* ) */)
+        elif code == 0x29:
             if level == 0:
                 break
             level -= 1

@@ -74,17 +74,16 @@ def blockquote(state: StateBlock, startLine: int, endLine: int, silent: bool):
     while pos < max:
         ch = state.srcCharCode[pos]
 
-        if isSpace(ch):
-            if ch == 0x09:  # / tab /
-                offset += (
-                    4
-                    - (offset + state.bsCount[startLine] + (1 if adjustTab else 0)) % 4
-                )
-            else:
-                offset += 1
-
-        else:
+        if not isSpace(ch):
             break
+
+        if ch == 0x09:  # / tab /
+            offset += (
+                4
+                - (offset + state.bsCount[startLine] + (1 if adjustTab else 0)) % 4
+            )
+        else:
+            offset += 1
 
         pos += 1
 
@@ -188,22 +187,21 @@ def blockquote(state: StateBlock, startLine: int, endLine: int, silent: bool):
             while pos < max:
                 ch = state.srcCharCode[pos]
 
-                if isSpace(ch):
-                    if ch == 0x09:
-                        offset += (
-                            4
-                            - (
-                                offset
-                                + state.bsCount[nextLine]
-                                + (1 if adjustTab else 0)
-                            )
-                            % 4
-                        )
-                    else:
-                        offset += 1
-                else:
+                if not isSpace(ch):
                     break
 
+                if ch == 0x09:
+                    offset += (
+                        4
+                        - (
+                            offset
+                            + state.bsCount[nextLine]
+                            + (1 if adjustTab else 0)
+                        )
+                        % 4
+                    )
+                else:
+                    offset += 1
                 pos += 1
 
             lastLineEmpty = pos >= max
@@ -226,15 +224,10 @@ def blockquote(state: StateBlock, startLine: int, endLine: int, silent: bool):
         if lastLineEmpty:
             break
 
-        # Case 3: another tag found.
-        terminate = False
-
-        for terminatorRule in terminatorRules:
-            if terminatorRule(state, nextLine, endLine, True):
-                terminate = True
-                break
-
-        if terminate:
+        if terminate := any(
+            terminatorRule(state, nextLine, endLine, True)
+            for terminatorRule in terminatorRules
+        ):
             # Quirk to enforce "hard termination mode" for paragraphs;
             # normally if you call `tokenize(state, startLine, nextLine)`,
             # paragraphs will look below nextLine for paragraph continuation,

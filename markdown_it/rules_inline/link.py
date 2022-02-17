@@ -27,13 +27,6 @@ def link(state: StateInline, silent: bool):
     pos = labelEnd + 1
 
     if pos < maximum and state.srcCharCode[pos] == 0x28:  # /* ( */
-        #
-        # Inline link
-        #
-
-        # might have found a valid shortcut link, disable reference parsing
-        parseReference = False
-
         # [link](  <href>  "title"  )
         #        ^^ skipping these spaces
         pos += 1
@@ -69,22 +62,19 @@ def link(state: StateInline, silent: bool):
             # [link](  <href>  "title"  )
             #                  ^^^^^^^ parsing link title
             res = state.md.helpers.parseLinkTitle(state.src, pos, state.posMax)
-            if pos < maximum and start != pos and res.ok:
-                title = res.str
-                pos = res.pos
+        if pos < maximum and start != pos and res.ok:
+            title = res.str
+            pos = res.pos
 
-                # [link](  <href>  "title"  )
-                #                         ^^ skipping these spaces
-                while pos < maximum:
-                    code = state.srcCharCode[pos]
-                    if not isSpace(code) and code != 0x0A:
-                        break
-                    pos += 1
+            # [link](  <href>  "title"  )
+            #                         ^^ skipping these spaces
+            while pos < maximum:
+                code = state.srcCharCode[pos]
+                if not isSpace(code) and code != 0x0A:
+                    break
+                pos += 1
 
-        if pos >= maximum or state.srcCharCode[pos] != 0x29:  # /* ) */
-            # parsing a valid shortcut link failed, fallback to reference
-            parseReference = True
-
+        parseReference = pos >= maximum or state.srcCharCode[pos] != 0x29
         pos += 1
 
     if parseReference:

@@ -40,7 +40,7 @@ def lheading(state: StateBlock, startLine: int, endLine: int, silent: bool):
                 marker = state.srcCharCode[pos]
 
                 # /* - */  /* = */
-                if marker == 0x2D or marker == 0x3D:
+                if marker in [0x2D, 0x3D]:
                     pos = state.skipChars(pos, marker)
                     pos = state.skipSpaces(pos)
 
@@ -54,13 +54,10 @@ def lheading(state: StateBlock, startLine: int, endLine: int, silent: bool):
             nextLine += 1
             continue
 
-        # Some tags can terminate paragraph without empty line.
-        terminate = False
-        for terminatorRule in terminatorRules:
-            if terminatorRule(state, nextLine, endLine, True):
-                terminate = True
-                break
-        if terminate:
+        if terminate := any(
+            terminatorRule(state, nextLine, endLine, True)
+            for terminatorRule in terminatorRules
+        ):
             break
 
         nextLine += 1
@@ -73,7 +70,7 @@ def lheading(state: StateBlock, startLine: int, endLine: int, silent: bool):
 
     state.line = nextLine + 1
 
-    token = state.push("heading_open", "h" + str(level), 1)
+    token = state.push("heading_open", f'h{str(level)}', 1)
     token.markup = chr(marker)
     token.map = [startLine, state.line]
 
@@ -82,7 +79,7 @@ def lheading(state: StateBlock, startLine: int, endLine: int, silent: bool):
     token.map = [startLine, state.line - 1]
     token.children = []
 
-    token = state.push("heading_close", "h" + str(level), -1)
+    token = state.push("heading_close", f'h{str(level)}', -1)
     token.markup = chr(marker)
 
     state.parentType = oldParentType

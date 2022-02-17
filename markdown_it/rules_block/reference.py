@@ -57,14 +57,10 @@ def reference(state: StateBlock, startLine, _endLine, silent):
             nextLine += 1
             continue
 
-        # Some tags can terminate paragraph without empty line.
-        terminate = False
-        for terminatorRule in terminatorRules:
-            if terminatorRule(state, nextLine, endLine, True):
-                terminate = True
-                break
-
-        if terminate:
+        if terminate := any(
+            terminatorRule(state, nextLine, endLine, True)
+            for terminatorRule in terminatorRules
+        ):
             break
 
         nextLine += 1
@@ -101,9 +97,7 @@ def reference(state: StateBlock, startLine, _endLine, silent):
         ch = charCodeAt(string, pos)
         if ch == 0x0A:
             lines += 1
-        elif isSpace(ch):
-            pass
-        else:
+        elif not isSpace(ch):
             break
         pos += 1
 
@@ -131,9 +125,7 @@ def reference(state: StateBlock, startLine, _endLine, silent):
         ch = charCodeAt(string, pos)
         if ch == 0x0A:
             lines += 1
-        elif isSpace(ch):
-            pass
-        else:
+        elif not isSpace(ch):
             break
         pos += 1
 
@@ -156,18 +148,17 @@ def reference(state: StateBlock, startLine, _endLine, silent):
             break
         pos += 1
 
-    if pos < maximum and charCodeAt(string, pos) != 0x0A:
-        if title:
-            # garbage at the end of the line after title,
-            # but it could still be a valid reference if we roll back
-            title = ""
-            pos = destEndPos
-            lines = destEndLineNo
-            while pos < maximum:
-                ch = charCodeAt(string, pos)
-                if not isSpace(ch):
-                    break
-                pos += 1
+    if pos < maximum and charCodeAt(string, pos) != 0x0A and title:
+        # garbage at the end of the line after title,
+        # but it could still be a valid reference if we roll back
+        title = ""
+        pos = destEndPos
+        lines = destEndLineNo
+        while pos < maximum:
+            ch = charCodeAt(string, pos)
+            if not isSpace(ch):
+                break
+            pos += 1
 
     if pos < maximum and charCodeAt(string, pos) != 0x0A:
         # garbage at the end of the line

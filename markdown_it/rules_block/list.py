@@ -17,7 +17,7 @@ def skipBulletListMarker(state: StateBlock, startLine: int):
     marker = state.srcCharCode[pos]
     pos += 1
     # Check bullet /* * */ /* - */ /* + */
-    if marker != 0x2A and marker != 0x2D and marker != 0x2B:
+    if marker not in [0x2A, 0x2D, 0x2B]:
         return -1
 
     if pos < maximum:
@@ -68,7 +68,7 @@ def skipOrderedListMarker(state: StateBlock, startLine: int):
             continue
 
         # found valid marker: /* ) */ /* . */
-        if ch == 0x29 or ch == 0x2E:
+        if ch in [0x29, 0x2E]:
             break
 
         return -1
@@ -100,7 +100,6 @@ def list_block(state: StateBlock, startLine: int, endLine: int, silent: bool):
 
     LOGGER.debug("entering list: %s, %s, %s, %s", state, startLine, endLine, silent)
 
-    isTerminatingParagraph = False
     tight = True
 
     # if it's indented more than 3 spaces, it should be a code block
@@ -120,16 +119,11 @@ def list_block(state: StateBlock, startLine: int, endLine: int, silent: bool):
     ):
         return False
 
-    # limit conditions when list can interrupt
-    # a paragraph (validation mode only)
-    if silent and state.parentType == "paragraph":
-        # Next list item should still terminate previous list item
-        #
-        # This code can fail if plugins use blkIndent as well as lists,
-        # but I hope the spec gets fixed long before that happens.
-        #
-        if state.tShift[startLine] >= state.blkIndent:
-            isTerminatingParagraph = True
+    isTerminatingParagraph = (
+        silent
+        and state.parentType == "paragraph"
+        and state.tShift[startLine] >= state.blkIndent
+    )
 
     # Detect list type and position after marker
     posAfterMarker = skipOrderedListMarker(state, startLine)
@@ -151,9 +145,11 @@ def list_block(state: StateBlock, startLine: int, endLine: int, silent: bool):
 
     # If we're starting a new unordered list right after
     # a paragraph, first line should not be empty.
-    if isTerminatingParagraph:
-        if state.skipSpaces(posAfterMarker) >= state.eMarks[startLine]:
-            return False
+    if (
+        isTerminatingParagraph
+        and state.skipSpaces(posAfterMarker) >= state.eMarks[startLine]
+    ):
+        return False
 
     # We should terminate list on style change. Remember first one to compare.
     markerCharCode = state.srcCharCode[posAfterMarker - 1]
@@ -211,12 +207,7 @@ def list_block(state: StateBlock, startLine: int, endLine: int, silent: bool):
 
         contentStart = pos
 
-        if contentStart >= maximum:
-            # trimming space in "-    \n  3" case, indent is 1 here
-            indentAfterMarker = 1
-        else:
-            indentAfterMarker = offset - initial
-
+        indentAfterMarker = 1 if contentStart >= maximum else offset - initial
         # If we have more than 4 spaces, the indent is 1
         # (the rest is just indented code block)
         if indentAfterMarker > 4:
@@ -298,26 +289,19 @@ def list_block(state: StateBlock, startLine: int, endLine: int, silent: bool):
         if state.sCount[startLine] - state.blkIndent >= 4:
             break
 
-        # fail if terminating block found
-        terminate = False
-        for terminatorRule in terminatorRules:
-            if terminatorRule(state, nextLine, endLine, True):
-                terminate = True
-                break
-
-        if terminate:
+        if terminate := any(
+            terminatorRule(state, nextLine, endLine, True)
+            for terminatorRule in terminatorRules
+        ):
             break
 
         # fail if list has another type
         if isOrdered:
             posAfterMarker = skipOrderedListMarker(state, nextLine)
-            if posAfterMarker < 0:
-                break
         else:
             posAfterMarker = skipBulletListMarker(state, nextLine)
-            if posAfterMarker < 0:
-                break
-
+        if posAfterMarker < 0:
+            break
         if markerCharCode != state.srcCharCode[posAfterMarker - 1]:
             break
 

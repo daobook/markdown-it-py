@@ -56,7 +56,7 @@ def heading(state: StateBlock, startLine: int, endLine: int, silent: bool):
 
     state.line = startLine + 1
 
-    token = state.push("heading_open", "h" + str(level), 1)
+    token = state.push("heading_open", f'h{level}', 1)
     token.markup = "########"[:level]
     token.map = [startLine, state.line]
 
@@ -65,7 +65,7 @@ def heading(state: StateBlock, startLine: int, endLine: int, silent: bool):
     token.map = [startLine, state.line]
     token.children = []
 
-    token = state.push("heading_close", "h" + str(level), -1)
+    token = state.push("heading_close", f'h{level}', -1)
     token.markup = "########"[:level]
 
     return True

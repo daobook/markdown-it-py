@@ -39,10 +39,7 @@ reEntityOrEscapedChar = re.compile(
 
 
 def unescape_char(s: str) -> str:
-    if s[0] == "\\":
-        return s[1]
-    else:
-        return html.unescape(s)
+    return s[1] if s[0] == "\\" else html.unescape(s)
 
 
 def unescape_string(s: str) -> str:
@@ -76,8 +73,7 @@ def normalizeLink(url: str) -> str:
                 ^^^^^^^^^^^
     """
     (scheme, netloc, path, params, query, fragment) = urlparse(url)
-    if scheme in RECODE_HOSTNAME_FOR:
-        url = urlunparse(
+    return urlunparse(
             (
                 scheme,
                 unescape_normalize_uri(netloc),
@@ -86,11 +82,7 @@ def normalizeLink(url: str) -> str:
                 normalize_uri(query),
                 unescape_normalize_uri(fragment),
             )
-        )
-    else:
-        url = unescape_normalize_uri(url)
-
-    return url
+        ) if scheme in RECODE_HOSTNAME_FOR else unescape_normalize_uri(url)
 
     # TODO the selective encoding below should probably be done here,
     # something like:
@@ -126,8 +118,7 @@ def normalizeLinkText(link: str) -> str:
          ~~~~~~~~~~~
     """
     (scheme, netloc, path, params, query, fragment) = urlparse(link)
-    if scheme in RECODE_HOSTNAME_FOR:
-        url = urlunparse(
+    return urlunparse(
             (
                 scheme,
                 unescape_unquote(netloc),
@@ -136,10 +127,7 @@ def normalizeLinkText(link: str) -> str:
                 unquote(query),
                 unescape_unquote(fragment),
             )
-        )
-    else:
-        url = unescape_unquote(link)
-    return url
+        ) if scheme in RECODE_HOSTNAME_FOR else unescape_unquote(link)
 
     # TODO the selective encoding below should probably be done here,
     # something like:
