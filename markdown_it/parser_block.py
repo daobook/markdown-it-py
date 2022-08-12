@@ -1,16 +1,17 @@
 """Block-level tokenizer."""
-import logging
-from typing import List, Optional, Tuple
+from __future__ import annotations
 
-from .ruler import Ruler
-from .token import Token
-from .rules_block.state_block import StateBlock
+import logging
+
 from . import rules_block
+from .ruler import Ruler
+from .rules_block.state_block import StateBlock
+from .token import Token
 
 LOGGER = logging.getLogger(__name__)
 
 
-_rules: List[Tuple] = [
+_rules: list[tuple] = [
     # First 2 params - rule name & source. Secondary array - list of rules,
     # which can be terminated by this one.
     ("table", rules_block.table, ["paragraph", "reference"]),
@@ -97,9 +98,9 @@ class ParserBlock:
         src: str,
         md,
         env,
-        outTokens: List[Token],
-        ords: Optional[Tuple[int, ...]] = None,
-    ) -> Optional[List[Token]]:
+        outTokens: list[Token],
+        ords: tuple[int, ...] | None = None,
+    ) -> list[Token] | None:
         """Process input string and push block tokens into `outTokens`."""
         if not src:
             return None

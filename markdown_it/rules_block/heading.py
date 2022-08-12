@@ -1,9 +1,10 @@
 """ Atex heading (#, ##, ...) """
-import logging
-from typing import Optional
+from __future__ import annotations
 
-from .state_block import StateBlock
+import logging
+
 from ..common.utils import isSpace
+from .state_block import StateBlock
 
 LOGGER = logging.getLogger(__name__)
 
@@ -19,7 +20,7 @@ def heading(state: StateBlock, startLine: int, endLine: int, silent: bool):
     if state.sCount[startLine] - state.blkIndent >= 4:
         return False
 
-    ch: Optional[int] = state.srcCharCode[pos]
+    ch: int | None = state.srcCharCode[pos]
 
     # /* # */
     if ch != 0x23 or pos >= maximum:

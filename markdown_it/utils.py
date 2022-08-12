@@ -1,5 +1,7 @@
+from __future__ import annotations
+
+from collections.abc import Callable
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Callable, List, Optional, Union
 
 
 class OptionsDict(dict):
@@ -78,31 +80,16 @@ class OptionsDict(dict):
         self["langPrefix"] = value
 
     @property
-    def highlight(self) -> Optional[Callable[[str, str, str], str]]:
+    def highlight(self) -> Callable[[str, str, str], str] | None:
         """Highlighter function: (content, langName, langAttrs) -> escaped HTML."""
         return self["highlight"]
 
     @highlight.setter
-    def highlight(self, value: Optional[Callable[[str, str, str], str]]):
+    def highlight(self, value: Callable[[str, str, str], str] | None):
         self["highlight"] = value
 
 
-if TYPE_CHECKING:
-    AttrDict = Any
-else:
-
-    class AttrDict(dict):
-        def __init__(self, *args, **kwargs):
-            super(AttrDict, self).__init__(*args, **kwargs)
-            self.__dict__ = self
-
-            # recursively apply to all nested dictionaries
-            for key, item in list(self.items()):
-                if isinstance(item, dict):
-                    self[key] = AttrDict(item)
-
-
-def read_fixture_file(path: Union[str, Path]) -> List[list]:
+def read_fixture_file(path: str | Path) -> list[list]:
     text = Path(path).read_text(encoding="utf-8")
     tests = []
     section = 0

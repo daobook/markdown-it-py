@@ -1,8 +1,7 @@
 import logging
 
-from ..common.utils import isSpace, normalizeReference, charCodeAt
+from ..common.utils import charCodeAt, isSpace, normalizeReference
 from .state_block import StateBlock
-
 
 LOGGER = logging.getLogger(__name__)
 
@@ -186,6 +185,17 @@ def reference(state: StateBlock, startLine, _endLine, silent):
         state.env["references"] = {}
 
     state.line = startLine + lines + 1
+
+    # note, this is not part of markdown-it JS, but is useful for renderers
+    if state.md.options.get("inline_definitions", False):
+        token = state.push("definition", "", 0)
+        token.meta = {
+            "id": label,
+            "title": title,
+            "url": href,
+            "label": string[1:labelEnd],
+        }
+        token.map = [startLine, state.line]
 
     if label not in state.env["references"]:
         state.env["references"][label] = {

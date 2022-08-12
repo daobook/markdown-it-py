@@ -1,5 +1,6 @@
 """Code block (4 spaces padded)."""
 import logging
+
 from .state_block import StateBlock
 
 LOGGER = logging.getLogger(__name__)
@@ -29,7 +30,7 @@ def code(state: StateBlock, startLine: int, endLine: int, silent: bool = False):
     state.line = last
 
     token = state.push("code_block", "code", 0)
-    token.content = state.getLines(startLine, last, 4 + state.blkIndent, True)
+    token.content = state.getLines(startLine, last, 4 + state.blkIndent, False) + "\n"
     token.map = [startLine, state.line]
 
     return True

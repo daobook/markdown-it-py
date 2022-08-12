@@ -1,17 +1,18 @@
 # HTML block
+from __future__ import annotations
+
 import logging
 import re
-from typing import List, Tuple, Pattern
 
-from .state_block import StateBlock
 from ..common.html_blocks import block_names
 from ..common.html_re import HTML_OPEN_CLOSE_TAG_STR
+from .state_block import StateBlock
 
 LOGGER = logging.getLogger(__name__)
 
 # An array of opening and corresponding closing sequences for html tags,
 # last argument defines whether it can terminate a paragraph or not
-HTML_SEQUENCES: List[Tuple[Pattern, Pattern, bool]] = [
+HTML_SEQUENCES: list[tuple[re.Pattern, re.Pattern, bool]] = [
     (
         re.compile(r"^<(script|pre|style|textarea)(?=(\s|>|$))", re.IGNORECASE),
         re.compile(r"<\/(script|pre|style|textarea)>", re.IGNORECASE),

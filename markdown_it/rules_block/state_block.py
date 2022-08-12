@@ -1,8 +1,10 @@
-from typing import List, Optional, Tuple, TYPE_CHECKING
+from __future__ import annotations
 
-from ..token import Token
-from ..ruler import StateBase
+from typing import TYPE_CHECKING
+
 from ..common.utils import isSpace
+from ..ruler import StateBase
+from ..token import Token
 
 if TYPE_CHECKING:
     from markdown_it.main import MarkdownIt
@@ -12,10 +14,10 @@ class StateBlock(StateBase):
     def __init__(
         self,
         src: str,
-        md: "MarkdownIt",
+        md: MarkdownIt,
         env,
-        tokens: List[Token],
-        srcCharCode: Optional[Tuple[int, ...]] = None,
+        tokens: list[Token],
+        srcCharCode: tuple[int, ...] | None = None,
     ):
 
         if srcCharCode is not None:
@@ -145,8 +147,7 @@ class StateBlock(StateBase):
                 ]:
                     break
             except IndexError:
-                from_pos += 1
-                break
+                pass
             from_pos += 1
         return from_pos
 

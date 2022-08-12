@@ -3,14 +3,15 @@
 
 from .state_inline import StateInline
 
-
 # Rule to skip pure text
-# '{}$%@~+=:' reserved for extentions
+# '{}$%@~+=:' reserved for extensions
 
 # !, ", #, $, %, &, ', (, ), *, +, ,, -, ., /, :, ;, <, =, >, ?, @, [, \, ], ^, _, `, {, |, }, or ~
 
 # !!!! Don't confuse with "Markdown ASCII Punctuation" chars
 # http://spec.commonmark.org/0.15/#ascii-punctuation-character
+
+
 def isTerminatorChar(ch):
     return ch in {
         0x0A,  # /* \n */:

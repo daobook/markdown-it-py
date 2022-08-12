@@ -1,7 +1,7 @@
 - package: markdown-it/markdown-it
-  version: 12.1.0
-  commit: 13cdeb95abccc78a5ce17acf9f6e8cf5b9ce713b
-  date: Jul 1, 2021
+  version: 12.2.0
+  commit: 6e2de08a0b03d3d0dcc524b89710ce05f83a0283
+  date: Aug 2, 2021
   notes:
     - Rename variables that use python built-in names, e.g.
       - `max` -> `maximum`
@@ -27,10 +27,6 @@
       objects and sharing those whenever possible
       This provides a significant performance boost
     - |
-      Use python's built-in `html.escape` and `urlparse.quote` methods, as a replacement for
-      the JS dependencies [mdurl](https://www.npmjs.com/package/mdurl)
-      and [punycode](https://www.npmjs.com/package/punycode)
-    - |
       In markdown_it/rules_block/reference.py,
       record line range in state.env["references"] and add state.env["duplicate_refs"]
       This is to allow renderers to report on issues regarding references
@@ -49,5 +45,5 @@
       `MarkdownIt.add_render_rule(name, function, fmt="html")`,
       rather than `MarkdownIt.renderer.rules[name] = function`
       and renderers should declare a class property `__output__ = "html"`.
-      This allows for extensability to more than just HTML renderers
+      This allows for extensibility to more than just HTML renderers
     - inline tokens in tables are assigned a map (this is helpful for propagation to children)

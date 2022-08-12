@@ -1,6 +1,7 @@
 # ~~strike through~~
-from typing import List
-from .state_inline import StateInline, Delimiter
+from __future__ import annotations
+
+from .state_inline import Delimiter, StateInline
 
 
 def tokenize(state: StateInline, silent: bool):
@@ -51,7 +52,7 @@ def tokenize(state: StateInline, silent: bool):
     return True
 
 
-def _postProcess(state: StateInline, delimiters: List[Delimiter]):
+def _postProcess(state: StateInline, delimiters: list[Delimiter]):
 
     loneMarkers = []
     maximum = len(delimiters)
@@ -93,7 +94,7 @@ def _postProcess(state: StateInline, delimiters: List[Delimiter]):
 
         i += 1
 
-    # If a marker sequence has an odd number of characters, it's splitted
+    # If a marker sequence has an odd number of characters, it's split
     # like this: `~~~~~` -> `~` + `~~` + `~~`, leaving one marker at the
     # start of the sequence.
     #

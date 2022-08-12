@@ -1,9 +1,10 @@
 # Block quotes
-import logging
-from typing import Optional
+from __future__ import annotations
 
-from .state_block import StateBlock
+import logging
+
 from ..common.utils import isSpace
+from .state_block import StateBlock
 
 LOGGER = logging.getLogger(__name__)
 
@@ -36,7 +37,7 @@ def blockquote(state: StateBlock, startLine: int, endLine: int, silent: bool):
     initial = offset = state.sCount[startLine] + 1
 
     try:
-        second_char_code: Optional[int] = state.srcCharCode[pos]
+        second_char_code: int | None = state.srcCharCode[pos]
     except IndexError:
         second_char_code = None
 
@@ -154,8 +155,13 @@ def blockquote(state: StateBlock, startLine: int, endLine: int, silent: bool):
             # set offset past spaces and ">"
             initial = offset = state.sCount[nextLine] + 1
 
+            try:
+                next_char: int | None = state.srcCharCode[pos]
+            except IndexError:
+                next_char = None
+
             # skip one optional space after '>'
-            if state.srcCharCode[pos] == 0x20:  # /* space */
+            if next_char == 0x20:  # /* space */
                 # ' >   test '
                 #     ^ -- position start of line here:
                 pos += 1
@@ -163,7 +169,7 @@ def blockquote(state: StateBlock, startLine: int, endLine: int, silent: bool):
                 offset += 1
                 adjustTab = False
                 spaceAfterMarker = True
-            elif state.srcCharCode[pos] == 0x09:  # /* tab */
+            elif next_char == 0x09:  # /* tab */
                 spaceAfterMarker = True
 
                 if (state.bsCount[nextLine] + offset) % 4 == 3:
@@ -289,7 +295,5 @@ def blockquote(state: StateBlock, startLine: int, endLine: int, silent: bool):
         state.bsCount[i + startLine] = oldBSCount[i]
 
     state.blkIndent = oldIndent
-
-    state.lineMax += 1
 
     return True

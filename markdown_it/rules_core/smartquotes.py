@@ -1,13 +1,13 @@
 """Convert straight quotation marks to typographic ones
 """
+from __future__ import annotations
+
 import re
-from typing import Any, Dict, List
+from typing import Any
 
-from .state_core import StateCore
-from ..common.utils import charCodeAt
-from ..common.utils import isWhiteSpace, isPunctChar, isMdAsciiPunct
+from ..common.utils import charCodeAt, isMdAsciiPunct, isPunctChar, isWhiteSpace
 from ..token import Token
-
+from .state_core import StateCore
 
 QUOTE_TEST_RE = re.compile(r"['\"]")
 QUOTE_RE = re.compile(r"['\"]")
@@ -21,8 +21,8 @@ def replaceAt(string: str, index: int, ch: str) -> str:
     return string[:index] + ch + string[index + 1 :]
 
 
-def process_inlines(tokens: List[Token], state: StateCore) -> None:
-    stack: List[Dict[str, Any]] = []
+def process_inlines(tokens: list[Token], state: StateCore) -> None:
+    stack: list[dict[str, Any]] = []
 
     for i in range(len(tokens)):
         token = tokens[i]

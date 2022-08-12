@@ -10,6 +10,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+from glob import glob
 import os
 import sys
 
@@ -37,25 +38,25 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.viewcode",
     "sphinx.ext.intersphinx",
-    "myst_nb",
+    "myst_parser",
     "sphinx_copybutton",
-    "sphinx_panels",
+    "sphinx_design",
 ]
-
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
+nitpicky = True
 nitpick_ignore = [
     ("py:class", "Match"),
+    ("py:class", "Path"),
     ("py:class", "x in the interval [0, 1)."),
     ("py:class", "markdown_it.helpers.parse_link_destination._Result"),
     ("py:class", "markdown_it.helpers.parse_link_title._Result"),
     ("py:class", "MarkdownIt"),
+    ("py:class", "RuleFunc"),
     ("py:class", "_NodeType"),
     ("py:class", "typing_extensions.Protocol"),
 ]
@@ -74,7 +75,9 @@ html_theme_options = {
     "repository_branch": "master",
     "path_to_docs": "docs",
 }
-panels_add_bootstrap_css = False
+html_static_path = ["_static"]
+html_css_files = ["custom.css"]
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -95,6 +98,7 @@ def run_apidoc(app):
     """
     import os
     import shutil
+
     import sphinx
     from sphinx.ext import apidoc
 
@@ -104,10 +108,19 @@ def run_apidoc(app):
     this_folder = os.path.abspath(os.path.dirname(os.path.realpath(__file__)))
     api_folder = os.path.join(this_folder, "api")
     module_path = os.path.normpath(os.path.join(this_folder, "../"))
-    ignore_paths = ["../setup.py", "../conftest.py", "../tests", "../benchmarking"]
+    ignore_paths = ["../profiler.py", "../conftest.py", "../tests", "../benchmarking"]
     ignore_paths = [
         os.path.normpath(os.path.join(this_folder, p)) for p in ignore_paths
     ]
+    # functions from these modules are all imported in the __init__.py with __all__
+    for rule in ("block", "core", "inline"):
+        for path in glob(
+            os.path.normpath(
+                os.path.join(this_folder, f"../markdown_it/rules_{rule}/*.py")
+            )
+        ):
+            if os.path.basename(path) not in ("__init__.py", f"state_{rule}.py"):
+                ignore_paths.append(path)
 
     if os.path.exists(api_folder):
         shutil.rmtree(api_folder)
@@ -115,6 +128,7 @@ def run_apidoc(app):
 
     argv = ["-M", "--separate", "-o", api_folder, module_path] + ignore_paths
 
+    apidoc.OPTIONS.append("ignore-module-all")
     apidoc.main(argv)
 
     # we don't use this
@@ -122,13 +136,7 @@ def run_apidoc(app):
         os.remove(os.path.join(api_folder, "modules.rst"))
 
 
-def setup(app):
-    """Add functions to the Sphinx setup."""
-    if os.environ.get("SKIP_APIDOC", None) is None:
-        app.connect("builder-inited", run_apidoc)
-
 language = 'zh_CN'
-
 
 # MyST NB 设置
 nb_render_priority = {
@@ -145,3 +153,23 @@ nb_render_priority = {
     ),
     'gettext': ()
 }
+
+def setup(app):
+    """Add functions to the Sphinx setup."""
+    if os.environ.get("SKIP_APIDOC", None) is None:
+        app.connect("builder-inited", run_apidoc)
+
+
+    from sphinx.directives.code import CodeBlock
+
+    class CodeCell(CodeBlock):
+        """Custom code block directive."""
+
+        def run(self):
+            """Run the directive."""
+            self.options["class"] = ["code-cell"]
+            return super().run()
+
+    # note, these could be run by myst-nb,
+    # but currently this causes a circular dependency issue
+    app.add_directive("code-cell", CodeCell)

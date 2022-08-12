@@ -64,13 +64,6 @@ def test_table(line, title, input, expected):
     read_fixture_file(FIXTURE_PATH.joinpath("commonmark_extras.md")),
 )
 def test_commonmark_extras(line, title, input, expected):
-    if title in {
-        "Escaping entities in links:",
-        "Checking combination of replaceEntities and unescapeMd:",
-    }:
-        # TODO fix failing escaping tests
-        # probably requires a fix of common.utils.stripEscape
-        pytest.xfail("escaping entities in link titles / fence.info")
     md = MarkdownIt("commonmark")
     md.options["langPrefix"] = ""
     text = md.render(input)
@@ -84,9 +77,6 @@ def test_commonmark_extras(line, title, input, expected):
     read_fixture_file(FIXTURE_PATH.joinpath("normalize.md")),
 )
 def test_normalize_url(line, title, input, expected):
-    if "Keep %25" in title:
-        # TODO fix failing url escaping test
-        pytest.xfail("url normalisation")
     md = MarkdownIt("commonmark")
     text = md.render(input)
     assert text.rstrip() == expected.rstrip()
@@ -96,9 +86,6 @@ def test_normalize_url(line, title, input, expected):
     "line,title,input,expected", read_fixture_file(FIXTURE_PATH.joinpath("fatal.md"))
 )
 def test_fatal(line, title, input, expected):
-    if line in [1, 17]:
-        # TODO fix failing url escaping tests
-        pytest.xfail("url normalisation")
     md = MarkdownIt("commonmark").enable("replacements")
     md.options["typographer"] = True
     text = md.render(input)

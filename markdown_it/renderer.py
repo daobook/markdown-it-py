@@ -5,16 +5,13 @@ Generates HTML from parsed token stream. Each instance has independent
 copy of rules. Those can be rewritten with ease. Also, you can add new
 rules if you create plugin and adds new token types.
 """
-import inspect
-from typing import (
-    Any,
-    ClassVar,
-    MutableMapping,
-    Optional,
-    Sequence,
-)
+from __future__ import annotations
 
-from .common.utils import unescapeAll, escapeHtml
+from collections.abc import MutableMapping, Sequence
+import inspect
+from typing import Any, ClassVar
+
+from .common.utils import escapeHtml, unescapeAll
 from .token import Token
 from .utils import OptionsDict
 
@@ -191,7 +188,7 @@ class RendererHTML(RendererProtocol):
 
     def renderInlineAsText(
         self,
-        tokens: Optional[Sequence[Token]],
+        tokens: Sequence[Token] | None,
         options: OptionsDict,
         env: MutableMapping,
     ) -> str:

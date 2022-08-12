@@ -1,4 +1,5 @@
-from .main import MarkdownIt  # noqa: F401
+"""A Python port of Markdown-It"""
+__all__ = ("MarkdownIt",)
+__version__ = "2.1.0"
 
-
-__version__ = "1.1.0"
+from .main import MarkdownIt

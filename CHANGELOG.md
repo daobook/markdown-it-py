@@ -1,5 +1,35 @@
 # Change Log
 
+## 2.1.0 - 2022-04-15
+
+This release is primarily to replace the `attrs` package dependency,
+with the built-in Python `dataclasses` package.
+
+This should not be a breaking change, for most use cases.
+
+- ⬆️ UPGRADE: Drop support for EOL Python 3.6 (#194)
+- ♻️ REFACTOR: Move `Rule`/`Delimiter` classes from `attrs` to `dataclass` (#211)
+- ♻️ REFACTOR: Move `Token` class from `attrs` to `dataclass` (#211)
+- ‼️ Remove deprecated `NestedTokens` and `nest_tokens`
+- ✨ NEW: Save ordered list numbering (#192)
+- 🐛 FIX: Combination of blockquotes, list and newlines causes `IndexError` (#207)
+
+## 2.0.1 - 2022-24-01
+
+- 🐛 FIX: Crash when file ends with empty blockquote line.
+- ✨ NEW: Add `inline_definitions` option.
+  This option allows for `definition` token to be inserted into the token stream, at the point where the definition is located in the source text.
+  It is useful for cases where one wishes to capture a "loseless" syntax tree of the parsed Markdown (in conjunction with the `store_labels` option).
+
+## 2.0.0 - 2021-12-03
+
+- ⬆️ Update: Sync with markdown-it v12.1.0 and CommonMark v0.30
+- ♻️ REFACTOR: Port `mdurl` and `punycode` for URL normalisation (thanks to @hukkin!).
+  This port fixes the outstanding CommonMark compliance tests.
+- ♻️ REFACTOR: Remove `AttrDict`.
+  This is no longer used is core or mdit-py-plugins, instead standard dictionaries are used.
+- 👌 IMPROVE: Use `__all__` to signal re-exports
+
 ## 1.1.0 - 2021-05-08
 
  ⬆️ UPGRADE: `attrs` -> v21 (#165)
